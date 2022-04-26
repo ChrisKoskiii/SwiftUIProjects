@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9E75659727B983C70070F52E /* WorkingOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E75659627B983C70070F52E /* WorkingOutView.swift */; };
+		9E8725F527ACBDE80020AE4A /* LiftTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8725F427ACBDE80020AE4A /* LiftTrackerApp.swift */; };
+		9E8725F727ACBDE80020AE4A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8725F627ACBDE80020AE4A /* ContentView.swift */; };
+		9E8725F927ACBDEE0020AE4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E8725F827ACBDEE0020AE4A /* Assets.xcassets */; };
+		9E8725FC27ACBDEE0020AE4A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E8725FB27ACBDEE0020AE4A /* Preview Assets.xcassets */; };
+		9E87260327ACC5400020AE4A /* Workouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E87260227ACC53F0020AE4A /* Workouts.swift */; };
+		9E87260527ACC5490020AE4A /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E87260427ACC5490020AE4A /* Workout.swift */; };
+		9E87260727ACCC3B0020AE4A /* AddWorkoutSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E87260627ACCC3B0020AE4A /* AddWorkoutSheetView.swift */; };
+		9E87260A27ACD0080020AE4A /* AddExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E87260927ACD0080020AE4A /* AddExerciseView.swift */; };
+		9E87260C27AE16050020AE4A /* WorkoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E87260B27AE16050020AE4A /* WorkoutListView.swift */; };
+		9E87260E27AE17020020AE4A /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E87260D27AE17020020AE4A /* HistoryView.swift */; };
+		9E87261027AE173B0020AE4A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E87260F27AE173B0020AE4A /* SettingsView.swift */; };
+		9E87261327AE1A3B0020AE4A /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E87261227AE1A3B0020AE4A /* Exercise.swift */; };
+		9E87261527AE1A6B0020AE4A /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E87261427AE1A6B0020AE4A /* Exercises.swift */; };
+		9E87261827AE1E640020AE4A /* ExercisesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E87261727AE1E640020AE4A /* ExercisesModel.swift */; };
+		9EEAD63327B210570093AEF6 /* WorkoutStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEAD63227B210560093AEF6 /* WorkoutStartView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9E75659627B983C70070F52E /* WorkingOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingOutView.swift; sourceTree = "<group>"; };
+		9E8725F127ACBDE80020AE4A /* LiftTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiftTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E8725F427ACBDE80020AE4A /* LiftTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftTrackerApp.swift; sourceTree = "<group>"; };
+		9E8725F627ACBDE80020AE4A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9E8725F827ACBDEE0020AE4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9E8725FB27ACBDEE0020AE4A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9E87260227ACC53F0020AE4A /* Workouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workouts.swift; sourceTree = "<group>"; };
+		9E87260427ACC5490020AE4A /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		9E87260627ACCC3B0020AE4A /* AddWorkoutSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutSheetView.swift; sourceTree = "<group>"; };
+		9E87260927ACD0080020AE4A /* AddExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseView.swift; sourceTree = "<group>"; };
+		9E87260B27AE16050020AE4A /* WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListView.swift; sourceTree = "<group>"; };
+		9E87260D27AE17020020AE4A /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		9E87260F27AE173B0020AE4A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9E87261227AE1A3B0020AE4A /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		9E87261427AE1A6B0020AE4A /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
+		9E87261727AE1E640020AE4A /* ExercisesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesModel.swift; sourceTree = "<group>"; };
+		9EEAD63227B210560093AEF6 /* WorkoutStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutStartView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9E8725EE27ACBDE80020AE4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9E8725E827ACBDE80020AE4A = {
+			isa = PBXGroup;
+			children = (
+				9E8725F327ACBDE80020AE4A /* LiftTracker */,
+				9E8725F227ACBDE80020AE4A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9E8725F227ACBDE80020AE4A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9E8725F127ACBDE80020AE4A /* LiftTracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9E8725F327ACBDE80020AE4A /* LiftTracker */ = {
+			isa = PBXGroup;
+			children = (
+				9E87261627AE1E4E0020AE4A /* ViewModels */,
+				9E87261127AE19A60020AE4A /* Models */,
+				9E87260827ACCCB60020AE4A /* Views */,
+				9E8725F427ACBDE80020AE4A /* LiftTrackerApp.swift */,
+				9E8725F827ACBDEE0020AE4A /* Assets.xcassets */,
+				9E8725FA27ACBDEE0020AE4A /* Preview Content */,
+			);
+			path = LiftTracker;
+			sourceTree = "<group>";
+		};
+		9E8725FA27ACBDEE0020AE4A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9E8725FB27ACBDEE0020AE4A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9E87260827ACCCB60020AE4A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9E8725F627ACBDE80020AE4A /* ContentView.swift */,
+				9E87260D27AE17020020AE4A /* HistoryView.swift */,
+				9E87260B27AE16050020AE4A /* WorkoutListView.swift */,
+				9EEAD63227B210560093AEF6 /* WorkoutStartView.swift */,
+				9E75659627B983C70070F52E /* WorkingOutView.swift */,
+				9E87260627ACCC3B0020AE4A /* AddWorkoutSheetView.swift */,
+				9E87260927ACD0080020AE4A /* AddExerciseView.swift */,
+				9E87260F27AE173B0020AE4A /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9E87261127AE19A60020AE4A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9E87260427ACC5490020AE4A /* Workout.swift */,
+				9E87261227AE1A3B0020AE4A /* Exercise.swift */,
+				9E87261427AE1A6B0020AE4A /* Exercises.swift */,
+				9E87260227ACC53F0020AE4A /* Workouts.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9E87261627AE1E4E0020AE4A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9E87261727AE1E640020AE4A /* ExercisesModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9E8725F027ACBDE80020AE4A /* LiftTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E8725FF27ACBDEE0020AE4A /* Build configuration list for PBXNativeTarget "LiftTracker" */;
+			buildPhases = (
+				9E8725ED27ACBDE80020AE4A /* Sources */,
+				9E8725EE27ACBDE80020AE4A /* Frameworks */,
+				9E8725EF27ACBDE80020AE4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LiftTracker;
+			productName = LiftTracker;
+			productReference = 9E8725F127ACBDE80020AE4A /* LiftTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9E8725E927ACBDE80020AE4A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					9E8725F027ACBDE80020AE4A = {
+						CreatedOnToolsVersion = 13.1;
+					};
+				};
+			};
+			buildConfigurationList = 9E8725EC27ACBDE80020AE4A /* Build configuration list for PBXProject "LiftTracker" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9E8725E827ACBDE80020AE4A;
+			productRefGroup = 9E8725F227ACBDE80020AE4A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9E8725F027ACBDE80020AE4A /* LiftTracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9E8725EF27ACBDE80020AE4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E8725FC27ACBDEE0020AE4A /* Preview Assets.xcassets in Resources */,
+				9E8725F927ACBDEE0020AE4A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9E8725ED27ACBDE80020AE4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E8725F727ACBDE80020AE4A /* ContentView.swift in Sources */,
+				9E87260E27AE17020020AE4A /* HistoryView.swift in Sources */,
+				9E8725F527ACBDE80020AE4A /* LiftTrackerApp.swift in Sources */,
+				9E75659727B983C70070F52E /* WorkingOutView.swift in Sources */,
+				9EEAD63327B210570093AEF6 /* WorkoutStartView.swift in Sources */,
+				9E87261027AE173B0020AE4A /* SettingsView.swift in Sources */,
+				9E87260727ACCC3B0020AE4A /* AddWorkoutSheetView.swift in Sources */,
+				9E87261327AE1A3B0020AE4A /* Exercise.swift in Sources */,
+				9E87260C27AE16050020AE4A /* WorkoutListView.swift in Sources */,
+				9E87261827AE1E640020AE4A /* ExercisesModel.swift in Sources */,
+				9E87260327ACC5400020AE4A /* Workouts.swift in Sources */,
+				9E87260A27ACD0080020AE4A /* AddExerciseView.swift in Sources */,
+				9E87260527ACC5490020AE4A /* Workout.swift in Sources */,
+				9E87261527AE1A6B0020AE4A /* Exercises.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9E8725FD27ACBDEE0020AE4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9E8725FE27ACBDEE0020AE4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9E87260027ACBDEE0020AE4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LiftTracker/Preview Content\"";
+				DEVELOPMENT_TEAM = WW6MQ8PF85;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = chrisk.LiftTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9E87260127ACBDEE0020AE4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LiftTracker/Preview Content\"";
+				DEVELOPMENT_TEAM = WW6MQ8PF85;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = chrisk.LiftTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9E8725EC27ACBDE80020AE4A /* Build configuration list for PBXProject "LiftTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E8725FD27ACBDEE0020AE4A /* Debug */,
+				9E8725FE27ACBDEE0020AE4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E8725FF27ACBDEE0020AE4A /* Build configuration list for PBXNativeTarget "LiftTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E87260027ACBDEE0020AE4A /* Debug */,
+				9E87260127ACBDEE0020AE4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9E8725E927ACBDE80020AE4A /* Project object */;
+}
