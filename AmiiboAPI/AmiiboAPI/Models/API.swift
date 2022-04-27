@@ -7,7 +7,9 @@
 
 import Foundation
 
-class apiCall {
+class apiCall: ObservableObject {
+  @Published var amiibos: [Amiibo] = []
+  
     func getAmiibos(completion:@escaping (Amiibos) -> ()) {
         guard let url = URL(string: "https://www.amiiboapi.com/api/amiibo/") else { return }
         

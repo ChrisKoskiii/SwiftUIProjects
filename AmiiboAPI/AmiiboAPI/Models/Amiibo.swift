@@ -8,7 +8,7 @@
 import Foundation
 
 struct Amiibo: Codable, Hashable {
-  var name: String
-  var gameSeries: String
+  var name: String?
+  var gameSeries: String?
   
 }

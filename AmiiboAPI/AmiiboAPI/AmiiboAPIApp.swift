@@ -11,7 +11,7 @@ import SwiftUI
 struct AmiiboAPIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+          ContentView(apiCall: apiCall())
         }
     }
 }

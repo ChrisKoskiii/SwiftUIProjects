@@ -8,28 +8,41 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State var amiibos = [Amiibo]()
+  @ObservedObject var apiCall: apiCall
+  
   
   var body: some View {
-    List(amiibos, id: \.self) { item in
-      VStack {
-        Text(item.name)
-          .font(.headline)
-        Text(item.gameSeries)
-      }
-    }
-    .onAppear() {
-      DispatchQueue.main.async {
-        apiCall().getAmiibos { amiibo in
-          
-        }
-      }
+    Group {
+      AmiiboListView(apiCall: apiCall)
     }
   }
 }
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView()
+    ContentView(apiCall: apiCall())
+  }
+}
+
+struct AmiiboListView: View {
+  @ObservedObject var apiCall: apiCall
+  
+  var body: some View {
+    let allAmiibos = apiCall.amiibos
+    
+    List(allAmiibos, id: \.self) { item in
+      VStack {
+        Text("Link")
+          .font(.headline)
+        Text("Legend of Zelda")
+      }
+    }
+    .onAppear() {
+      DispatchQueue.main.async {
+        apiCall.getAmiibos { amiibo in
+          
+        }
+      }
+    }
   }
 }
