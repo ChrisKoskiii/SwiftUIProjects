@@ -36,7 +36,11 @@ struct AccountView: View {
         .background(
           HexagonView()
             .offset(x: -50, y: -100)
-          
+        )
+        .background(
+          BlobView()
+            .offset(x: 200, y: 0)
+            .scaleEffect(0.6)
         )
       Text("Chris Koski")
         .font(.title.weight(.semibold))

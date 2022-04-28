@@ -11,6 +11,8 @@
 		9E468A9D2819B69400DC2C8F /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E468A9C2819B69400DC2C8F /* AccountView.swift */; };
 		9E468A9F281A9DB200DC2C8F /* HexagonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E468A9E281A9DB200DC2C8F /* HexagonView.swift */; };
 		9E468AA1281AA46200DC2C8F /* BlobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E468AA0281AA46200DC2C8F /* BlobView.swift */; };
+		9E468AA3281B01A200DC2C8F /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E468AA2281B01A200DC2C8F /* TabBar.swift */; };
+		9E468AA5281B09A200DC2C8F /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E468AA4281B09A200DC2C8F /* Tab.swift */; };
 		9E4F96DA2818C4F700FF6134 /* DesignCodeiOS15App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4F96D92818C4F700FF6134 /* DesignCodeiOS15App.swift */; };
 		9E4F96DC2818C4F700FF6134 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4F96DB2818C4F700FF6134 /* ContentView.swift */; };
 		9E4F96DE2818C4F800FF6134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E4F96DD2818C4F800FF6134 /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 		9E468A9C2819B69400DC2C8F /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		9E468A9E281A9DB200DC2C8F /* HexagonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonView.swift; sourceTree = "<group>"; };
 		9E468AA0281AA46200DC2C8F /* BlobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobView.swift; sourceTree = "<group>"; };
+		9E468AA2281B01A200DC2C8F /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		9E468AA4281B09A200DC2C8F /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		9E4F96D62818C4F700FF6134 /* DesignCodeiOS15.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignCodeiOS15.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E4F96D92818C4F700FF6134 /* DesignCodeiOS15App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCodeiOS15App.swift; sourceTree = "<group>"; };
 		9E4F96DB2818C4F700FF6134 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				9E4F96DB2818C4F700FF6134 /* ContentView.swift */,
 				9E468A9A2819AD6000DC2C8F /* Styles.swift */,
 				9E468A9C2819B69400DC2C8F /* AccountView.swift */,
+				9E468AA2281B01A200DC2C8F /* TabBar.swift */,
+				9E468AA4281B09A200DC2C8F /* Tab.swift */,
 				9E468AA0281AA46200DC2C8F /* BlobView.swift */,
 				9E468A9E281A9DB200DC2C8F /* HexagonView.swift */,
 				9E4F96DD2818C4F800FF6134 /* Assets.xcassets */,
@@ -151,10 +157,12 @@
 			files = (
 				9E468A9D2819B69400DC2C8F /* AccountView.swift in Sources */,
 				9E468A9F281A9DB200DC2C8F /* HexagonView.swift in Sources */,
+				9E468AA5281B09A200DC2C8F /* Tab.swift in Sources */,
 				9E468A9B2819AD6000DC2C8F /* Styles.swift in Sources */,
 				9E468AA1281AA46200DC2C8F /* BlobView.swift in Sources */,
 				9E4F96DC2818C4F700FF6134 /* ContentView.swift in Sources */,
 				9E4F96DA2818C4F700FF6134 /* DesignCodeiOS15App.swift in Sources */,
+				9E468AA3281B01A200DC2C8F /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
