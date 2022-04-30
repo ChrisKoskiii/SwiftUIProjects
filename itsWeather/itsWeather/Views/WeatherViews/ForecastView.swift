@@ -22,7 +22,9 @@ struct ForecastView: View {
     .background(.ultraThinMaterial, in:
                   RoundedRectangle(cornerRadius: 30, style: .continuous)
     )
-    .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 10)
+    
+    .strokeStyle()
+    .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 10)
     .padding(.leading)
     .padding(.trailing)
     
@@ -44,7 +46,9 @@ struct ForecastCellView: View {
         .resizable()
         .scaledToFit()
         .frame(width: 40, height: 40)
-      Text("98° F")
+      Text("H: 98")
+        .font(.caption2.bold())
+      Text("L: 78")
         .font(.caption2.bold())
     }
   }
