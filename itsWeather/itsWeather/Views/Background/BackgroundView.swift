@@ -63,29 +63,28 @@ struct FloatingClouds: View {
               proxy: proxy,
               color: Theme.ellipsesTopLeading(forScheme: scheme),
               rotationStart: 0,
-              duration: 60
+              duration: 20
         )
         Cloud(alignment: .topTrailing,
               proxy: proxy,
               color: Theme.ellipsesTopTrailing(forScheme: scheme),
               rotationStart: 0,
-              duration: 60
+              duration: 20
         )
         Cloud(alignment: .bottomLeading,
               proxy: proxy,
               color: Theme.ellipsesBottomLeading(forScheme: scheme),
               rotationStart: 0,
-              duration: 60
+              duration: 20
         )
         Cloud(alignment: .bottomTrailing,
               proxy: proxy,
               color: Theme.ellipsesBottomTrailing(forScheme: scheme),
               rotationStart: 0,
-              duration: 60
-        )
+              duration: 20        )
       }
       .ignoresSafeArea()
-      .overlay(.thinMaterial)
+      .overlay(.ultraThinMaterial)
     }
   }
 }
