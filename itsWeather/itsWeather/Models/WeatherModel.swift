@@ -13,7 +13,7 @@ struct WeatherModel: Codable {
   var name: String
 }
 
-struct Weather: Codable {
+struct Weather: Codable, Hashable {
   var id: Int
   var main: String
   var description: String

@@ -8,22 +8,21 @@
 import SwiftUI
 
 struct ForecastView: View {
+  @StateObject var weatherAPI: WeatherAPI
+  
   var body: some View {
-    HStack(spacing: 13) {
-      ForecastCellView()
-      ForecastCellView()
-      ForecastCellView()
-      ForecastCellView()
-      ForecastCellView()
-
+    
+    ScrollView(.horizontal, showsIndicators: false) {
+      ForecastCellScrollStack(weatherAPI: weatherAPI)
     }
+    
     .padding(.all, 20)
     .frame(maxWidth: .infinity)
     .background(.ultraThinMaterial, in:
                   RoundedRectangle(cornerRadius: 30, style: .continuous)
     )
     
-    .strokeStyle()
+//    .strokeStyle()
     .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 10)
     .padding(.leading)
     .padding(.trailing)
@@ -31,25 +30,50 @@ struct ForecastView: View {
   }
 }
 
-struct ForecastView_Previews: PreviewProvider {
-  static var previews: some View {
-    ForecastView()
-  }
-}
-
 struct ForecastCellView: View {
+  var day: String?
+  var highTemp: Int?
+  var lowTemp: Int?
+  var condition: String?
+  
   var body: some View {
     VStack(spacing: 0) {
-      Text("Monday")
+      Text(day ?? "Monday")
         .font(.caption2.bold())
-      Image(systemName: "cloud")
+      Image(systemName: condition ?? "cloud")
         .resizable()
         .scaledToFit()
         .frame(width: 40, height: 40)
-      Text("H: 98")
+      Text("H: \(highTemp ?? 90)")
         .font(.caption2.bold())
-      Text("L: 78")
+      Text("L: \(lowTemp ?? 80)")
         .font(.caption2.bold())
     }
+  }
+}
+
+struct ForecastCellScrollStack: View {
+  @StateObject var weatherAPI: WeatherAPI
+  var body: some View {
+    HStack(spacing: 13) {
+      ForEach(weatherAPI.forecasts, id: \.self) { forecast in
+        
+        let date = Date(timeIntervalSince1970: TimeInterval(forecast.dt))
+        
+        ForecastCellView(
+          day: date.dayOfWeek(),
+          highTemp: Int(forecast.temp.max),
+          lowTemp: Int(forecast.temp.min),
+          condition: weatherAPI.convertToConditionString(from: forecast.weather[0].id)
+        )
+      }
+    }
+  }
+}
+
+struct ForecastView_Previews: PreviewProvider {
+  static var weatherAPI = WeatherAPI()
+  static var previews: some View {
+    ForecastView(weatherAPI: weatherAPI)
   }
 }

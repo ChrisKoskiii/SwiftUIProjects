@@ -28,7 +28,7 @@ struct MainView: View {
         .padding(.trailing)
         Spacer()
         WeatherView(weatherAPI: weatherAPI)
-        ForecastView()
+        ForecastView(weatherAPI: weatherAPI)
         Spacer()
         Spacer()
       }

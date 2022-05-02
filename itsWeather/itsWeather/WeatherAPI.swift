@@ -9,6 +9,7 @@ import Foundation
 import CoreLocation
 
 class WeatherAPI: ObservableObject {
+  //Current weather
   @Published var cityName: String? = ""
   @Published var currentTemp: Int? = 0
   @Published var humidity: Int? = 0
@@ -16,6 +17,9 @@ class WeatherAPI: ObservableObject {
   @Published var maxTemp: Int? = 0
   @Published var condition: String = "cloud"
   @Published var description: String? = ""
+  
+  //Forecase
+  @Published var forecasts: [List] = []
   
   var weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=2e22b2e5420de2d5f7a7d1a713555439&units=imperial"
   var forecastURL = "https://api.openweathermap.org/data/2.5/forecast/daily?appid=2e22b2e5420de2d5f7a7d1a713555439&units=imperial"
@@ -70,10 +74,11 @@ class WeatherAPI: ObservableObject {
           DispatchQueue.main.async {
             print("Forecast Success")
             print(forecastData.city.name)
+            self.forecasts = forecastData.list
           }
         }
       } catch {
-        print("Failed fetchign date, \(error)")
+        print("Failed fetching date, \(error)")
       }
     }.resume()
   }
