@@ -34,7 +34,7 @@ struct MainView: View {
       }
     }
     .onAppear {
-
+      
     }
   }
 }
@@ -44,22 +44,33 @@ struct LocationButton: View {
   @StateObject var locationManager: LocationManager
   @StateObject var weatherAPI: WeatherAPI
   
+  @State var tapLocation = false
   var body: some View {
     Button {
+      withAnimation(.spring(response: 0.4, dampingFraction: 0.6)) {
+        tapLocation = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+          withAnimation(.spring(response: 0.4, dampingFraction: 0.6)) {
+            tapLocation = false
+          }
+        }
+      }
       locationManager.requestLocation()
       weatherAPI.fetchCurrentWeather(lat: locationManager.location?.latitude ?? 0.0, lon: locationManager.location?.longitude ?? 0.0)
-      
+      weatherAPI.fetchForecast(lat: locationManager.location?.latitude ?? 0.0, lon: locationManager.location?.longitude ?? 0.0)
     } label: {
       Image(systemName: "location.circle")
         .resizable()
         .scaledToFit()
         .symbolRenderingMode(.palette)
-        .foregroundStyle(.primary, .secondary)
+        .foregroundStyle(Color("Text"), Color("Shadow"))
         .frame(width: 40, height: 40)
         .padding(.all, 8)
         .background(.ultraThinMaterial, in:
                       RoundedRectangle(cornerRadius: 30, style: .continuous)
         )
+        .scaleEffect(tapLocation ? 1.2 : 1)
+      //        .animation(.spring(response: 0.4, dampingFraction: 0.6))
     }
   }
 }

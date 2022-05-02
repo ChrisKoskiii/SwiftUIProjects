@@ -15,16 +15,21 @@ struct WeatherView: View {
   var body: some View {
     ZStack {
       VStack {
-        Text(weatherAPI.cityName ?? "- - -")
-          .font(.title2.bold())
-        Image(systemName: "cloud")
+        Text((weatherAPI.cityName?.uppercased())!)
+          .font(.title3.bold())
+          .kerning(5)
+        Image(systemName: weatherAPI.condition)
           .resizable()
           .scaledToFit()
           .foregroundStyle(
             .linearGradient(Gradient(colors: [.primary.opacity(0.5), .mint]), startPoint: .topLeading, endPoint: .bottomTrailing)
           )
-          .frame(width: 200, height: 200)
+          .frame(width: 200, height: 150)
+        Text((weatherAPI.description?.uppercased())!)
+          .font(.footnote)
+          .kerning(5)
         detailsStrip(weatherAPI: weatherAPI)
+          .padding(.top, 10)
       }
       .padding(.all, 20)
       .frame(height: 350)
@@ -46,29 +51,30 @@ struct WeatherView: View {
     var body: some View {
       HStack( spacing: 8) {
         Spacer()
-        Text("\(String(weatherAPI.currentTemp ?? 0.0))° F")
+        Text("\(String(weatherAPI.currentTemp ?? 0))°F")
           .font(.title2)
+          .kerning(3)
         Spacer()
         VStack(spacing: 6) {
           Image(systemName: "drop.fill")
             .foregroundStyle(.linearGradient(Gradient(colors: [.white, .blue]), startPoint: .topLeading, endPoint: .bottomTrailing))
             .font(.body.bold())
-          Text("45%")
+          Text("\(weatherAPI.humidity ?? 0)%")
             .font(.body)
-            .fontWeight(.semibold)
+            .kerning(3)
         }
         Spacer()
         VStack {
           HStack(alignment: .center, spacing:4) {
             Text("H")
-              .font(.title3.bold())
+              .font(.title3)
               .foregroundStyle(.linearGradient(Gradient(colors: [.red.opacity(0.1),.red]), startPoint: .topLeading, endPoint: .bottom))
             Text(":")
               .font(.body)
               .fontWeight(.semibold)
-            Text("90°")
+            Text("\(weatherAPI.maxTemp ?? 0)°")
               .font(.body)
-              .fontWeight(.semibold)
+            
           }
           HStack(spacing: 4) {
             Text("L")
@@ -77,9 +83,8 @@ struct WeatherView: View {
             Text(":")
               .font(.body)
               .fontWeight(.semibold)
-            Text("70°")
+            Text("\(weatherAPI.minTemp ?? 0)°")
               .font(.body)
-              .fontWeight(.semibold)
           }
         }
         Spacer()

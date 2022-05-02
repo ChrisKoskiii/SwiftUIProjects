@@ -19,6 +19,7 @@
 		9ED88E84281D6DB5008BED03 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED88E83281D6DB5008BED03 /* LocationManager.swift */; };
 		9ED88E86281D700C008BED03 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED88E85281D700C008BED03 /* WeatherAPI.swift */; };
 		9ED88E89281D7228008BED03 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED88E88281D7228008BED03 /* WeatherModel.swift */; };
+		9ED88E8B281F5F82008BED03 /* ForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED88E8A281F5F82008BED03 /* ForecastModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		9ED88E83281D6DB5008BED03 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		9ED88E85281D700C008BED03 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		9ED88E88281D7228008BED03 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		9ED88E8A281F5F82008BED03 /* ForecastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				9ED88E88281D7228008BED03 /* WeatherModel.swift */,
+				9ED88E8A281F5F82008BED03 /* ForecastModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				9E4C197B281B6C9300E43741 /* MainView.swift in Sources */,
 				9ED88E84281D6DB5008BED03 /* LocationManager.swift in Sources */,
 				9E4C196C281B624000E43741 /* BackgroundView.swift in Sources */,
+				9ED88E8B281F5F82008BED03 /* ForecastModel.swift in Sources */,
 				9E4C196A281B624000E43741 /* itsWeatherApp.swift in Sources */,
 				9E4C1980281B72F200E43741 /* ForecastView.swift in Sources */,
 			);
