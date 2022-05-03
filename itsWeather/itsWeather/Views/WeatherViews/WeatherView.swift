@@ -34,11 +34,9 @@ struct WeatherView: View {
       .padding(.all, 20)
       .frame(height: 350)
       .frame(maxWidth: .infinity)
-      .background(.ultraThinMaterial, in:
-                    RoundedRectangle(cornerRadius: 30, style: .continuous)
-      )
+      .thinMaterialBackground()
       .strokeStyle()
-      .shadow(color: Color("Shadow") , radius: 10, x: 0, y: 10)
+      .customShadow()
       .padding(.leading)
       .padding(.trailing)
     }
@@ -64,34 +62,36 @@ struct WeatherView: View {
             .kerning(3)
         }
         Spacer()
-        VStack {
-          HStack(alignment: .center, spacing:4) {
+        VStack(spacing: 0) {
+          HStack(spacing:4) {
             Text("H")
               .font(.title3)
               .foregroundStyle(.linearGradient(Gradient(colors: [.red.opacity(0.1),.red]), startPoint: .topLeading, endPoint: .bottom))
+              .frame(width: 15)
             Text(":")
               .font(.body)
               .fontWeight(.semibold)
             Text("\(weatherAPI.maxTemp ?? 0)°")
               .font(.body)
+              .kerning(3)
             
           }
           HStack(spacing: 4) {
             Text("L")
               .font(.title3.bold())
               .foregroundStyle(.linearGradient(Gradient(colors: [.blue.opacity(0.1),.blue]), startPoint: .topLeading, endPoint: .bottom))
+              .frame(width: 15)
             Text(":")
               .font(.body)
               .fontWeight(.semibold)
             Text("\(weatherAPI.minTemp ?? 0)°")
               .font(.body)
+              .kerning(3)
           }
         }
         Spacer()
       }
-      .background(.ultraThinMaterial, in:
-                    RoundedRectangle(cornerRadius: 30, style: .continuous)
-      )
+      .thinMaterialBackground()
     }
   }
 }

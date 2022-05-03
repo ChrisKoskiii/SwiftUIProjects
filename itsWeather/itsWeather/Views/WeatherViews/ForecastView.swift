@@ -18,12 +18,10 @@ struct ForecastView: View {
     
     .padding(.all, 20)
     .frame(maxWidth: .infinity)
-    .background(.ultraThinMaterial, in:
-                  RoundedRectangle(cornerRadius: 30, style: .continuous)
-    )
+    .thinMaterialBackground()
     
-//    .strokeStyle()
-    .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 10)
+    //    .strokeStyle()
+    .customShadow()
     .padding(.leading)
     .padding(.trailing)
     
@@ -37,17 +35,31 @@ struct ForecastCellView: View {
   var condition: String?
   
   var body: some View {
-    VStack(spacing: 0) {
+    VStack(alignment: .leading) {
       Text(day ?? "Monday")
         .font(.caption2.bold())
       Image(systemName: condition ?? "cloud")
         .resizable()
         .scaledToFit()
         .frame(width: 40, height: 40)
-      Text("H: \(highTemp ?? 90)")
-        .font(.caption2.bold())
-      Text("L: \(lowTemp ?? 80)")
-        .font(.caption2.bold())
+      HStack(spacing: 2) {
+        Text("H")
+          .font(.caption2)
+          .frame(width: 10)
+        Text(":")
+          .font(.caption2)
+        Text("\(highTemp ?? 90)")
+          .font(.caption2)
+      }
+      HStack(spacing: 2) {
+        Text("L")
+          .font(.caption2)
+          .frame(width: 10)
+        Text(":")
+          .font(.caption2)
+        Text("\(lowTemp ?? 80)")
+          .font(.caption2)
+      }
     }
   }
 }

@@ -23,7 +23,7 @@ struct MainView: View {
           SearchButton()
         }
         .frame(maxWidth: .infinity)
-        .shadow(color: Color("Shadow"), radius: 10, x: 0, y: 10)
+        .customShadow()
         .padding(.leading)
         .padding(.trailing)
         Spacer()
@@ -32,9 +32,6 @@ struct MainView: View {
         Spacer()
         Spacer()
       }
-    }
-    .onAppear {
-      
     }
   }
 }
@@ -66,41 +63,46 @@ struct LocationButton: View {
         .foregroundStyle(Color("Text"), Color("Shadow"))
         .frame(width: 40, height: 40)
         .padding(.all, 8)
-        .background(.ultraThinMaterial, in:
-                      RoundedRectangle(cornerRadius: 30, style: .continuous)
-        )
+        .thinMaterialBackground()
         .scaleEffect(tapLocation ? 1.2 : 1)
-      //        .animation(.spring(response: 0.4, dampingFraction: 0.6))
     }
   }
 }
 
 struct SearchBar: View {
   @State var textfieldText: String = ""
-  
   var body: some View {
     TextField("Location", text: $textfieldText)
       .multilineTextAlignment(.center)
       .padding(.trailing)
       .frame(height: 55)
-      .background(.ultraThinMaterial, in:
-                    RoundedRectangle(cornerRadius: 30, style: .continuous)
-      )
+      .thinMaterialBackground()
   }
 }
 
 struct SearchButton: View {
+  @State var tapLocation = false
   var body: some View {
+    Button {
+      withAnimation(.spring(response: 0.4, dampingFraction: 0.6)) {
+        tapLocation = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+          withAnimation(.spring(response: 0.4, dampingFraction: 0.6)) {
+            tapLocation = false
+          }
+        }
+      }
+    } label : {
     Image(systemName: "magnifyingglass.circle")
       .resizable()
       .scaledToFit()
       .symbolRenderingMode(.palette)
-      .foregroundStyle(.primary, .secondary)
+      .foregroundStyle(Color("Text"), Color("Shadow"))
       .frame(width: 40, height: 40)
       .padding(.all, 8)
-      .background(.ultraThinMaterial, in:
-                    RoundedRectangle(cornerRadius: 30, style: .continuous)
-      )
+      .thinMaterialBackground()
+      .scaleEffect(tapLocation ? 1.2 : 1)
+    }
   }
 }
 
