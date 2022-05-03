@@ -10,13 +10,13 @@ import CoreLocation
 
 class WeatherAPI: ObservableObject {
   //Current weather
-  @Published var cityName: String? = ""
+  @Published var cityName: String? = "its Weather"
   @Published var currentTemp: Int? = 0
   @Published var humidity: Int? = 0
   @Published var minTemp: Int? = 0
   @Published var maxTemp: Int? = 0
-  @Published var condition: String = "cloud"
-  @Published var description: String? = ""
+  @Published var condition: String = "face.dashed.fill"
+  @Published var description: String? = "Tap above to get your weather"
   
   //Forecase
   @Published var forecasts: [List] = []

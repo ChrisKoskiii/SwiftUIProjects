@@ -28,6 +28,7 @@ struct WeatherView: View {
         Text((weatherAPI.description?.uppercased())!)
           .font(.footnote)
           .kerning(5)
+          .multilineTextAlignment(.center)
         detailsStrip(weatherAPI: weatherAPI)
           .padding(.top, 10)
       }

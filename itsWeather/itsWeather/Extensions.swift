@@ -5,7 +5,7 @@
 //  Created by Christopher Koski on 5/2/22.
 //
 
-import Foundation
+import SwiftUI
 
 extension Date {
     func dayOfWeek() -> String? {
@@ -14,6 +14,16 @@ extension Date {
         return dateFormatter.string(from: self).capitalized
         // or use capitalized(with: locale) if you want
       
+    }
+}
+
+extension View {
+  func animate(using animation: Animation = .easeInOut(duration: 0.6), _ action: @escaping () -> Void) -> some View {
+        onAppear {
+            withAnimation(animation) {
+                action()
+            }
+        }
     }
 }
 

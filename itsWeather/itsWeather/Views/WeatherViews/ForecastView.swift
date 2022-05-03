@@ -35,7 +35,7 @@ struct ForecastCellView: View {
   var condition: String?
   
   var body: some View {
-    VStack(alignment: .leading) {
+    VStack(alignment: .center) {
       Text(day ?? "Monday")
         .font(.caption2.bold())
       Image(systemName: condition ?? "cloud")
