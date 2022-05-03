@@ -7,6 +7,6 @@ itsWeather is a simple weather app built with SwiftUI.
 
 ![](https://media.giphy.com/media/JhuErBmLmNA4gGcHi2/giphy.gif)
 
-<iframe src="https://giphy.com/embed/rO8dbLOck3jteEZTd3" width="236" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+![](https://media.giphy.com/media/rO8dbLOck3jteEZTd3/giphy.gif)
 
 * Light & Dark Mode
