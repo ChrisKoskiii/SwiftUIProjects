@@ -16,6 +16,7 @@
 		9EACECD228243E66007B89C7 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EACECD128243E66007B89C7 /* AddItemView.swift */; };
 		9EDFB25D28244C500060926D /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFB25C28244C500060926D /* Styles.swift */; };
 		9EDFB260282476070060926D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFB25F282476070060926D /* ViewModel.swift */; };
+		9EDFB26228282D7A0060926D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFB26128282D7A0060926D /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		9EACECD128243E66007B89C7 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		9EDFB25C28244C500060926D /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		9EDFB25F282476070060926D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		9EDFB26128282D7A0060926D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				9EACECCD28243CF1007B89C7 /* Views */,
 				9EACECB9282426BF007B89C7 /* MyListApp.swift */,
 				9EDFB25C28244C500060926D /* Styles.swift */,
+				9EDFB26128282D7A0060926D /* Extensions.swift */,
 				9EACECBD282426C0007B89C7 /* Assets.xcassets */,
 				9EACECBF282426C0007B89C7 /* Preview Content */,
 			);
@@ -179,6 +182,7 @@
 				9EACECD028243D0A007B89C7 /* Item.swift in Sources */,
 				9EACECCA2824391D007B89C7 /* BackgroundView.swift in Sources */,
 				9EACECBC282426BF007B89C7 /* ContentView.swift in Sources */,
+				9EDFB26228282D7A0060926D /* Extensions.swift in Sources */,
 				9EDFB25D28244C500060926D /* Styles.swift in Sources */,
 				9EACECBA282426BF007B89C7 /* MyListApp.swift in Sources */,
 				9EACECD228243E66007B89C7 /* AddItemView.swift in Sources */,

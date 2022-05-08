@@ -8,7 +8,17 @@
 import Foundation
 
 struct Item: Hashable, Identifiable {
-  let id: String = UUID().uuidString
+  let id: String
   let name: String
-  let isDone: Bool = false
+  let isDone: Bool
+  
+  init(id: String = UUID().uuidString, name: String, isDone: Bool) {
+    self.id = id
+    self.name = name
+    self.isDone = isDone
+  }
+  
+  func updateCompletion() -> Item {
+    return Item(id: id, name: name, isDone: !isDone)
+  }
 }

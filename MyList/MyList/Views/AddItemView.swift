@@ -19,7 +19,7 @@ struct AddItemView: View {
           .font(.title)
           .multilineTextAlignment(.center)
         Spacer()
-        AddButtonView(vm: vm, item: Item(name: nameText))
+        AddButtonView(vm: vm, item: Item(name: nameText, isDone: false))
       }
       .font(.title)
       .padding()
