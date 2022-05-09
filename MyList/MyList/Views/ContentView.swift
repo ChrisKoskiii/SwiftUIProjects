@@ -48,6 +48,7 @@ struct TopToolBar: View {
 
 struct ItemsList: View {
   @ObservedObject var vm: ViewModel
+  @State private var offsets = [CGSize](repeating: CGSize.zero, count: 6)
   var body: some View {
     ScrollView {
       VStack(alignment: .leading, spacing: 8) {
@@ -69,13 +70,15 @@ struct ItemCell: View {
     ZStack(alignment: .leading) {
     Text(item.name)
         .font(.title)
-//      .opacity(item.isDone ? 0.3 : 1.0)
       .onTapGesture {
         withAnimation(.easeInOut) {
           vm.updateItem(item: item)
         }
       }
-      RoundedRectangle(cornerRadius: 1)
+      .onDelete {
+        vm.deleteItem(item: item)
+      }
+      RoundedRectangle(cornerRadius: 20)
         .fill(LinearGradient(colors: [.red.opacity(0.8), .red.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing))
         .frame(width: item.name.widthOfString(usingFont: UIFont.systemFont(ofSize: 28)), height: 4)
         .opacity(item.isDone ? 1.0 : 0.0)

@@ -25,4 +25,10 @@ class ViewModel: ObservableObject {
     }
   }
   
+  func deleteItem(item: Item) {
+    if let index = itemsArray.firstIndex(where: {$0.id == item.id }) {
+      itemsArray.remove(at: index)
+    }
+  }
+  
 }
