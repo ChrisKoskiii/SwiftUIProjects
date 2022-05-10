@@ -14,8 +14,14 @@ struct ContentView: View {
   var body: some View {
     ZStack {
       BackgroundView()
-      VStack(alignment: .trailing, spacing: 8) {
+      VStack(alignment: .trailing, spacing: 4) {
         TopToolBar(vm: vm)
+        RoundedRectangle(cornerRadius: 20)
+          .foregroundStyle(LinearGradient(colors: [.blue, .pink], startPoint: .topLeading, endPoint: .bottomTrailing))
+          .background(.ultraThinMaterial)
+          .frame(maxWidth: .infinity)
+          .frame(height: 1)
+          .padding()
         ItemsList(vm: vm)
       }
     }
@@ -24,10 +30,19 @@ struct ContentView: View {
 
 struct TopToolBar: View {
   @ObservedObject var vm: ViewModel
-  
   @State private var showingSheet = false
   var body: some View {
     HStack(spacing: 8) {
+      Text(Date.now, format: .dateTime.day().month().year())
+        .font(.body)
+        .foregroundStyle(LinearGradient(colors: [.blue, .pink], startPoint: .topLeading, endPoint: .bottomTrailing))
+        .padding(.all, 12)
+        .background(.ultraThinMaterial, in:
+                      RoundedRectangle(cornerRadius: 34,style: .continuous)
+        )
+        .padding(.leading)
+        
+      Spacer()
       Button {
         showingSheet.toggle()
       } label : {
@@ -44,6 +59,8 @@ struct TopToolBar: View {
       }
     }
   }
+  
+  
 }
 
 struct ItemsList: View {
@@ -70,6 +87,7 @@ struct ItemCell: View {
     ZStack(alignment: .leading) {
     Text(item.name)
         .font(.title)
+        .foregroundStyle(LinearGradient(colors: [.primary, .primary.opacity(0.7)], startPoint: .topLeading, endPoint: .bottomTrailing))
       .onTapGesture {
         withAnimation(.easeInOut) {
           vm.updateItem(item: item)

@@ -8,16 +8,25 @@
 import Foundation
 
 class ViewModel: ObservableObject {
-  @Published var itemsArray: [Item] = [
-    Item(name: "Take Vitamins", isDone: false),
-    Item(name: "Walk the dog", isDone: false),
-    Item(name: "Take out the trash", isDone: false),
-    Item(name: "Study code", isDone: false),
-    Item(name: "Read for 20 minutes", isDone: false),
-    Item(name: "Take Vitamins", isDone: false),
-    Item(name: "Brush teeth before bed", isDone: false)
+  @Published var itemsArray: [Item] = [] {
+    didSet {
+      saveItems()
+    }
+  }
   
-  ]
+  let itemsKey: String = "items_list"
+  
+  init() {
+    getItems()
+  }
+  
+  func getItems() {
+    guard
+      let data = UserDefaults.standard.data(forKey: itemsKey),
+      let savedItems = try? JSONDecoder().decode([Item].self, from: data)
+    else { return }
+    self.itemsArray = savedItems
+  }
   
   func updateItem(item: Item) {
     if let index = itemsArray.firstIndex(where: { $0.id == item.id }) {
@@ -28,6 +37,12 @@ class ViewModel: ObservableObject {
   func deleteItem(item: Item) {
     if let index = itemsArray.firstIndex(where: {$0.id == item.id }) {
       itemsArray.remove(at: index)
+    }
+  }
+  
+  func saveItems() {
+    if let encodedData = try? JSONEncoder().encode(itemsArray) {
+      UserDefaults.standard.set(encodedData, forKey: itemsKey)
     }
   }
   

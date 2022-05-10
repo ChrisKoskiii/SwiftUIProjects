@@ -9,8 +9,9 @@ import SwiftUI
 
 @main
 struct MyListApp: App {
+  
     var body: some Scene {
-        WindowGroup {
+      WindowGroup {
             ContentView()
         }
     }

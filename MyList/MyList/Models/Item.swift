@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Item: Hashable, Identifiable {
+struct Item: Hashable, Identifiable, Codable {
   let id: String
   let name: String
   let isDone: Bool
