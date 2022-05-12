@@ -16,6 +16,7 @@
 		9E409076282C6030000C8C32 /* AddFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E409075282C6030000C8C32 /* AddFoodView.swift */; };
 		9E409078282C714C000C8C32 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E409077282C714C000C8C32 /* TimeFormat.swift */; };
 		9E40907A282C927D000C8C32 /* EditFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E409079282C927D000C8C32 /* EditFoodView.swift */; };
+		9E44F01D282D415000BCCC4F /* StrokeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E44F01C282D415000BCCC4F /* StrokeStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		9E409075282C6030000C8C32 /* AddFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodView.swift; sourceTree = "<group>"; };
 		9E409077282C714C000C8C32 /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
 		9E409079282C927D000C8C32 /* EditFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFoodView.swift; sourceTree = "<group>"; };
+		9E44F01C282D415000BCCC4F /* StrokeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				9E409077282C714C000C8C32 /* TimeFormat.swift */,
+				9E44F01C282D415000BCCC4F /* StrokeStyle.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				9E409072282C5E6D000C8C32 /* DataController.swift in Sources */,
 				9E409078282C714C000C8C32 /* TimeFormat.swift in Sources */,
 				9E40905E282C5D54000C8C32 /* CalorieCounterApp.swift in Sources */,
+				9E44F01D282D415000BCCC4F /* StrokeStyle.swift in Sources */,
 				9E40907A282C927D000C8C32 /* EditFoodView.swift in Sources */,
 				9E409070282C5DD1000C8C32 /* FoodModel.xcdatamodeld in Sources */,
 			);

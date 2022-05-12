@@ -11,38 +11,67 @@ import CoreData
 struct ContentView: View {
   @Environment(\.managedObjectContext) var managedObjectContext
   @FetchRequest(sortDescriptors: [SortDescriptor(\.date, order: .reverse)]) var food: FetchedResults<Food>
-  
   var body: some View {
     NavigationView {
-      MainView()
+      ZStack {
+        BackgroundView()
+          .offset(x: 10, y: 200)
+        MainView()
+      }
+      .ignoresSafeArea()
     }
     .navigationViewStyle(.stack)
   }
 }
 
 struct MainView: View {
-  @State private var showingAddView = false
-  
+  @State var showingAddView = false
   var body: some View {
-    VStack(alignment: .leading) {
-      CalorieCountView()
-      FoodListView()
+    VStack {
+      ZStack {
+        VStack(alignment: .leading) {
+          NavigationBarView(showingAddView: $showingAddView)
+          FoodListView()
+        }
+      }
+      .navigationBarHidden(true)
+      .sheet(isPresented: $showingAddView) {
+        AddFoodView()
+      }
     }
-    .navigationTitle("CalorieCounter")
-    .toolbar {
-      ToolbarItem(placement: .navigationBarTrailing) {
+    .padding(.top, 40)
+  }
+}
+
+struct NavigationBarView: View {
+  @Binding var showingAddView: Bool
+  var body: some View {
+    ZStack {
+      VStack(alignment: .leading) {
+        Text("CalorieCounter")
+          .font(.largeTitle.weight(.bold))
+          .frame(maxWidth: .infinity, alignment: .leading)
+          .padding(.leading, 12)
+          .padding(.top, 20)
+        CalorieCountView()
+      }
+      VStack {
         Button {
           showingAddView.toggle()
         } label: {
-          Label("Add Food", systemImage: "plus.circle")
+          Image(systemName: "plus")
+            .font(.title3.weight(.bold))
+            .frame(width: 36, height: 36)
+            .foregroundColor(.secondary)
+            .background(.ultraThinMaterial, in:
+                          RoundedRectangle(cornerRadius: 14, style: .continuous)
+            )
+            .strokeStyle(cornerRadius: 14)
         }
       }
-      ToolbarItem(placement: .navigationBarLeading) {
-        EditButton()
-      }
-    }
-    .sheet(isPresented: $showingAddView) {
-      AddFoodView()
+      .frame(maxWidth: .infinity, alignment: .trailing)
+      .padding(.trailing, 20)
+      .padding(.top, 20)
     }
   }
 }
@@ -54,10 +83,10 @@ struct CalorieCountView: View {
   
   var body: some View {
     VStack(alignment: .leading) {
-    Text("\(Int(totalCaloriesToday())) Kcal (Today)")
-      .foregroundColor(.gray)
-      .padding(.horizontal)
-    Text("\(Int(totalProteinToday()))g of Protein (Today)")
+      Text("\(Int(totalCaloriesToday())) Kcal (Today)")
+        .foregroundColor(.gray)
+        .padding(.horizontal)
+      Text("\(Int(totalProteinToday()))g of Protein (Today)")
         .foregroundColor(.gray)
         .padding(.horizontal)
     }
@@ -110,6 +139,7 @@ struct FoodListView: View {
         }
       }
       .onDelete(perform: deleteFood)
+      .listRowBackground(Color.clear)
     }
     .listStyle(.plain)
   }
@@ -131,3 +161,13 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
+struct BackgroundView: View {
+
+  var body: some View {
+    Image("foodMeasure")
+      .resizable()
+      .scaledToFit()
+      .frame(width: 400, height: 400)
+      .opacity(0.2)
+  }
+}
