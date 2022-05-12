@@ -27,7 +27,8 @@ struct AddFoodView: View {
           HStack {
             Spacer()
             Button("Submit") {
-              
+              DataController().addFood(title: title, calories: calories, context: managedObjectContext)
+                dismiss()
             }
             Spacer()
           }

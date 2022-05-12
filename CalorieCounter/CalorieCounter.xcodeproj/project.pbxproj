@@ -14,6 +14,8 @@
 		9E409070282C5DD1000C8C32 /* FoodModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E40906E282C5DD1000C8C32 /* FoodModel.xcdatamodeld */; };
 		9E409072282C5E6D000C8C32 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E409071282C5E6D000C8C32 /* DataController.swift */; };
 		9E409076282C6030000C8C32 /* AddFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E409075282C6030000C8C32 /* AddFoodView.swift */; };
+		9E409078282C714C000C8C32 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E409077282C714C000C8C32 /* TimeFormat.swift */; };
+		9E40907A282C927D000C8C32 /* EditFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E409079282C927D000C8C32 /* EditFoodView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		9E40906F282C5DD1000C8C32 /* FoodModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodModel.xcdatamodel; sourceTree = "<group>"; };
 		9E409071282C5E6D000C8C32 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		9E409075282C6030000C8C32 /* AddFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodView.swift; sourceTree = "<group>"; };
+		9E409077282C714C000C8C32 /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
+		9E409079282C927D000C8C32 /* EditFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFoodView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 			children = (
 				9E40905F282C5D54000C8C32 /* ContentView.swift */,
 				9E409075282C6030000C8C32 /* AddFoodView.swift */,
+				9E409079282C927D000C8C32 /* EditFoodView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -96,6 +101,7 @@
 		9E409074282C6019000C8C32 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				9E409077282C714C000C8C32 /* TimeFormat.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -173,7 +179,9 @@
 				9E409076282C6030000C8C32 /* AddFoodView.swift in Sources */,
 				9E409060282C5D54000C8C32 /* ContentView.swift in Sources */,
 				9E409072282C5E6D000C8C32 /* DataController.swift in Sources */,
+				9E409078282C714C000C8C32 /* TimeFormat.swift in Sources */,
 				9E40905E282C5D54000C8C32 /* CalorieCounterApp.swift in Sources */,
+				9E40907A282C927D000C8C32 /* EditFoodView.swift in Sources */,
 				9E409070282C5DD1000C8C32 /* FoodModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
