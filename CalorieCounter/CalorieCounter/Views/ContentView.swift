@@ -162,12 +162,12 @@ struct ContentView_Previews: PreviewProvider {
 
 
 struct BackgroundView: View {
-
+  @Environment(\.colorScheme) var colorScheme: ColorScheme
   var body: some View {
     Image("foodMeasure")
       .resizable()
       .scaledToFit()
       .frame(width: 400, height: 400)
-      .opacity(0.2)
+      .opacity(colorScheme == .dark ? 0.5 : 0.2)
   }
 }

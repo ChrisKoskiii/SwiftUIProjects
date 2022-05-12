@@ -46,21 +46,24 @@ struct AddFoodView: View {
         TacoView()
           .offset(x: 0, y: 150)
       }
+      .ignoresSafeArea(.keyboard)
     }
 }
 
 struct TacoView: View {
-  @State private var isRotating = false
+  @Environment(\.colorScheme) var colorScheme: ColorScheme
+  
+  @State private var isAnimated = false
   var body: some View {
     Image("happyTaco")
       .resizable()
       .scaledToFit()
       .frame(width: 300, height: 400)
-      .opacity(0.3)
-      .rotationEffect(.degrees(isRotating ? 360 : 0))
+      .opacity(colorScheme == .dark ? 0.7 : 0.5)
+      .rotationEffect(.degrees(isAnimated ? 10 : -10))
       .onAppear {
-        withAnimation(.linear(duration: 10).repeatForever(autoreverses: false)) {
-          isRotating = true
+        withAnimation(.easeInOut(duration: 1).repeatForever(autoreverses: true)) {
+          isAnimated = true
         }
       }
   }
