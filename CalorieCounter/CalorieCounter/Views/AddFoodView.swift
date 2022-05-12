@@ -13,6 +13,8 @@ struct AddFoodView: View {
   
   @State private var title = ""
   @State private var calories: Double = 0
+  @State private var protein: Double = 0
+  
     var body: some View {
       Form {
         Section {
@@ -24,10 +26,16 @@ struct AddFoodView: View {
           }
           .padding()
           
+          VStack {
+            Text("Protein: \(Int(protein))")
+            Slider(value: $protein, in: 0...100, step: 1)
+          }
+          .padding()
+          
           HStack {
             Spacer()
             Button("Submit") {
-              DataController().addFood(title: title, calories: calories, context: managedObjectContext)
+              DataController().addFood(title: title, calories: calories, protein: protein, context: managedObjectContext)
                 dismiss()
             }
             Spacer()
