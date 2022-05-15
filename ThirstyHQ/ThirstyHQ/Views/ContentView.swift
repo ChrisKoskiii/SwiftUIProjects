@@ -17,7 +17,7 @@ struct ContentView: View {
     
     NavigationView {
       ZStack {
-
+        
         VStack {
           let columns: [GridItem] = Array(repeating: .init(.adaptive(minimum: 120)), count: 2)
           
@@ -26,7 +26,7 @@ struct ContentView: View {
               ForEach (cocktailAPI.drinks, id: \.self) { drink in
                 VStack(alignment: .leading, spacing: 8) {
                   NavigationLink {
-                    //go here
+                    DetailView(drink: drink)
                   } label : {
                     VStack {
                       AsyncImage(url: URL(string: drink.strDrinkThumb!)) { phase in
@@ -47,7 +47,7 @@ struct ContentView: View {
                         }
                       }
                       Text(drink.strDrink ?? "Cocktail")
-                        .font(.title2.bold())
+                        .font(.title3.bold())
                         .foregroundStyle(.linearGradient(colors: [.primary, .primary.opacity(0.7)], startPoint: .leading, endPoint: .trailing))
                     }
                     .background(.ultraThinMaterial, in:

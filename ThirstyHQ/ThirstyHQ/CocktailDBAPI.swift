@@ -11,7 +11,7 @@ class CocktailDBAPI: ObservableObject {
   
   @Published var drinks: [Drinks.Drink] = []
   
-  let apiString = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a"
+  let apiString = "https://www.thecocktaildb.com/api/json/v2/9973533/popular.php"
   
   func getDrinks() {
     fetchData(url: apiString)
