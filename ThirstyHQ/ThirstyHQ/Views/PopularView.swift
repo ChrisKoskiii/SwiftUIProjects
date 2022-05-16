@@ -18,11 +18,9 @@ struct PopularView: View {
             }
           }
           .navigationTitle("Popular")
-          .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-              Button("Search") {
-                cocktailAPI.getDrinks()
-              }
+          .onAppear {
+            DispatchQueue.main.async {
+              cocktailAPI.getDrinks()
             }
           }
         }

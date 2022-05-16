@@ -15,6 +15,7 @@
 		9E3AB741282E9A4D00F35273 /* CocktailDBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3AB740282E9A4D00F35273 /* CocktailDBAPI.swift */; };
 		9E3AB743282EC9DE00F35273 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3AB742282EC9DE00F35273 /* DetailView.swift */; };
 		9E3AB7452832E39D00F35273 /* PopularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3AB7442832E39D00F35273 /* PopularView.swift */; };
+		9E3AB7472832E52900F35273 /* FindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3AB7462832E52900F35273 /* FindView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		9E3AB740282E9A4D00F35273 /* CocktailDBAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDBAPI.swift; sourceTree = "<group>"; };
 		9E3AB742282EC9DE00F35273 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		9E3AB7442832E39D00F35273 /* PopularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularView.swift; sourceTree = "<group>"; };
+		9E3AB7462832E52900F35273 /* FindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				9E3AB730282E7BC100F35273 /* ContentView.swift */,
 				9E3AB742282EC9DE00F35273 /* DetailView.swift */,
 				9E3AB7442832E39D00F35273 /* PopularView.swift */,
+				9E3AB7462832E52900F35273 /* FindView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				9E3AB741282E9A4D00F35273 /* CocktailDBAPI.swift in Sources */,
 				9E3AB731282E7BC100F35273 /* ContentView.swift in Sources */,
 				9E3AB72F282E7BC100F35273 /* ThirstyHQApp.swift in Sources */,
+				9E3AB7472832E52900F35273 /* FindView.swift in Sources */,
 				9E3AB743282EC9DE00F35273 /* DetailView.swift in Sources */,
 				9E3AB7452832E39D00F35273 /* PopularView.swift in Sources */,
 				9E3AB73F282E99E500F35273 /* DrinkModel.swift in Sources */,
