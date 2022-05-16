@@ -20,6 +20,9 @@ struct DetailView: View {
               .scaledToFit()
               .frame(maxWidth:.infinity)
               .cornerRadius(20)
+              .background(Color.white)
+              .cornerRadius(20)
+              .shadow(radius: 3)
               .padding(.top)
               .padding(.leading)
               .padding(.trailing)
@@ -62,6 +65,9 @@ struct DetailView: View {
         .background(.ultraThinMaterial, in:
                       RoundedRectangle(cornerRadius: 20)
         )
+        .background(Color.white)
+        .cornerRadius(20)
+        .shadow(radius: 3)
         .padding(.leading)
         .padding(.trailing)
         VStack(alignment: .leading) {
@@ -77,6 +83,9 @@ struct DetailView: View {
         .background(.ultraThinMaterial, in:
                       RoundedRectangle(cornerRadius: 20)
         )
+        .background(Color.white)
+        .cornerRadius(20)
+        .shadow(radius: 3)
         .padding()
       }
     }
