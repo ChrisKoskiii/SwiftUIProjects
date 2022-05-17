@@ -9,32 +9,33 @@ import SwiftUI
 
 struct PopularView: View {
   @ObservedObject var cocktailAPI: CocktailDBAPI
-    var body: some View {
-      NavigationView {
-        ZStack {
-          VStack {
-            ScrollView {
-              DrinkGridView(cocktailAPI: cocktailAPI)
-            }
+  var body: some View {
+    NavigationView {
+      ZStack {
+        VStack {
+          ScrollView {
+            DrinkGridView(cocktailAPI: cocktailAPI)
+              .aspectRatio(1/1, contentMode: .fit)
           }
-          .navigationTitle("Popular")
-          .onAppear {
-            DispatchQueue.main.async {
-              cocktailAPI.getDrinks()
-            }
+        }
+        .navigationTitle("Popular")
+        .onAppear {
+          DispatchQueue.main.async {
+            cocktailAPI.getDrinks()
           }
         }
       }
-      .tabItem {
-        Label("Popular", systemImage: "star")
-      }
     }
+    .tabItem {
+      Label("Popular", systemImage: "star")
+    }
+  }
 }
 
 struct DrinkGridView: View {
   @ObservedObject var cocktailAPI: CocktailDBAPI
   var body: some View {
-    let columns: [GridItem] = Array(repeating: .init(.adaptive(minimum: 120)), count: 2)
+    let columns: [GridItem] = Array(repeating: .init(), count: 2)
     LazyVGrid(columns: columns) {
       ForEach (cocktailAPI.drinks, id: \.self) { drink in
         DrinkCellView(drink: drink)
@@ -88,7 +89,7 @@ struct DrinkCellView: View {
 }
 
 struct PopularView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }

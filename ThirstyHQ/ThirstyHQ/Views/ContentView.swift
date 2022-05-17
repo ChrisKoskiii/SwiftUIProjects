@@ -14,7 +14,7 @@ struct ContentView: View {
   var body: some View {
     TabView {
       PopularView(cocktailAPI: cocktailAPI)
-      FindView()
+      FindView(cocktailAPI: cocktailAPI)
     }
   }
 }
