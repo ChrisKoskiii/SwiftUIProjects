@@ -16,15 +16,19 @@ struct ContentView: View {
       BackgroundView()
       VStack(alignment: .trailing, spacing: 4) {
         TopToolBar(vm: vm)
-        RoundedRectangle(cornerRadius: 20)
-          .foregroundStyle(LinearGradient(colors: [.blue, .pink], startPoint: .topLeading, endPoint: .bottomTrailing))
-          .background(.ultraThinMaterial)
-          .frame(maxWidth: .infinity)
-          .frame(height: 1)
-          .padding()
+        dividerLine
         ItemsList(vm: vm)
       }
     }
+  }
+  
+  var dividerLine: some View {
+    RoundedRectangle(cornerRadius: 20)
+      .foregroundStyle(LinearGradient(colors: [.blue, .pink], startPoint: .topLeading, endPoint: .bottomTrailing))
+      .background(.ultraThinMaterial)
+      .frame(maxWidth: .infinity)
+      .frame(height: 1)
+      .padding()
   }
 }
 
@@ -33,34 +37,39 @@ struct TopToolBar: View {
   @State private var showingSheet = false
   var body: some View {
     HStack(spacing: 8) {
-      Text(Date.now, format: .dateTime.day().month().year())
-        .font(.body)
-        .foregroundStyle(LinearGradient(colors: [.blue, .pink], startPoint: .topLeading, endPoint: .bottomTrailing))
-        .padding(.all, 12)
-        .background(.ultraThinMaterial, in:
-                      RoundedRectangle(cornerRadius: 34,style: .continuous)
-        )
-        .padding(.leading)
-        
+      currentDate
       Spacer()
-      Button {
-        showingSheet.toggle()
-      } label : {
-        Image(systemName: "plus")
-          .resizable()
-          .frame(width: 24, height: 24)
-          .foregroundStyle(LinearGradient(colors: [.blue, .pink], startPoint: .topLeading, endPoint: .bottomTrailing))
-          .padding(.all, 12)
-          .background(Circle().fill(.ultraThinMaterial))
-      }
-      .padding(.trailing)
-      .sheet(isPresented: $showingSheet) {
-        AddItemView(vm: vm)
-      }
+      addButton
     }
   }
   
+  var currentDate: some View {
+    Text(Date.now, format: .dateTime.day().month().year())
+      .font(.body)
+      .foregroundStyle(LinearGradient(colors: [.blue, .pink], startPoint: .topLeading, endPoint: .bottomTrailing))
+      .padding(.all, 12)
+      .background(.ultraThinMaterial, in:
+                    RoundedRectangle(cornerRadius: 34,style: .continuous)
+      )
+      .padding(.leading)
+  }
   
+  var addButton: some View {
+    Button {
+      showingSheet.toggle()
+    } label : {
+      Image(systemName: "plus")
+        .resizable()
+        .frame(width: 24, height: 24)
+        .foregroundStyle(LinearGradient(colors: [.blue, .pink], startPoint: .topLeading, endPoint: .bottomTrailing))
+        .padding(.all, 12)
+        .background(Circle().fill(.ultraThinMaterial))
+    }
+    .padding(.trailing)
+    .sheet(isPresented: $showingSheet) {
+      AddItemView(vm: vm)
+    }
+  }
 }
 
 struct ItemsList: View {

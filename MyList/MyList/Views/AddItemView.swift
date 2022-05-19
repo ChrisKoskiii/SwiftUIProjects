@@ -15,15 +15,19 @@ struct AddItemView: View {
       AddItemViewBackround()
       VStack {
         Spacer()
-        TextField("Enter To Do Item", text: $nameText)
-          .font(.title)
-          .multilineTextAlignment(.center)
+        addItemTextField
         Spacer()
         AddButtonView(vm: vm, item: Item(name: nameText, isDone: false))
       }
       .font(.title)
       .padding()
     }
+  }
+  
+  var addItemTextField: some View {
+    TextField("Enter To Do Item", text: $nameText)
+      .font(.title)
+      .multilineTextAlignment(.center)
   }
 }
 
@@ -43,6 +47,7 @@ struct AddItemViewBackround: View {
 struct AddButtonView: View {
   @Environment(\.dismiss) var dismiss
   @ObservedObject var vm: ViewModel
+  
   var item: Item
   var body: some View {
     Button {
