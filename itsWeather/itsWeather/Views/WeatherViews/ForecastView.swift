@@ -11,15 +11,12 @@ struct ForecastView: View {
   @StateObject var weatherAPI: WeatherAPI
   
   var body: some View {
-    
     ScrollView(.horizontal, showsIndicators: false) {
       ForecastCellScrollStack(weatherAPI: weatherAPI)
     }
-    
     .padding(.all, 20)
     .frame(maxWidth: .infinity)
     .thinMaterialBackground()
-    
     //    .strokeStyle()
     .customShadow()
     .padding(.leading)

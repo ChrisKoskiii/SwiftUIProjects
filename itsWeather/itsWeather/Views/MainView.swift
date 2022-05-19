@@ -19,13 +19,7 @@ struct MainView: View {
     ZStack {
       BackgroundView()
       VStack(spacing: 30) {
-        HStack {
-          LocationButton(locationManager: locationManager, weatherAPI: weatherAPI)
-        }
-        .frame(maxWidth: .infinity)
-        .customShadow()
-        .padding(.leading)
-        .padding(.trailing)
+        getLocationButton
         Spacer()
         WeatherView(weatherAPI: weatherAPI)
         ForecastView(weatherAPI: weatherAPI)
@@ -38,6 +32,16 @@ struct MainView: View {
         opacity = 1
         scale = 1
       }
+    }
+  }
+  
+  var getLocationButton: some View {
+    HStack {
+      LocationButton(locationManager: locationManager, weatherAPI: weatherAPI)
+        .frame(maxWidth: .infinity)
+        .customShadow()
+        .padding(.leading)
+        .padding(.trailing)
     }
   }
 }

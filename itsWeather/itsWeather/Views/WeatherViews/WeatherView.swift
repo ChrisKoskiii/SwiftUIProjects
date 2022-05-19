@@ -15,20 +15,9 @@ struct WeatherView: View {
   var body: some View {
     ZStack {
       VStack {
-        Text((weatherAPI.cityName?.uppercased())!)
-          .font(.title3.bold())
-          .kerning(5)
-        Image(systemName: weatherAPI.condition)
-          .resizable()
-          .scaledToFit()
-          .foregroundStyle(
-            .linearGradient(Gradient(colors: [.primary.opacity(0.5), .mint]), startPoint: .topLeading, endPoint: .bottomTrailing)
-          )
-          .frame(width: 200, height: 150)
-        Text((weatherAPI.description?.uppercased())!)
-          .font(.footnote)
-          .kerning(5)
-          .multilineTextAlignment(.center)
+        cityName
+        conditionImage
+        conditionDescription
         detailsStrip(weatherAPI: weatherAPI)
           .padding(.top, 10)
       }
@@ -44,57 +33,94 @@ struct WeatherView: View {
     
   }
   
+  var cityName: some View {
+    Text((weatherAPI.cityName?.uppercased())!)
+      .font(.title3.bold())
+      .kerning(5)
+  }
+  
+  var conditionImage: some View {
+    Image(systemName: weatherAPI.condition)
+      .resizable()
+      .scaledToFit()
+      .foregroundStyle(
+        .linearGradient(Gradient(colors: [.primary.opacity(0.5), .mint]), startPoint: .topLeading, endPoint: .bottomTrailing)
+      )
+      .frame(width: 200, height: 150)
+  }
+  
+  var conditionDescription: some View {
+    Text((weatherAPI.description?.uppercased())!)
+      .font(.footnote)
+      .kerning(5)
+      .multilineTextAlignment(.center)
+  }
+  
   struct detailsStrip: View {
     @StateObject var weatherAPI: WeatherAPI
     
     var body: some View {
       HStack( spacing: 8) {
         Spacer()
-        Text("\(String(weatherAPI.currentTemp ?? 0))°F")
-          .font(.title2)
-          .kerning(3)
+        currentTemp
         Spacer()
-        VStack(spacing: 6) {
-          Image(systemName: "drop.fill")
-            .foregroundStyle(.linearGradient(Gradient(colors: [.white, .blue]), startPoint: .topLeading, endPoint: .bottomTrailing))
-            .font(.body.bold())
-          Text("\(weatherAPI.humidity ?? 0)%")
-            .font(.body)
-            .kerning(3)
-        }
+        precipitation
         Spacer()
-        VStack(spacing: 0) {
-          HStack(spacing:4) {
-            Text("H")
-              .font(.title3)
-              .foregroundStyle(.linearGradient(Gradient(colors: [.red.opacity(0.1),.red]), startPoint: .topLeading, endPoint: .bottom))
-              .frame(width: 15)
-            Text(":")
-              .font(.body)
-              .fontWeight(.semibold)
-            Text("\(weatherAPI.maxTemp ?? 0)°")
-              .font(.body)
-              .kerning(3)
-            
-          }
-          HStack(spacing: 4) {
-            Text("L")
-              .font(.title3.bold())
-              .foregroundStyle(.linearGradient(Gradient(colors: [.blue.opacity(0.1),.blue]), startPoint: .topLeading, endPoint: .bottom))
-              .frame(width: 15)
-            Text(":")
-              .font(.body)
-              .fontWeight(.semibold)
-            Text("\(weatherAPI.minTemp ?? 0)°")
-              .font(.body)
-              .kerning(3)
-          }
-        }
+        highLowTemps
         Spacer()
       }
       .thinMaterialBackground()
     }
+    
+    var currentTemp: some View {
+      Text("\(String(weatherAPI.currentTemp ?? 0))°F")
+        .font(.title2)
+        .kerning(3)
+    }
+    
+    var precipitation: some View {
+      VStack(spacing: 6) {
+        Image(systemName: "drop.fill")
+          .foregroundStyle(.linearGradient(Gradient(colors: [.white, .blue]), startPoint: .topLeading, endPoint: .bottomTrailing))
+          .font(.body.bold())
+        Text("\(weatherAPI.humidity ?? 0)%")
+          .font(.body)
+          .kerning(3)
+      }
+    }
+    
+    var highLowTemps: some View {
+      VStack(spacing: 0) {
+        HStack(spacing:4) {
+          Text("H")
+            .font(.title3)
+            .foregroundStyle(.linearGradient(Gradient(colors: [.red.opacity(0.1),.red]), startPoint: .topLeading, endPoint: .bottom))
+            .frame(width: 15)
+          Text(":")
+            .font(.body)
+            .fontWeight(.semibold)
+          Text("\(weatherAPI.maxTemp ?? 0)°")
+            .font(.body)
+            .kerning(3)
+          
+        }
+        HStack(spacing: 4) {
+          Text("L")
+            .font(.title3.bold())
+            .foregroundStyle(.linearGradient(Gradient(colors: [.blue.opacity(0.1),.blue]), startPoint: .topLeading, endPoint: .bottom))
+            .frame(width: 15)
+          Text(":")
+            .font(.body)
+            .fontWeight(.semibold)
+          Text("\(weatherAPI.minTemp ?? 0)°")
+            .font(.body)
+            .kerning(3)
+        }
+      }
+    }
+    
   }
+  
 }
 
 struct WeatherView_Previews: PreviewProvider {
