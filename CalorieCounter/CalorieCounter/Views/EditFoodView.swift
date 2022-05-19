@@ -21,36 +21,50 @@ struct EditFoodView: View {
     ZStack {
       Form {
         Section {
-          TextField("\(food.title!)", text: $title)
-            .onAppear {
-              title = food.title!
-              calories = food.calories
-              protein = food.protein
-            }
-          VStack {
-            Text("Calories: \(Int(calories))")
-            Slider(value: $calories, in: 0...1000, step: 10)
-          }
-          .padding()
-          
-          VStack {
-            Text("Protein: \(Int(protein))")
-            Slider(value: $protein, in: 0...1000, step: 10)
-          }
-          .padding()
-          
-          HStack {
-            Spacer()
-            Button("Submit") {
-              DataController().editFood(food: food, title: title, calories: calories, protein: protein, context: managedObjectContext)
-              dismiss()
-            }
-            Spacer()
-          }
+          foodTitle
+          calorieSlider
+          proteinSlider
+          submitButton
         }
       }
       PizzaHeadView()
         .offset(y: 200)
+    }
+  }
+  
+  var foodTitle: some View {
+    TextField("\(food.title!)", text: $title)
+      .onAppear {
+        title = food.title!
+        calories = food.calories
+        protein = food.protein
+      }
+  }
+  
+  var calorieSlider: some View {
+    VStack {
+      Text("Calories: \(Int(calories))")
+      Slider(value: $calories, in: 0...1000, step: 10)
+    }
+    .padding()
+  }
+  
+  var proteinSlider: some View {
+    VStack {
+      Text("Protein: \(Int(protein))")
+      Slider(value: $protein, in: 0...1000, step: 10)
+    }
+    .padding()
+  }
+  
+  var submitButton: some View {
+    HStack {
+      Spacer()
+      Button("Submit") {
+        DataController().editFood(food: food, title: title, calories: calories, protein: protein, context: managedObjectContext)
+        dismiss()
+      }
+      Spacer()
     }
   }
 }

@@ -20,27 +20,9 @@ struct AddFoodView: View {
         Form {
           Section {
             TextField("Food name", text: $title)
-            
-            VStack {
-              Text("Calories: \(Int(calories))")
-              Slider(value: $calories, in: 0...1000, step: 10)
-            }
-            .padding()
-            
-            VStack {
-              Text("Protein: \(Int(protein))")
-              Slider(value: $protein, in: 0...100, step: 1)
-            }
-            .padding()
-            
-            HStack {
-              Spacer()
-              Button("Submit") {
-                DataController().addFood(title: title, calories: calories, protein: protein, context: managedObjectContext)
-                  dismiss()
-              }
-              Spacer()
-            }
+            calorieSlider
+            proteinSlider
+            submitButton
           }
         }
         TacoView()
@@ -48,6 +30,33 @@ struct AddFoodView: View {
       }
       .ignoresSafeArea(.keyboard)
     }
+  
+  var calorieSlider: some View {
+    VStack {
+      Text("Calories: \(Int(calories))")
+      Slider(value: $calories, in: 0...1000, step: 10)
+    }
+    .padding()
+  }
+  
+  var proteinSlider: some View {
+    VStack {
+      Text("Protein: \(Int(protein))")
+      Slider(value: $protein, in: 0...100, step: 1)
+    }
+    .padding()
+  }
+  
+  var submitButton: some View {
+    HStack {
+      Spacer()
+      Button("Submit") {
+        DataController().addFood(title: title, calories: calories, protein: protein, context: managedObjectContext)
+          dismiss()
+      }
+      Spacer()
+    }
+  }
 }
 
 struct TacoView: View {

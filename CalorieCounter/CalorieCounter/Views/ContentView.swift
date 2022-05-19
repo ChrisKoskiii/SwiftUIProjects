@@ -11,6 +11,7 @@ import CoreData
 struct ContentView: View {
   @Environment(\.managedObjectContext) var managedObjectContext
   @FetchRequest(sortDescriptors: [SortDescriptor(\.date, order: .reverse)]) var food: FetchedResults<Food>
+  
   var body: some View {
     NavigationView {
       ZStack {
