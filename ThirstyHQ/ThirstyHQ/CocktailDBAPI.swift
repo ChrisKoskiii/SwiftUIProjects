@@ -17,6 +17,12 @@ class CocktailDBAPI: ObservableObject {
     fetchData(url: apiString)
   }
   
+  func searchIngredient(text: String) {
+    let url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + "\(text)"
+    fetchData(url: url)
+    print(url)
+  }
+  
   func fetchData(url: String) {
     guard let url = URL(string: url) else {
       print("Invalid URL")

@@ -36,18 +36,19 @@ struct DrinkGridView: View {
   @ObservedObject var cocktailAPI: CocktailDBAPI
   var body: some View {
     let columns: [GridItem] = Array(repeating: .init(), count: 2)
-    LazyVGrid(columns: columns) {
-      ForEach (cocktailAPI.drinks, id: \.self) { drink in
-        DrinkCellView(drink: drink)
+      LazyVGrid(columns: columns) {
+        ForEach (cocktailAPI.drinks, id: \.self) { drink in
+          DrinkCellView(drink: drink)
+        }
       }
+      .padding(.leading)
+      .padding(.trailing)
     }
   }
-}
 
 struct DrinkCellView: View {
   @State var drink: Drinks.Drink
   var body: some View {
-    
     VStack(alignment: .leading, spacing: 8) {
       NavigationLink {
         DetailView(drink: drink)
@@ -71,12 +72,14 @@ struct DrinkCellView: View {
             }
           }
           Text(drink.strDrink ?? "Cocktail")
-            .font(.title3.bold())
-            .minimumScaleFactor(0.01)
+            .font(.title2.bold())
+            .minimumScaleFactor(0.1)
             .padding(.leading, 8)
             .padding(.trailing, 8)
             .foregroundStyle(.linearGradient(colors: [.primary, .primary.opacity(0.7)], startPoint: .leading, endPoint: .trailing))
         }
+        .frame(height: 150)
+        .frame(maxWidth: .infinity)
         .background(.ultraThinMaterial, in:
                       RoundedRectangle(cornerRadius: 20 )
         )
