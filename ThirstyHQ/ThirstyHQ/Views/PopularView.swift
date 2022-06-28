@@ -19,7 +19,7 @@ struct PopularView: View {
           }
         }
         .navigationTitle("Popular")
-        .onAppear {
+        .task {
           DispatchQueue.main.async {
             cocktailAPI.getDrinks()
           }
@@ -38,7 +38,7 @@ struct DrinkGridView: View {
     let columns: [GridItem] = Array(repeating: .init(), count: 2)
       LazyVGrid(columns: columns) {
         ForEach (cocktailAPI.drinks, id: \.self) { drink in
-          DrinkCellView(drink: drink)
+          DrinkCellView(cocktailAPI: cocktailAPI, drink: drink)
         }
       }
       .padding(.leading)
@@ -47,11 +47,13 @@ struct DrinkGridView: View {
   }
 
 struct DrinkCellView: View {
+  @ObservedObject var cocktailAPI: CocktailDBAPI
   @State var drink: Drinks.Drink
+  
   var body: some View {
     VStack(alignment: .leading, spacing: 8) {
       NavigationLink {
-        DetailView(drink: drink)
+        DetailView(drink: drink, cocktailAPI: cocktailAPI)
       } label : {
         VStack {
           AsyncImage(url: URL(string: drink.strDrinkThumb!)) { phase in

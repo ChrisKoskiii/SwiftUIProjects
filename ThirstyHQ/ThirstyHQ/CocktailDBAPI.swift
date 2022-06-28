@@ -23,6 +23,11 @@ class CocktailDBAPI: ObservableObject {
     print(url)
   }
   
+  func fetchDetails(_ id: String ) {
+    let url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + "\(id)"
+    fetchData(url: url)
+  }
+  
   func fetchData(url: String) {
     guard let url = URL(string: url) else {
       print("Invalid URL")
@@ -37,8 +42,7 @@ class CocktailDBAPI: ObservableObject {
       do {
         if let drinks = try JSONDecoder().decode(Drinks?.self, from: data) {
           DispatchQueue.main.async {
-            self?.drinks = drinks.drinks
-            print(drinks)
+              self?.drinks = drinks.drinks
           }
         }
       } catch {
@@ -47,4 +51,6 @@ class CocktailDBAPI: ObservableObject {
     }
     task.resume()
   }
+  
+  
 }

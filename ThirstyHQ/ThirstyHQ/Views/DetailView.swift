@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
   @State var drink: Drinks.Drink
+  @ObservedObject var cocktailAPI: CocktailDBAPI
   
   var body: some View {
     ScrollView {
@@ -19,6 +20,13 @@ struct DetailView: View {
       }
     }
     .navigationTitle(drink.strDrink ?? "Cocktail")
+    .onAppear() {
+      DispatchQueue.main.async {
+        if let drinkID = drink.idDrink {
+          cocktailAPI.fetchDetails(drinkID)
+        }
+      }
+    }
   }
   
   
