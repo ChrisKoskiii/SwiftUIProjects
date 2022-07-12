@@ -12,15 +12,11 @@ struct DetailsView: View {
   
   var body: some View {
     Form {
-      Section {
-        Picker("How many stories?", selection: $quote.data.outsideOnly) {
-          Text("Exterior Only")
-          Text("Interior & Exterior")
+        Picker("How many stories?", selection: $quote.data.jobType) {
+          Text("Exterior Only").tag(0)
+          Text("Interior & Exterior").tag(1)
         }
         .pickerStyle(.segmented)
-      } header: {
-        Text("Interior & Exterior?")
-      }
       
       Section {
         Picker("How many stories?", selection: $quote.data.stories) {

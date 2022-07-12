@@ -88,7 +88,6 @@ struct ItemsList: View {
   }
 }
 
-
 struct ItemCell: View {
   @ObservedObject var vm: ViewModel
   var item: Item

@@ -7,157 +7,125 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9E545B642869D15F00B36776 /* QuoteGeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E545B632869D15F00B36776 /* QuoteGeneratorApp.swift */; };
-		9E545B662869D15F00B36776 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E545B652869D15F00B36776 /* ContentView.swift */; };
-		9E545B682869D16000B36776 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E545B672869D16000B36776 /* Assets.xcassets */; };
-		9E545B6B2869D16000B36776 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E545B6A2869D16000B36776 /* Preview Assets.xcassets */; };
-		9E545B722869D1CF00B36776 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E545B712869D1CF00B36776 /* Quote.swift */; };
-		9E545B742869D20C00B36776 /* SharedQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E545B732869D20C00B36776 /* SharedQuote.swift */; };
-		9E545B762869D37C00B36776 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E545B752869D37C00B36776 /* DetailsView.swift */; };
-		9E545B782869D50500B36776 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E545B772869D50500B36776 /* Extensions.swift */; };
-		9E545B7A286A8CA600B36776 /* FinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E545B79286A8CA600B36776 /* FinishView.swift */; };
-		9E6292EA286BE226008C64F5 /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = 9E6292E9286BE226008C64F5 /* iPhoneNumberField */; };
-		9E6292EC286BE575008C64F5 /* MapSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6292EB286BE575008C64F5 /* MapSearch.swift */; };
+		9E133DE1286F744000BEE639 /* GreySkullLPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E133DE0286F744000BEE639 /* GreySkullLPApp.swift */; };
+		9E133DE3286F744000BEE639 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E133DE2286F744000BEE639 /* MainView.swift */; };
+		9E133DE5286F744100BEE639 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E133DE4286F744100BEE639 /* Assets.xcassets */; };
+		9E133DE8286F744100BEE639 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E133DE7286F744100BEE639 /* Preview Assets.xcassets */; };
+		9E133DEF286F750D00BEE639 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E133DEE286F750D00BEE639 /* HomeView.swift */; };
+		9E133DF2286F752900BEE639 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E133DF1286F752900BEE639 /* HistoryView.swift */; };
+		9E133DF4286F753200BEE639 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E133DF3286F753200BEE639 /* SettingsView.swift */; };
+		9E133DF6286F75D100BEE639 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E133DF5286F75D100BEE639 /* GraphView.swift */; };
+		9E1791462870765200E00647 /* GreySkullLP.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E1791442870765200E00647 /* GreySkullLP.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9E545B602869D15F00B36776 /* QuoteGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E545B632869D15F00B36776 /* QuoteGeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteGeneratorApp.swift; sourceTree = "<group>"; };
-		9E545B652869D15F00B36776 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		9E545B672869D16000B36776 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9E545B6A2869D16000B36776 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		9E545B712869D1CF00B36776 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
-		9E545B732869D20C00B36776 /* SharedQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedQuote.swift; sourceTree = "<group>"; };
-		9E545B752869D37C00B36776 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
-		9E545B772869D50500B36776 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		9E545B79286A8CA600B36776 /* FinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishView.swift; sourceTree = "<group>"; };
-		9E6292EB286BE575008C64F5 /* MapSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearch.swift; sourceTree = "<group>"; };
+		9E133DDD286F744000BEE639 /* GreySkullLP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreySkullLP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E133DE0286F744000BEE639 /* GreySkullLPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreySkullLPApp.swift; sourceTree = "<group>"; };
+		9E133DE2286F744000BEE639 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		9E133DE4286F744100BEE639 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9E133DE7286F744100BEE639 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9E133DEE286F750D00BEE639 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9E133DF1286F752900BEE639 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		9E133DF3286F753200BEE639 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9E133DF5286F75D100BEE639 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		9E1791452870765200E00647 /* GreySkullLP.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GreySkullLP.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9E545B5D2869D15F00B36776 /* Frameworks */ = {
+		9E133DDA286F744000BEE639 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E6292EA286BE226008C64F5 /* iPhoneNumberField in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9E545B572869D15F00B36776 = {
+		9E133DD4286F744000BEE639 = {
 			isa = PBXGroup;
 			children = (
-				9E545B622869D15F00B36776 /* QuoteGenerator */,
-				9E545B612869D15F00B36776 /* Products */,
+				9E133DDF286F744000BEE639 /* GreySkullLP */,
+				9E133DDE286F744000BEE639 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		9E545B612869D15F00B36776 /* Products */ = {
+		9E133DDE286F744000BEE639 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9E545B602869D15F00B36776 /* QuoteGenerator.app */,
+				9E133DDD286F744000BEE639 /* GreySkullLP.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9E545B622869D15F00B36776 /* QuoteGenerator */ = {
+		9E133DDF286F744000BEE639 /* GreySkullLP */ = {
 			isa = PBXGroup;
 			children = (
-				9E545B632869D15F00B36776 /* QuoteGeneratorApp.swift */,
-				9E6292ED286BE91A008C64F5 /* Views */,
-				9E6292EE286BE92E008C64F5 /* Models */,
-				9E6292F0286BE952008C64F5 /* ViewModel */,
-				9E6292EF286BE943008C64F5 /* Utilities */,
-				9E545B672869D16000B36776 /* Assets.xcassets */,
-				9E545B692869D16000B36776 /* Preview Content */,
+				9E133DF0286F751200BEE639 /* Views */,
+				9E133DE0286F744000BEE639 /* GreySkullLPApp.swift */,
+				9E133DE4286F744100BEE639 /* Assets.xcassets */,
+				9E133DE6286F744100BEE639 /* Preview Content */,
 			);
-			path = QuoteGenerator;
+			path = GreySkullLP;
 			sourceTree = "<group>";
 		};
-		9E545B692869D16000B36776 /* Preview Content */ = {
+		9E133DE6286F744100BEE639 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				9E545B6A2869D16000B36776 /* Preview Assets.xcassets */,
+				9E133DE7286F744100BEE639 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		9E6292ED286BE91A008C64F5 /* Views */ = {
+		9E133DF0286F751200BEE639 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9E545B652869D15F00B36776 /* ContentView.swift */,
-				9E545B752869D37C00B36776 /* DetailsView.swift */,
-				9E545B79286A8CA600B36776 /* FinishView.swift */,
+				9E133DE2286F744000BEE639 /* MainView.swift */,
+				9E133DEE286F750D00BEE639 /* HomeView.swift */,
+				9E133DF1286F752900BEE639 /* HistoryView.swift */,
+				9E133DF5286F75D100BEE639 /* GraphView.swift */,
+				9E1791442870765200E00647 /* GreySkullLP.xcdatamodeld */,
+				9E133DF3286F753200BEE639 /* SettingsView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		9E6292EE286BE92E008C64F5 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				9E545B712869D1CF00B36776 /* Quote.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		9E6292EF286BE943008C64F5 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				9E545B772869D50500B36776 /* Extensions.swift */,
-				9E6292EB286BE575008C64F5 /* MapSearch.swift */,
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
-		9E6292F0286BE952008C64F5 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				9E545B732869D20C00B36776 /* SharedQuote.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9E545B5F2869D15F00B36776 /* QuoteGenerator */ = {
+		9E133DDC286F744000BEE639 /* GreySkullLP */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9E545B6E2869D16000B36776 /* Build configuration list for PBXNativeTarget "QuoteGenerator" */;
+			buildConfigurationList = 9E133DEB286F744100BEE639 /* Build configuration list for PBXNativeTarget "GreySkullLP" */;
 			buildPhases = (
-				9E545B5C2869D15F00B36776 /* Sources */,
-				9E545B5D2869D15F00B36776 /* Frameworks */,
-				9E545B5E2869D15F00B36776 /* Resources */,
+				9E133DD9286F744000BEE639 /* Sources */,
+				9E133DDA286F744000BEE639 /* Frameworks */,
+				9E133DDB286F744000BEE639 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = QuoteGenerator;
-			packageProductDependencies = (
-				9E6292E9286BE226008C64F5 /* iPhoneNumberField */,
-			);
-			productName = QuoteGenerator;
-			productReference = 9E545B602869D15F00B36776 /* QuoteGenerator.app */;
+			name = GreySkullLP;
+			productName = GreySkullLP;
+			productReference = 9E133DDD286F744000BEE639 /* GreySkullLP.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9E545B582869D15F00B36776 /* Project object */ = {
+		9E133DD5286F744000BEE639 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
-					9E545B5F2869D15F00B36776 = {
+					9E133DDC286F744000BEE639 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
 			};
-			buildConfigurationList = 9E545B5B2869D15F00B36776 /* Build configuration list for PBXProject "QuoteGenerator" */;
+			buildConfigurationList = 9E133DD8286F744000BEE639 /* Build configuration list for PBXProject "GreySkullLP" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -165,51 +133,47 @@
 				en,
 				Base,
 			);
-			mainGroup = 9E545B572869D15F00B36776;
-			packageReferences = (
-				9E6292E8286BE226008C64F5 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */,
-			);
-			productRefGroup = 9E545B612869D15F00B36776 /* Products */;
+			mainGroup = 9E133DD4286F744000BEE639;
+			productRefGroup = 9E133DDE286F744000BEE639 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9E545B5F2869D15F00B36776 /* QuoteGenerator */,
+				9E133DDC286F744000BEE639 /* GreySkullLP */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9E545B5E2869D15F00B36776 /* Resources */ = {
+		9E133DDB286F744000BEE639 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E545B6B2869D16000B36776 /* Preview Assets.xcassets in Resources */,
-				9E545B682869D16000B36776 /* Assets.xcassets in Resources */,
+				9E133DE8286F744100BEE639 /* Preview Assets.xcassets in Resources */,
+				9E133DE5286F744100BEE639 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9E545B5C2869D15F00B36776 /* Sources */ = {
+		9E133DD9286F744000BEE639 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E545B7A286A8CA600B36776 /* FinishView.swift in Sources */,
-				9E545B662869D15F00B36776 /* ContentView.swift in Sources */,
-				9E545B782869D50500B36776 /* Extensions.swift in Sources */,
-				9E545B762869D37C00B36776 /* DetailsView.swift in Sources */,
-				9E545B742869D20C00B36776 /* SharedQuote.swift in Sources */,
-				9E545B722869D1CF00B36776 /* Quote.swift in Sources */,
-				9E6292EC286BE575008C64F5 /* MapSearch.swift in Sources */,
-				9E545B642869D15F00B36776 /* QuoteGeneratorApp.swift in Sources */,
+				9E133DF4286F753200BEE639 /* SettingsView.swift in Sources */,
+				9E133DEF286F750D00BEE639 /* HomeView.swift in Sources */,
+				9E133DF2286F752900BEE639 /* HistoryView.swift in Sources */,
+				9E133DE3286F744000BEE639 /* MainView.swift in Sources */,
+				9E133DE1286F744000BEE639 /* GreySkullLPApp.swift in Sources */,
+				9E1791462870765200E00647 /* GreySkullLP.xcdatamodeld in Sources */,
+				9E133DF6286F75D100BEE639 /* GraphView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		9E545B6C2869D16000B36776 /* Debug */ = {
+		9E133DE9286F744100BEE639 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -269,7 +233,7 @@
 			};
 			name = Debug;
 		};
-		9E545B6D2869D16000B36776 /* Release */ = {
+		9E133DEA286F744100BEE639 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -323,14 +287,14 @@
 			};
 			name = Release;
 		};
-		9E545B6F2869D16000B36776 /* Debug */ = {
+		9E133DEC286F744100BEE639 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"QuoteGenerator/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"GreySkullLP/Preview Content\"";
 				DEVELOPMENT_TEAM = WW6MQ8PF85;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -344,7 +308,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.christopherkoski.QuoteGenerator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christopherkoski.GreySkullLP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -352,14 +316,14 @@
 			};
 			name = Debug;
 		};
-		9E545B702869D16000B36776 /* Release */ = {
+		9E133DED286F744100BEE639 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"QuoteGenerator/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"GreySkullLP/Preview Content\"";
 				DEVELOPMENT_TEAM = WW6MQ8PF85;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -373,7 +337,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.christopherkoski.QuoteGenerator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christopherkoski.GreySkullLP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -384,44 +348,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9E545B5B2869D15F00B36776 /* Build configuration list for PBXProject "QuoteGenerator" */ = {
+		9E133DD8286F744000BEE639 /* Build configuration list for PBXProject "GreySkullLP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9E545B6C2869D16000B36776 /* Debug */,
-				9E545B6D2869D16000B36776 /* Release */,
+				9E133DE9286F744100BEE639 /* Debug */,
+				9E133DEA286F744100BEE639 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9E545B6E2869D16000B36776 /* Build configuration list for PBXNativeTarget "QuoteGenerator" */ = {
+		9E133DEB286F744100BEE639 /* Build configuration list for PBXNativeTarget "GreySkullLP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9E545B6F2869D16000B36776 /* Debug */,
-				9E545B702869D16000B36776 /* Release */,
+				9E133DEC286F744100BEE639 /* Debug */,
+				9E133DED286F744100BEE639 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		9E6292E8286BE226008C64F5 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MojtabaHs/iPhoneNumberField.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.6.1;
-			};
+/* Begin XCVersionGroup section */
+		9E1791442870765200E00647 /* GreySkullLP.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9E1791452870765200E00647 /* GreySkullLP.xcdatamodel */,
+			);
+			currentVersion = 9E1791452870765200E00647 /* GreySkullLP.xcdatamodel */;
+			path = GreySkullLP.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
 		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		9E6292E9286BE226008C64F5 /* iPhoneNumberField */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9E6292E8286BE226008C64F5 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */;
-			productName = iPhoneNumberField;
-		};
-/* End XCSwiftPackageProductDependency section */
+/* End XCVersionGroup section */
 	};
-	rootObject = 9E545B582869D15F00B36776 /* Project object */;
+	rootObject = 9E133DD5286F744000BEE639 /* Project object */;
 }

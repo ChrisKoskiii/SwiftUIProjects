@@ -15,8 +15,8 @@ struct Quote: Codable {
   var stories: Int = 1
   var sliders: Int = 0
   var windows: Int = 0
-  var outsideOnly: Bool = false
-  var phoneNumber: Int = 0
+  var jobType: Int = 0
+  var phoneNumber: String = ""
   var email: String = ""
   
   var isFilledOut: Bool {
@@ -27,7 +27,7 @@ struct Quote: Codable {
   }
   
   var getQuoteDisabled: Bool {
-    if phoneNumber <= 0 || email.isReallyEmpty {
+    if phoneNumber.isReallyEmpty || email.isReallyEmpty || !email.hasSuffix(".com") ||  !email.hasSuffix(".net") ||  !email.hasSuffix(".org"){
       return true
     } else {
       return false
