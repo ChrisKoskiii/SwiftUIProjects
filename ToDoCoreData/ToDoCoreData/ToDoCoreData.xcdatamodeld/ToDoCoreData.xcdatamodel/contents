@@ -4,8 +4,14 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ItemList" inverseName="item" inverseEntity="ItemList"/>
+    </entity>
+    <entity name="ItemList" representedClassName="ItemList" syncable="YES">
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="item" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="list" inverseEntity="Item"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="Item" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="ItemList" positionX="-54" positionY="18" width="128" height="59"/>
     </elements>
 </model>

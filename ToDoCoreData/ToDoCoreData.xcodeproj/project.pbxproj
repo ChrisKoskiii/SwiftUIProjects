@@ -15,6 +15,8 @@
 		9E24B3C3287CF96C00322BEA /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24B3C1287CF96C00322BEA /* Item+CoreDataClass.swift */; };
 		9E24B3C4287CF96C00322BEA /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24B3C2287CF96C00322BEA /* Item+CoreDataProperties.swift */; };
 		9E24B3C6287CFAEC00322BEA /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24B3C5287CFAEC00322BEA /* DataController.swift */; };
+		9E24B3C9287DED8A00322BEA /* ItemList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24B3C7287DED8A00322BEA /* ItemList+CoreDataClass.swift */; };
+		9E24B3CA287DED8A00322BEA /* ItemList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24B3C8287DED8A00322BEA /* ItemList+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		9E24B3C1287CF96C00322BEA /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9E24B3C2287CF96C00322BEA /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9E24B3C5287CFAEC00322BEA /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		9E24B3C7287DED8A00322BEA /* ItemList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemList+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9E24B3C8287DED8A00322BEA /* ItemList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemList+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,8 @@
 		9E24B3A4287CF89400322BEA = {
 			isa = PBXGroup;
 			children = (
+				9E24B3C7287DED8A00322BEA /* ItemList+CoreDataClass.swift */,
+				9E24B3C8287DED8A00322BEA /* ItemList+CoreDataProperties.swift */,
 				9E24B3C1287CF96C00322BEA /* Item+CoreDataClass.swift */,
 				9E24B3C2287CF96C00322BEA /* Item+CoreDataProperties.swift */,
 				9E24B3AF287CF89400322BEA /* ToDoCoreData */,
@@ -151,7 +157,9 @@
 			files = (
 				9E24B3B3287CF89400322BEA /* ContentView.swift in Sources */,
 				9E24B3C6287CFAEC00322BEA /* DataController.swift in Sources */,
+				9E24B3C9287DED8A00322BEA /* ItemList+CoreDataClass.swift in Sources */,
 				9E24B3C0287CF8B200322BEA /* ToDoCoreData.xcdatamodeld in Sources */,
+				9E24B3CA287DED8A00322BEA /* ItemList+CoreDataProperties.swift in Sources */,
 				9E24B3C3287CF96C00322BEA /* Item+CoreDataClass.swift in Sources */,
 				9E24B3B1287CF89400322BEA /* ToDoCoreDataApp.swift in Sources */,
 				9E24B3C4287CF96C00322BEA /* Item+CoreDataProperties.swift in Sources */,

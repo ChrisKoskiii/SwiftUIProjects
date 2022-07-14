@@ -19,6 +19,7 @@ extension Item {
   @NSManaged public var title: String?
   @NSManaged public var isDone: Bool
   @NSManaged public var id: UUID?
+  @NSManaged public var list: ItemList?
   
   var wrappedTitle: String {
     title ?? "Unknown"
