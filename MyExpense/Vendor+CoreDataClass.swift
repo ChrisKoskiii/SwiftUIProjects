@@ -1,5 +1,5 @@
 //
-//  Expense+CoreDataClass.swift
+//  Vendor+CoreDataClass.swift
 //  MyExpense
 //
 //  Created by Christopher Koski on 7/16/22.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(Expense)
-public class Expense: NSManagedObject {
+@objc(Vendor)
+public class Vendor: NSManagedObject {
 
 }

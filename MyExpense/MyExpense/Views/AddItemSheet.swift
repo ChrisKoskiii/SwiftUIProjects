@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct AddItemSheet: View {
+  @Environment(\.dismiss) var dismiss
+  @Environment(\.managedObjectContext) var moc
+  
   @State var price = 0.0
   @State var expenseName = ""
   @State var category = ""
@@ -26,9 +29,11 @@ struct AddItemSheet: View {
           Text("What is it for?")
         }
         Section {
-          Picker("Category", selection: $category) {
-            ForEach(1..<5) {_ in
-              Text("Category")
+          HStack {
+            TextField("", text: $category)
+            NavigationLink {
+              //store history
+            } label : {
             }
           }
         } header: {
@@ -46,7 +51,7 @@ struct AddItemSheet: View {
           Text("Where did you buy?")
         }
         Button{
-          //add item
+          addExpense()
         } label: {
           HStack {
             Spacer()
@@ -59,6 +64,29 @@ struct AddItemSheet: View {
       }
       .navigationTitle("Add an expense")
     }
+  }
+  func addExpense() {
+    if checkEmpties() {
+      let newExpense = Expense(context: moc)
+      newExpense.title = expenseName
+      newExpense.price = price
+      newExpense.date = Date()
+      newExpense.vendor = Vendor(context: moc)
+      newExpense.vendor.name = vendorName
+      newExpense.category = Category(context: moc)
+      newExpense.category.name = category
+      
+      try? moc.save()
+      dismiss()
+    }
+  }
+  
+  func checkEmpties() -> Bool {
+    if expenseName.count == 0 || price <= 0.0 || category.count == 0 || vendorName.count == 0 {
+      //present eror
+      return false
+    }
+    return true
   }
 }
 

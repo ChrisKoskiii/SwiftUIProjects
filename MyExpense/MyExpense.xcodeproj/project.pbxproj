@@ -15,11 +15,15 @@
 		9E6F67532880B84100A92FC4 /* ExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6F67522880B84100A92FC4 /* ExpensesView.swift */; };
 		9E6F67552880B84B00A92FC4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6F67542880B84B00A92FC4 /* SettingsView.swift */; };
 		9E6F67592880B9F100A92FC4 /* MyExpense.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E6F67572880B9F100A92FC4 /* MyExpense.xcdatamodeld */; };
-		9E6F675C2880BA2A00A92FC4 /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6F675A2880BA2A00A92FC4 /* Expense+CoreDataClass.swift */; };
-		9E6F675D2880BA2A00A92FC4 /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6F675B2880BA2A00A92FC4 /* Expense+CoreDataProperties.swift */; };
 		9E6F675F2880BA5A00A92FC4 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6F675E2880BA5A00A92FC4 /* DataController.swift */; };
 		9E6F67612881913000A92FC4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6F67602881913000A92FC4 /* Extensions.swift */; };
 		9E6F67632881923400A92FC4 /* AddItemSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6F67622881923400A92FC4 /* AddItemSheet.swift */; };
+		9EBD2B662882FB2F0074A605 /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBD2B602882FB2F0074A605 /* Expense+CoreDataClass.swift */; };
+		9EBD2B672882FB2F0074A605 /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBD2B612882FB2F0074A605 /* Expense+CoreDataProperties.swift */; };
+		9EBD2B682882FB2F0074A605 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBD2B622882FB2F0074A605 /* Category+CoreDataClass.swift */; };
+		9EBD2B692882FB2F0074A605 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBD2B632882FB2F0074A605 /* Category+CoreDataProperties.swift */; };
+		9EBD2B6A2882FB2F0074A605 /* Vendor+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBD2B642882FB2F0074A605 /* Vendor+CoreDataClass.swift */; };
+		9EBD2B6B2882FB2F0074A605 /* Vendor+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBD2B652882FB2F0074A605 /* Vendor+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,11 +36,15 @@
 		9E6F67522880B84100A92FC4 /* ExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesView.swift; sourceTree = "<group>"; };
 		9E6F67542880B84B00A92FC4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9E6F67582880B9F100A92FC4 /* MyExpense.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyExpense.xcdatamodel; sourceTree = "<group>"; };
-		9E6F675A2880BA2A00A92FC4 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
-		9E6F675B2880BA2A00A92FC4 /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9E6F675E2880BA5A00A92FC4 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		9E6F67602881913000A92FC4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9E6F67622881923400A92FC4 /* AddItemSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemSheet.swift; sourceTree = "<group>"; };
+		9EBD2B602882FB2F0074A605 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9EBD2B612882FB2F0074A605 /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9EBD2B622882FB2F0074A605 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9EBD2B632882FB2F0074A605 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9EBD2B642882FB2F0074A605 /* Vendor+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vendor+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9EBD2B652882FB2F0074A605 /* Vendor+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vendor+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +61,12 @@
 		9E6F67362880B74F00A92FC4 = {
 			isa = PBXGroup;
 			children = (
-				9E6F675A2880BA2A00A92FC4 /* Expense+CoreDataClass.swift */,
-				9E6F675B2880BA2A00A92FC4 /* Expense+CoreDataProperties.swift */,
+				9EBD2B602882FB2F0074A605 /* Expense+CoreDataClass.swift */,
+				9EBD2B612882FB2F0074A605 /* Expense+CoreDataProperties.swift */,
+				9EBD2B622882FB2F0074A605 /* Category+CoreDataClass.swift */,
+				9EBD2B632882FB2F0074A605 /* Category+CoreDataProperties.swift */,
+				9EBD2B642882FB2F0074A605 /* Vendor+CoreDataClass.swift */,
+				9EBD2B652882FB2F0074A605 /* Vendor+CoreDataProperties.swift */,
 				9E6F67412880B74F00A92FC4 /* MyExpense */,
 				9E6F67402880B74F00A92FC4 /* Products */,
 			);
@@ -172,14 +184,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E6F675C2880BA2A00A92FC4 /* Expense+CoreDataClass.swift in Sources */,
 				9E6F67552880B84B00A92FC4 /* SettingsView.swift in Sources */,
+				9EBD2B692882FB2F0074A605 /* Category+CoreDataProperties.swift in Sources */,
+				9EBD2B682882FB2F0074A605 /* Category+CoreDataClass.swift in Sources */,
+				9EBD2B6A2882FB2F0074A605 /* Vendor+CoreDataClass.swift in Sources */,
 				9E6F67532880B84100A92FC4 /* ExpensesView.swift in Sources */,
+				9EBD2B662882FB2F0074A605 /* Expense+CoreDataClass.swift in Sources */,
 				9E6F67592880B9F100A92FC4 /* MyExpense.xcdatamodeld in Sources */,
-				9E6F675D2880BA2A00A92FC4 /* Expense+CoreDataProperties.swift in Sources */,
 				9E6F67632881923400A92FC4 /* AddItemSheet.swift in Sources */,
 				9E6F67612881913000A92FC4 /* Extensions.swift in Sources */,
+				9EBD2B6B2882FB2F0074A605 /* Vendor+CoreDataProperties.swift in Sources */,
 				9E6F67452880B74F00A92FC4 /* MainView.swift in Sources */,
+				9EBD2B672882FB2F0074A605 /* Expense+CoreDataProperties.swift in Sources */,
 				9E6F67512880B83B00A92FC4 /* DashboardView.swift in Sources */,
 				9E6F675F2880BA5A00A92FC4 /* DataController.swift in Sources */,
 				9E6F67432880B74F00A92FC4 /* MyExpenseApp.swift in Sources */,

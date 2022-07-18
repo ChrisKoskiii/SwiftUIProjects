@@ -16,9 +16,7 @@ struct DashboardView: View {
     NavigationView {
       ZStack {
         GreetingText()
-        VStack {
-          SummaryCardView()
-        }
+        SummaryCardView(expenseItems: expenseItems)
       }
       .toolbar {
         ToolbarItem {
@@ -66,11 +64,12 @@ struct GreetingText: View {
 }
 
 struct SummaryCardView: View {
+  var expenseItems: FetchedResults<Expense>
   var body: some View {
     VStack {
       Spacer()
       MonthlyTotal()
-      RecentExpenses()
+      RecentExpenses(expenses: expenseItems)
       Spacer()
       Spacer()
     }
@@ -98,36 +97,38 @@ struct SpinningShape: View {
 }
 
 struct RecentExpenses: View {
+  var expenses: FetchedResults<Expense>
   var body: some View {
-    VStack(alignment: .leading) {
+    VStack(spacing: 0) {
       HStack {
-        Text("Recent expenses:")
+        Text("Recent activity")
           .font(.caption)
           .padding(.top, 8)
           .padding(.leading, 16)
           .padding(.bottom)
         Spacer()
       }
-      ForEach(1..<6) { _ in
+      ForEach(expenses) { expense in
         HStack {
           VStack(alignment: .leading) {
-            Text("$34.50")
-              .font(.body)
-            Text("Supplies")
-              .font(.footnote)
+            Text(expense.wrappedTitle)
+            Text(expense.category.wrappedName)
+              .font(.caption)
+            Text(String(expense.formattedDate))
+              .font(.caption2)
           }
           .padding(.leading)
-          .padding(.bottom, 4)
+          .padding(.vertical, 4)
           Spacer()
           VStack(alignment: .trailing) {
-            Text("Wal-Mart")
-              .font(.body)
-            Text("4/13")
-              .font(.footnote)
+            Text(expense.formattedPrice)
+            Text(expense.vendor.wrappedName)
+              .font(.caption2)
           }
           .padding(.trailing)
-          .padding(.bottom, 4)
         }
+        .listRowBackground(Color.clear)
+        Divider()
       }
       Spacer()
     }

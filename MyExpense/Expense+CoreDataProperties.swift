@@ -2,7 +2,7 @@
 //  Expense+CoreDataProperties.swift
 //  MyExpense
 //
-//  Created by Christopher Koski on 7/14/22.
+//  Created by Christopher Koski on 7/16/22.
 //
 //
 
@@ -11,25 +11,33 @@ import CoreData
 
 
 extension Expense {
-
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Expense> {
-        return NSFetchRequest<Expense>(entityName: "Expense")
-    }
-
-    @NSManaged public var price: Int16
-    @NSManaged public var title: String?
-    @NSManaged public var date: Date?
-    @NSManaged public var category: String?
+  
+  @nonobjc public class func fetchRequest() -> NSFetchRequest<Expense> {
+    return NSFetchRequest<Expense>(entityName: "Expense")
+  }
+  
+  @NSManaged public var date: Date?
+  @NSManaged public var price: Double
+  @NSManaged public var title: String?
+  @NSManaged public var category: Category
+  @NSManaged public var vendor: Vendor
   
   var wrappedTitle: String {
     title ?? "Unknown"
   }
   
-  var wrappedCategory: String {
-    category ?? "Unknown"
+  var formattedPrice: String {
+    return "$" + String(format: "%.2f", price)
+  }
+  
+  var formattedDate: String {
+    guard let date = date else { return "Unknown" }
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MM/dd/YY"
+    return dateFormatter.string(from: date)
   }
 }
 
 extension Expense : Identifiable {
-
+  
 }
