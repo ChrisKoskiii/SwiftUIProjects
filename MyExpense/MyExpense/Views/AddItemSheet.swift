@@ -10,14 +10,20 @@ import SwiftUI
 struct AddItemSheet: View {
   @Environment(\.dismiss) var dismiss
   @Environment(\.managedObjectContext) var moc
+  @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var categories: FetchedResults<Category>
   
   @State var price = 0.0
   @State var expenseName = ""
-  @State var category = ""
+  @State var categoryName = ""
   @State var vendorName = ""
+  @State var expenseDate = Date()
+  
   var body: some View {
     NavigationView {
       List {
+        Section {
+          DatePicker("Date", selection: $expenseDate, displayedComponents: [.date])
+        }
         Section {
           TextField("", value: $price, format: .currency(code: "USD"))
         } header: {
@@ -29,11 +35,12 @@ struct AddItemSheet: View {
           Text("What is it for?")
         }
         Section {
-          HStack {
-            TextField("", text: $category)
-            NavigationLink {
-              //store history
-            } label : {
+          VStack {
+            Picker("Category", selection: $categoryName) {
+              Button("Add New") { }
+              ForEach(categories) { category in
+                Text(category.wrappedName)
+              }
             }
           }
         } header: {
@@ -70,11 +77,11 @@ struct AddItemSheet: View {
       let newExpense = Expense(context: moc)
       newExpense.title = expenseName
       newExpense.price = price
-      newExpense.date = Date()
+      newExpense.date = expenseDate
       newExpense.vendor = Vendor(context: moc)
       newExpense.vendor.name = vendorName
       newExpense.category = Category(context: moc)
-      newExpense.category.name = category
+      newExpense.category.name = categoryName
       
       try? moc.save()
       dismiss()
@@ -82,11 +89,27 @@ struct AddItemSheet: View {
   }
   
   func checkEmpties() -> Bool {
-    if expenseName.count == 0 || price <= 0.0 || category.count == 0 || vendorName.count == 0 {
+    if expenseName.count == 0 || price <= 0.0 || categoryName.count == 0 || vendorName.count == 0 {
       //present eror
       return false
     }
     return true
+  }
+}
+
+struct CategoryList: View {
+  @Environment(\.dismiss) var dismiss
+  @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var categories: FetchedResults<Category>
+  @Binding var categoryName: String
+  
+  var body: some View {
+    ForEach(categories) { category in
+      Text(category.wrappedName)
+        .onTapGesture {
+          categoryName = category.wrappedName
+          dismiss()
+        }
+    }
   }
 }
 

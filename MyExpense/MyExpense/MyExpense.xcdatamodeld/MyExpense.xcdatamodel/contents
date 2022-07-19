@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Category" representedClassName="Category" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="expense" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="category" inverseEntity="Expense"/>
         <uniquenessConstraints>
@@ -17,6 +18,7 @@
         <relationship name="vendor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vendor" inverseName="expense" inverseEntity="Vendor"/>
     </entity>
     <entity name="Vendor" representedClassName="Vendor" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="expense" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="vendor" inverseEntity="Expense"/>
         <uniquenessConstraints>
@@ -26,8 +28,8 @@
         </uniquenessConstraints>
     </entity>
     <elements>
+        <element name="Category" positionX="-54" positionY="27" width="128" height="74"/>
         <element name="Expense" positionX="-63" positionY="-18" width="128" height="104"/>
-        <element name="Vendor" positionX="-63" positionY="9" width="128" height="59"/>
-        <element name="Category" positionX="-54" positionY="27" width="128" height="59"/>
+        <element name="Vendor" positionX="-63" positionY="9" width="128" height="74"/>
     </elements>
 </model>

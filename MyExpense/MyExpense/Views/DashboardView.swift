@@ -6,16 +6,26 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct DashboardView: View {
   @State var showingAddExpenseSheet = false
   
   @FetchRequest(sortDescriptors: []) var expenseItems: FetchedResults<Expense>
   
+  init() {
+    let request: NSFetchRequest<Expense> = Expense.fetchRequest()
+    request.fetchLimit = 5
+    request.sortDescriptors = [
+      NSSortDescriptor(keyPath: \Expense.date, ascending: false)
+    ]
+    _expenseItems = FetchRequest(fetchRequest: request)
+  }
+  
   var body: some View {
+    
     NavigationView {
       ZStack {
-        GreetingText()
         SummaryCardView(expenseItems: expenseItems)
       }
       .toolbar {
@@ -32,8 +42,7 @@ struct DashboardView: View {
       .sheet(isPresented: $showingAddExpenseSheet, content: {
         AddItemSheet()
       })
-      .navigationTitle("MyExpense")
-      .navigationBarTitleDisplayMode(.inline)
+      .navigationTitle("☀️ Good morning")
       .background(
         ZStack {
           Color.backgroundColor
@@ -42,24 +51,6 @@ struct DashboardView: View {
         }
       )
     }
-  }
-}
-
-
-struct GreetingText: View {
-  var body: some View {
-    HStack {
-      VStack(alignment: .leading) {
-        Text("Goodmorning")
-          .font(.title)
-          .fontWeight(.bold)
-          .foregroundStyle(.linearGradient(colors: [.primary, .primary.opacity(0.5)], startPoint: .topLeading, endPoint: .bottomTrailing))
-        Spacer()
-      }
-      Spacer()
-    }
-    .padding(.leading, 8)
-    .padding(.top, 8)
   }
 }
 
@@ -128,12 +119,12 @@ struct RecentExpenses: View {
           .padding(.trailing)
         }
         .listRowBackground(Color.clear)
-        Divider()
+        if expenses.last != expense {
+          Divider()
+        }
       }
-      Spacer()
     }
     .frame(maxWidth: .infinity)
-    .frame(maxHeight: 300)
     .background(.ultraThinMaterial, in:
                   RoundedRectangle(cornerRadius: 20)
     )
