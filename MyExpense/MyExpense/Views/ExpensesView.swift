@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import ElegantCalendar
 
 enum viewChoice: String, CaseIterable {
   case list = "By Date"
@@ -94,20 +93,6 @@ struct expenseList: View {
     } catch {
       print(error.localizedDescription)
     }
-  }
-}
-
-struct ExpenseCalendarView: View {
-  
-  static let startDate = Date().addingTimeInterval(TimeInterval(60 * 60 * 24 * (-30 * 36)))
-  static let endDate = Date().addingTimeInterval(TimeInterval(60 * 60 * 24 * (30 * 36)))
-
-  @ObservedObject var calendarManager = ElegantCalendarManager(
-      configuration: CalendarConfiguration(startDate: startDate,
-                                           endDate: endDate))
-
-  var body: some View {
-      ElegantCalendarView(calendarManager: calendarManager)
   }
 }
 
