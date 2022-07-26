@@ -23,20 +23,15 @@ struct DashboardView: View {
   }
   
   var body: some View {
-    
     NavigationView {
       ZStack {
         SummaryCardView(expenseItems: expenseItems)
       }
       .toolbar {
-        ToolbarItem {
-          Button {
-            showingAddExpenseSheet.toggle()
-          } label: {
-            Image(systemName: "plus")
-              .font(.title2)
-              .foregroundColor(.white)
-          }
+        NavigationLink(destination: AddItemSheet()) {
+          Image(systemName: "plus")
+            .font(.title2)
+            .foregroundColor(.white)
         }
       }
       .sheet(isPresented: $showingAddExpenseSheet, content: {
@@ -48,8 +43,7 @@ struct DashboardView: View {
           Color.backgroundColor
           SpinningShape()
             .offset(x: 0, y: -380)
-        }
-      )
+        })
     }
   }
 }

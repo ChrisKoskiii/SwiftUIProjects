@@ -24,70 +24,63 @@ struct AddItemSheet: View {
   @State private var categoriesArray: [String] = []
   @State private var vendorsArray: [String] = []
   @State private var cameraIsPresented = false
+  @State private var showScanner = false
+  @State private var isRecognizing = false
   
   var body: some View {
     NavigationView {
-      List {
-        Section {
-          DatePicker("Date", selection: $expenseDate, displayedComponents: [.date])
-        }
-        Section {
-          TextField("", value: $price, format: .currency(code: "USD"))
-        } header: {
-          Text("What did it cost?")
-        }
-        Section {
-          TextField("", text: $expenseName)
-        } header: {
-          Text("What is it for?")
-        }
-        Section {
-          HStack {
-            TextField("Category", text: $categoryName)
-            Picker("", selection: $categoryName) {
-              ForEach(categoriesArray, id: \.self) {
-                Text($0)
-              }
-            }
-            .pickerStyle(.menu)
+      VStack {
+        Form {
+          Section {
+            DatePicker("Date", selection: $expenseDate, displayedComponents: [.date])
           }
-        } header: {
-          Text("What category?")
-        }
-        Section {
-          HStack {
-            TextField("Vendor", text: $vendorName)
-            Picker("", selection: $vendorName) {
-              ForEach(vendorsArray, id: \.self) {
-                Text($0)
-              }
-            }
-            .pickerStyle(.menu)
+          Section {
+            TextField("", value: $price, format: .currency(code: "USD"))
+          } header: {
+            Text("What did it cost?")
           }
-        } header: {
-          Text("Where did you buy?")
+          Section {
+            TextField("", text: $expenseName)
+          } header: {
+            Text("What is it for?")
+          }
+          Section {
+            HStack {
+              TextField("Category", text: $categoryName)
+              Picker("", selection: $categoryName) {
+                ForEach(categoriesArray, id: \.self) {
+                  Text($0)
+                }
+              }
+              .pickerStyle(.menu)
+            }
+          } header: {
+            Text("What category?")
+          }
+          Section {
+            HStack {
+              TextField("Vendor", text: $vendorName)
+              Picker("", selection: $vendorName) {
+                ForEach(vendorsArray, id: \.self) {
+                  Text($0)
+                }
+              }
+              .pickerStyle(.menu)
+            }
+          } header: {
+            Text("Where did you buy?")
+          }
+          ScannerSection()
         }
-        Button{
+        Button("Add Item"){
           addExpense()
-        } label: {
-          HStack {
-            Spacer()
-            Text("Add Item")
-            Spacer()
-          }
         }
         .font(.title2)
         .foregroundStyle(.linearGradient(colors: [.blue, .blue.opacity(0.5)], startPoint: .topLeading, endPoint: .bottomTrailing))
       }
-      .toolbar {
-        Button {
-          //
-        } label: {
-          Image(systemName: "camera")
-        }
-      }
     }
     .navigationTitle("Add an expense")
+    .navigationBarTitleDisplayMode(.inline)
     .onAppear {
       getCategories()
       getVendors()
@@ -158,3 +151,26 @@ struct AddItemSheet_Previews: PreviewProvider {
   }
 }
 
+
+struct ScannerSection: View {
+  var body: some View {
+    VStack {
+      HStack {
+        Spacer()
+        HStack {
+          Image(systemName: "doc.text.viewfinder")
+            .renderingMode(.template)
+            .foregroundColor(.white)
+          
+          Text("Scan")
+            .foregroundColor(.white)
+        }
+        .padding(.horizontal, 16)
+        .frame(height: 36)
+        .background(Color(UIColor.systemIndigo))
+        .cornerRadius(18)
+        Spacer()
+      }
+    }
+  }
+}

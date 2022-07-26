@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E187CE828903A6E00142000 /* AddItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E187CE728903A6E00142000 /* AddItemViewModel.swift */; };
 		9E1B4DF72885DCEC00E01E82 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1B4DF62885DCEC00E01E82 /* CalendarView.swift */; };
-		9E1B4E91288F181300E01E82 /* DocumentScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1B4E90288F181300E01E82 /* DocumentScanner.swift */; };
 		9E6F67432880B74F00A92FC4 /* MyExpenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6F67422880B74F00A92FC4 /* MyExpenseApp.swift */; };
 		9E6F67452880B74F00A92FC4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6F67442880B74F00A92FC4 /* MainView.swift */; };
 		9E6F67472880B75100A92FC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E6F67462880B75100A92FC4 /* Assets.xcassets */; };
@@ -29,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E187CE728903A6E00142000 /* AddItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewModel.swift; sourceTree = "<group>"; };
 		9E1B4DF62885DCEC00E01E82 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		9E1B4E1C2889CE8D00E01E82 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9E1B4E1D2889CE8D00E01E82 /* ImageScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScannerController.swift; sourceTree = "<group>"; };
@@ -99,7 +100,6 @@
 		9E1B4E692889CE8D00E01E82 /* CaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSession.swift; sourceTree = "<group>"; };
 		9E1B4E6A2889CE8D00E01E82 /* CaptureSession+Focus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CaptureSession+Focus.swift"; sourceTree = "<group>"; };
 		9E1B4E6B2889CEFE00E01E82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		9E1B4E90288F181300E01E82 /* DocumentScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentScanner.swift; sourceTree = "<group>"; };
 		9E6F673F2880B74F00A92FC4 /* MyExpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyExpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E6F67422880B74F00A92FC4 /* MyExpenseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExpenseApp.swift; sourceTree = "<group>"; };
 		9E6F67442880B74F00A92FC4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -301,6 +301,7 @@
 		9E1B4E8D288EC30D00E01E82 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				9E187CE728903A6E00142000 /* AddItemViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -328,7 +329,6 @@
 			children = (
 				9E1B4E6B2889CEFE00E01E82 /* Info.plist */,
 				9E6F67422880B74F00A92FC4 /* MyExpenseApp.swift */,
-				9E1B4E90288F181300E01E82 /* DocumentScanner.swift */,
 				9E6F675E2880BA5A00A92FC4 /* DataController.swift */,
 				9E1B4E8D288EC30D00E01E82 /* ViewModels */,
 				9E6F67562880B86900A92FC4 /* Views */,
@@ -455,9 +455,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E6F67552880B84B00A92FC4 /* SettingsView.swift in Sources */,
-				9E1B4E91288F181300E01E82 /* DocumentScanner.swift in Sources */,
 				9EBD2B692882FB2F0074A605 /* Category+CoreDataProperties.swift in Sources */,
 				9E1B4DF72885DCEC00E01E82 /* CalendarView.swift in Sources */,
+				9E187CE828903A6E00142000 /* AddItemViewModel.swift in Sources */,
 				9EBD2B682882FB2F0074A605 /* Category+CoreDataClass.swift in Sources */,
 				9EBD2B6A2882FB2F0074A605 /* Vendor+CoreDataClass.swift in Sources */,
 				9E6F67532880B84100A92FC4 /* ExpensesView.swift in Sources */,

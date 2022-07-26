@@ -10,12 +10,7 @@ import SwiftUI
 struct SettingsView: View {
   @State var isShowingScanner = false
   var body: some View {
-    Button("Start scan") {
-      isShowingScanner = true
-    }
-    .sheet(isPresented: $isShowingScanner) {
-      DocumentScanner()
-    }
+    Text("Hello")
   }
 }
 
