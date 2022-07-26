@@ -5,8 +5,6 @@
 //  Created by Christopher Koski on 7/26/22.
 //
 
-import SwiftUI
+import Foundation
 
-class AddItemViewModel: ObservableObject {
-  
-}
+
