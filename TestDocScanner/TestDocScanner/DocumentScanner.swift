@@ -11,6 +11,7 @@ import VisionKit
 struct ScannerView: UIViewControllerRepresentable {
   var didFinishScanning: ((_ result: Result<[UIImage], Error>) -> Void)
   var didCancelScanning: () -> Void
+  static var scannedImages: [UIImage] = []
   
   func makeUIViewController(context: Context) -> VNDocumentCameraViewController {
     let scannerViewController = VNDocumentCameraViewController()
@@ -27,6 +28,7 @@ struct ScannerView: UIViewControllerRepresentable {
   
   
   class Coordinator: NSObject, VNDocumentCameraViewControllerDelegate {
+    
     let scannerView: ScannerView
     
     init(with scannerView: ScannerView) {
@@ -41,8 +43,8 @@ struct ScannerView: UIViewControllerRepresentable {
       
       for i in 0..<scan.pageCount {
         scannedPages.append(scan.imageOfPage(at: i))
+        scannedImages.append(scan.imageOfPage(at: i))
       }
-      
       scannerView.didFinishScanning(.success(scannedPages))
     }
     
