@@ -12,12 +12,13 @@ enum viewChoice: String, CaseIterable {
   case calendar = "By Category"
 }
 struct chosenView: View {
+  @ObservedObject var dataVM: DataController
   var selectedView: viewChoice
   
   var body: some View {
     switch selectedView {
     case .list:
-      expenseList()
+      expenseList(dataVM: dataVM)
     case .calendar:
       Text("hello")
     }
@@ -26,8 +27,7 @@ struct chosenView: View {
 
 
 struct ExpensesView: View {
-  @Environment(\.managedObjectContext) var moc
-  @FetchRequest(sortDescriptors: []) var expenseItems: FetchedResults<Expense>
+  @ObservedObject var dataVM: DataController
   
   @State private var selectedPicker: viewChoice = .list
   
@@ -41,7 +41,7 @@ struct ExpensesView: View {
         }
         .pickerStyle(.segmented)
         .padding()
-        expenseList()
+        expenseList(dataVM: dataVM)
       }
       .navigationTitle("All expenses")
       .navigationBarTitleDisplayMode(.inline)
@@ -55,12 +55,11 @@ struct ExpensesView: View {
 }
 
 struct expenseList: View {
-  @Environment(\.managedObjectContext) var moc
-  @FetchRequest(sortDescriptors: []) var expenseItems: FetchedResults<Expense>
   
+  @ObservedObject var dataVM: DataController
   var body: some View {
     List {
-      ForEach(expenseItems, id:\.self) { expense in
+      ForEach(dataVM.savedExpenses, id:\.self) { expense in
         HStack {
           VStack(alignment: .leading) {
             Text(expense.wrappedTitle)
@@ -85,19 +84,15 @@ struct expenseList: View {
   
   func deleteExpense(at offsets: IndexSet) {
     for index in offsets {
-      let expense = expenseItems[index]
-      moc.delete(expense)
+      let expense = dataVM.savedExpenses[index]
+      dataVM.container.viewContext.delete(expense)
     }
-    do {
-      try moc.save()
-    } catch {
-      print(error.localizedDescription)
-    }
+    dataVM.saveData()
   }
 }
 
 struct Expenses_Previews: PreviewProvider {
   static var previews: some View {
-    ExpensesView()
+    ExpensesView(dataVM: DataController())
   }
 }

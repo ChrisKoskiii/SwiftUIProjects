@@ -17,7 +17,7 @@ extension Category {
     }
 
     @NSManaged public var name: String?
-    @NSManaged public var id: UUID?
+    @NSManaged public var id: String?
     @NSManaged public var expense: NSSet?
 
   var wrappedName: String {

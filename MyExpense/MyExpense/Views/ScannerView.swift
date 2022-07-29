@@ -12,6 +12,7 @@ struct ScannerView: UIViewControllerRepresentable {
   var didFinishScanning: ((_ result: Result<[UIImage], Error>) -> Void)
   var didCancelScanning: () -> Void
   static var scannedImages: [UIImage] = []
+  static var imageData: [Data] = []
   
   func makeUIViewController(context: Context) -> VNDocumentCameraViewController {
     let scannerViewController = VNDocumentCameraViewController()
@@ -44,6 +45,8 @@ struct ScannerView: UIViewControllerRepresentable {
       for i in 0..<scan.pageCount {
         scannedPages.append(scan.imageOfPage(at: i))
         scannedImages.append(scan.imageOfPage(at: i))
+        imageData.append(scan.imageOfPage(at: i).jpegData(compressionQuality: 1.0)!)
+        
       }
       scannerView.didFinishScanning(.success(scannedPages))
     }

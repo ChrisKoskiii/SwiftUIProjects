@@ -9,34 +9,38 @@ import SwiftUI
 import CoreData
 
 struct DashboardView: View {
+  @Environment(\.managedObjectContext) var viewContext
+  private var dashboardVM: DashboardViewModel
+  
+  init(vm: DashboardViewModel) {
+    self.dashboardVM = vm
+  }
+  
   @State var showingAddExpenseSheet = false
   
-  @FetchRequest(sortDescriptors: []) var expenseItems: FetchedResults<Expense>
-  
-  init() {
-    let request: NSFetchRequest<Expense> = Expense.fetchRequest()
-    request.fetchLimit = 5
-    request.sortDescriptors = [
-      NSSortDescriptor(keyPath: \Expense.date, ascending: false)
-    ]
-    _expenseItems = FetchRequest(fetchRequest: request)
-  }
+//  @FetchRequest(sortDescriptors: []) var expenseItems: FetchedResults<Expense>
+//
+//  init() {
+//    let request: NSFetchRequest<Expense> = Expense.fetchRequest()
+//    request.fetchLimit = 5
+//    request.sortDescriptors = [
+//      NSSortDescriptor(keyPath: \Expense.date, ascending: false)
+//    ]
+//    _expenseItems = FetchRequest(fetchRequest: request)
+//  }
   
   var body: some View {
     NavigationView {
       ZStack {
-        SummaryCardView(expenseItems: expenseItems)
+        SummaryCardView(expenseItems: dataVM.savedExpenses)
       }
       .toolbar {
-        NavigationLink(destination: AddItemSheet()) {
+        NavigationLink(destination: AddItemView(dataVM: dataVM)) {
           Image(systemName: "plus")
             .font(.title2)
             .foregroundColor(.white)
         }
       }
-      .sheet(isPresented: $showingAddExpenseSheet, content: {
-        AddItemSheet()
-      })
       .navigationTitle("☀️ Good morning")
       .background(
         ZStack {
@@ -49,7 +53,7 @@ struct DashboardView: View {
 }
 
 struct SummaryCardView: View {
-  var expenseItems: FetchedResults<Expense>
+  var expenseItems: [Expense]
   var body: some View {
     VStack {
       Spacer()
@@ -82,7 +86,7 @@ struct SpinningShape: View {
 }
 
 struct RecentExpenses: View {
-  var expenses: FetchedResults<Expense>
+  var expenses: [Expense]
   var body: some View {
     VStack(spacing: 0) {
       HStack {
@@ -166,6 +170,7 @@ struct MonthlyTotal: View {
 
 struct DashboardView_Previews: PreviewProvider {
   static var previews: some View {
-    DashboardView()
+    let viewContext = DataController.shared.persistentStoreContainer.viewContext
+    DashboardView(vm: DashboardViewModel(context: viewContext))
   }
 }

@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct MainView: View {
-  
+  let viewContext = DataController.shared.persistentStoreContainer.viewContext
   var body: some View {
     ZStack {
-      TabView {
-        DashboardView()
+      TabView   {
+        DashboardView(vm: DashboardViewModel(context: viewContext))
           .tabItem {
             Image(systemName: "filemenu.and.selection")
           }
-        ExpensesView()
+        Text("Epense List")
+//        ExpensesView()
           .tabItem {
             Image(systemName: "dollarsign.circle")
           }

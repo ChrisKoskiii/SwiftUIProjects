@@ -18,7 +18,7 @@ extension Vendor {
   
   @NSManaged public var name: String?
   @NSManaged public var expense: NSSet?
-  @NSManaged public var id: UUID?
+  @NSManaged public var id: String?
   
   var wrappedName: String {
     name ?? "Unknown"

@@ -7,15 +7,12 @@
 
 import SwiftUI
 
-struct AddItemSheet: View {
-  init() {
-    UITableViewCell.appearance().backgroundColor = UIColor.clear
-  }
+struct AddItemView: View {
   
   @Environment(\.dismiss) var dismiss
   
   //ViewModel
-  @StateObject var dataVM = DataController()
+  @ObservedObject var dataVM: DataController
   
   //ScannerView state helpers
   @State private var cameraIsPresented = false
@@ -30,7 +27,8 @@ struct AddItemSheet: View {
   @State private var vendorTextfield: String = ""
   
   @State private var imageArray: [UIImage] = []
-  
+  @State private var imageDataArray: [Data] = []
+
   var body: some View {
     VStack {
       Form {
@@ -119,7 +117,8 @@ struct AddItemSheet: View {
       HStack {
         Spacer()
         Button("Add Item"){
-          dataVM.addExpense(name: nameTextfield, price: priceTextfield, date: dateValue, vendor: vendorTextfield, category: categoryTextfield)
+          dataVM.addExpense(name: nameTextfield, price: priceTextfield, date: dateValue, vendor: vendorTextfield, category: categoryTextfield, receipt: imageDataArray)
+          dismiss()
         }
         Spacer()
       }
@@ -136,6 +135,7 @@ struct AddItemSheet: View {
         case .success(let scannedImages):
           isRecognizing = true
           imageArray = scannedImages
+          imageDataArray = convertImageToData(images: scannedImages)
         case .failure(let error):
           print(error.localizedDescription)
         }
@@ -147,6 +147,14 @@ struct AddItemSheet: View {
         showScanner = false
       }
     })
+  }
+  
+  func convertImageToData(images: [UIImage]) -> [Data] {
+    var dataArray: [Data] = []
+    for image in images {
+      dataArray.append(image.jpegData(compressionQuality: 1.0)!)
+    }
+    return dataArray
   }
 }
 
@@ -160,6 +168,6 @@ struct AddItemSheet: View {
 
 struct AddItemSheet_Previews: PreviewProvider {
   static var previews: some View {
-    AddItemSheet()
+    AddItemView()
   }
 }

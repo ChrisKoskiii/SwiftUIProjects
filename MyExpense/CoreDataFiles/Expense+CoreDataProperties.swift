@@ -21,7 +21,7 @@ extension Expense {
   @NSManaged public var title: String?
   @NSManaged public var category: Category
   @NSManaged public var vendor: Vendor
-  @NSManaged public var receipt: Data?
+  @NSManaged public var receipt: [Data]?
   
   var wrappedTitle: String {
     title ?? "Unknown"
