@@ -7,19 +7,37 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct BackgroundView: View {
-    var body: some View {
-      ZStack {
-        LinearGradient(gradient: Gradient(colors: [.pink.opacity(0.1), .white, .white]), startPoint: .bottomLeading, endPoint: .topTrailing)
-//        RadialGradient(gradient: Gradient(colors: [.pink.opacity(0.1), .white]), center: .center, startRadius: 50, endRadius: 300)
-//          .frame(width: 200, height: 200)
-      }
-      .overlay(.ultraThinMaterial)
+  @AppStorage("selectedTab") var selectedTab: Tab = .home
+  @State var animateGradient = false
+  
+  var gradientColor: Color {
+    switch selectedTab {
+    case .home:
+        return .cyan
+    case .expenses:
+        return .blue
+    case .reports:
+        return .red
+    case .settings:
+        return .pink
     }
+  }
+
+  var body: some View {
+    LinearGradient(colors: [gradientColor.opacity(0.2), .white, .white], startPoint: .bottomLeading, endPoint: .topTrailing)
+        .blur(radius: 30)
+        .ignoresSafeArea()
+  }
 }
 
+
 struct BackgroundView_Previews: PreviewProvider {
-    static var previews: some View {
-        BackgroundView()
-    }
+  static var previews: some View {
+    BackgroundView()
+    BackgroundView()
+      .preferredColorScheme(.dark)
+  }
 }

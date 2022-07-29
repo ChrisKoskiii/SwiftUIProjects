@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
-  @StateObject var vm = CoreDataViewModel()
+  @ObservedObject var vm: CoreDataViewModel
     var body: some View {
       NavigationView {
         ZStack {
-          Color.clear
-            .background(BackgroundView())
+          BackgroundView()
           VStack {
             ForEach(vm.savedExpenses) { expense in
               RecentExpenseCardView(expenseTitle: expense.title ?? "", expenseVendor: expense.vendor ?? "", expenseCost: expense.cost)
@@ -37,6 +36,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+      HomeView(vm: CoreDataViewModel())
     }
 }

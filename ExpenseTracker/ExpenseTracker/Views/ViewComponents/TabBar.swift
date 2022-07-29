@@ -65,28 +65,28 @@ struct TabBar: View {
   
   var background: some View {
     HStack {
-      if selectedTab == .library { Spacer() }
-      if selectedTab == .explore { Spacer() }
-      if selectedTab == .notification {
+      if selectedTab == .settings { Spacer() }
+      if selectedTab == .expenses { Spacer() }
+      if selectedTab == .reports {
         Spacer()
         Spacer()
       }
       Circle().fill(color).frame(width: tabItemWidth)
       if selectedTab == .home { Spacer() }
-      if selectedTab == .explore {
+      if selectedTab == .expenses {
         Spacer()
         Spacer()
       }
-      if selectedTab == .notification { Spacer() }
+      if selectedTab == .reports { Spacer() }
     }
     .padding(.horizontal, 8)
   }
   
   var overlay: some View {
     HStack {
-      if selectedTab == .library { Spacer() }
-      if selectedTab == .explore { Spacer() }
-      if selectedTab == .notification {
+      if selectedTab == .settings { Spacer() }
+      if selectedTab == .expenses { Spacer() }
+      if selectedTab == .reports {
         Spacer()
         Spacer()
       }
@@ -97,11 +97,11 @@ struct TabBar: View {
         .frame(width: tabItemWidth)
         .frame(maxHeight: .infinity, alignment: .top)
       if selectedTab == .home { Spacer() }
-      if selectedTab == .explore {
+      if selectedTab == .expenses {
         Spacer()
         Spacer()
       }
-      if selectedTab == .notification { Spacer() }
+      if selectedTab == .reports { Spacer() }
     }
     .padding(.horizontal, 8)
   }

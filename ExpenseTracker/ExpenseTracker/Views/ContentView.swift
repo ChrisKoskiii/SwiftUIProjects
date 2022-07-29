@@ -9,19 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
   @AppStorage("selectedTab") var selectedTab: Tab = .home
+  @StateObject var vm = CoreDataViewModel()
+  
   var body: some View {
     ZStack(alignment: .bottom) {
-        switch selectedTab {
-        case .home:
-          HomeView()
-        case .explore:
-          Text("Hello World")
-        case .notification:
-          Text("Hello World")
-        case .library:
-          Text("Hello World")
-        }
-      
+      switch selectedTab {
+      case .home:
+        HomeView(vm : vm)
+      case .expenses:
+        ExpensesView(vm: vm)
+      case .reports:
+        ReportsView()
+      case .settings:
+        SettingsView()
+      }
       TabBar()
     }
     .safeAreaInset(edge: .bottom) {
