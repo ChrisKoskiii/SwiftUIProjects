@@ -25,7 +25,8 @@ class CoreDataViewModel: ObservableObject {
   
   func fetchExpenses() {
     let request = NSFetchRequest<ExpenseEntity>(entityName: "ExpenseEntity")
-    
+    let sort = NSSortDescriptor(key: #keyPath(ExpenseEntity.date), ascending: true)
+    request.sortDescriptors = [sort]
     do {
       savedExpenses = try container.viewContext.fetch(request)
     } catch let error {
@@ -33,12 +34,13 @@ class CoreDataViewModel: ObservableObject {
     }
   }
   
-  func addExpense(title: String, cost: Double, vendor: String, category: String) {
+  func addExpense(title: String, cost: Double, vendor: String, category: String, date: String) {
     let newExpense = ExpenseEntity(context: container.viewContext)
     newExpense.title = title
     newExpense.cost = cost
     newExpense.vendor = vendor
     newExpense.category = category
+    newExpense.date = date
     saveData()
   }
   
@@ -49,10 +51,12 @@ class CoreDataViewModel: ObservableObject {
     saveData()
   }
   
-  func updateExpense(entity: ExpenseEntity) {
-    let currentTitle = entity.title ?? ""
-    let newTitle = currentTitle + "!"
-    entity.title = newTitle
+  func updateExpense(entity: ExpenseEntity, title: String, cost: Double, vendor: String, category: String, date: String) {
+    entity.title = title
+    entity.cost = cost
+    entity.vendor = vendor
+    entity.category = category
+    entity.date = date
     saveData()
   }
   
@@ -63,7 +67,6 @@ class CoreDataViewModel: ObservableObject {
     } catch let error {
       print("Error saving , \(error)")
     }
-    
   }
   
 }

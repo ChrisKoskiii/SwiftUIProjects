@@ -11,6 +11,7 @@ struct TabBar: View {
   @AppStorage("selectedTab") var selectedTab: Tab = .home
   @State var color: Color = .teal
   @State var tabItemWidth: CGFloat = 0
+  
   var body: some View {
     HStack {
       buttons

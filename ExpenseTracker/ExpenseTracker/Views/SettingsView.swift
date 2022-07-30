@@ -8,10 +8,18 @@
 import SwiftUI
 
 struct SettingsView: View {
+  @State private var opacity = 0.0
   var body: some View {
     ZStack {
       BackgroundView()
       Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    }
+    .onAppear {
+      DispatchQueue.main.async {
+        withAnimation {
+          opacity = 1.0
+        }
+      }
     }
   }
 }

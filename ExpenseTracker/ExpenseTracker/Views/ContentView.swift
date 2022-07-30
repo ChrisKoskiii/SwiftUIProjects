@@ -9,20 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
   @AppStorage("selectedTab") var selectedTab: Tab = .home
-  @StateObject var vm = CoreDataViewModel()
-  
+  @ObservedObject var vm: CoreDataViewModel
   var body: some View {
     ZStack(alignment: .bottom) {
-      switch selectedTab {
-      case .home:
-        HomeView(vm : vm)
-      case .expenses:
-        ExpensesView(vm: vm)
-      case .reports:
-        ReportsView()
-      case .settings:
-        SettingsView()
-      }
+        switch selectedTab {
+        case .home:
+          HomeView(vm: vm)
+        case .expenses:
+          ExpensesView(vm: vm)
+        case .reports:
+            ReportsView()
+        case .settings:
+            SettingsView()
+        }
       TabBar()
     }
     .safeAreaInset(edge: .bottom) {
@@ -33,6 +32,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView()
+    ContentView(vm: CoreDataViewModel())
   }
 }

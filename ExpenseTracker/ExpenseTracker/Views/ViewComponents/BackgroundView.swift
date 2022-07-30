@@ -11,6 +11,8 @@ import SwiftUI
 
 struct BackgroundView: View {
   @AppStorage("selectedTab") var selectedTab: Tab = .home
+  @Environment(\.colorScheme) var colorScheme
+  
   @State var animateGradient = false
   
   var gradientColor: Color {

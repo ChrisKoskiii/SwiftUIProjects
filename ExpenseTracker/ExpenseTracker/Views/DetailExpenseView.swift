@@ -1,31 +1,33 @@
 //
-//  AddExpenseView.swift
+//  DetailExpenseView.swift
 //  ExpenseTracker
 //
-//  Created by Christopher Koski on 7/28/22.
+//  Created by Christopher Koski on 7/30/22.
 //
 
 import SwiftUI
 
-struct AddExpenseView: View {
+struct DetailExpenseView: View {
   @Environment(\.presentationMode) var presentationMode
   
   @ObservedObject var vm: CoreDataViewModel
-
+  
+  @State var detailExpense: ExpenseEntity
+  
   @State private var cameraIsPresented = false
   @State private var showScanner = false
   @State private var isRecognizing = false
   
-  @State private var titleText: String = ""
-  @State private var costText: Double = 0.0
-  @State private var vendorText: String = ""
-  @State private var categoryText: String = ""
-  @State private var dateValue: Date = Date.now
+  @State var titleText: String
+  @State var costText: Double
+  @State var vendorText: String
+  @State var categoryText: String
+  @State var sentDate: String
+  
+  @State var dateValue: Date = Date.now
   
   @State private var imageArray: [UIImage] = []
   @State private var imageDataArray: [Data] = []
-  
-  var detailExpense: ExpenseEntity?
   
   private var dateString: String {
     dateValue.formatDate()
@@ -60,21 +62,21 @@ struct AddExpenseView: View {
             .buttonStyle()
           }
           Button {
-            vm.addExpense(title: titleText,
+            vm.updateExpense(entity: detailExpense, title: titleText,
                           cost: costText,
                           vendor: vendorText,
                           category: categoryText,
                           date: dateString)
             presentationMode.wrappedValue.dismiss()
           } label: {
-            Text("Add Expense")
+            Text("Update Expense")
               .buttonStyle()
           }
           Spacer()
         }
       }
     }
-    .navigationTitle("Add expense")
+    .navigationTitle("Update expense")
     .sheet(isPresented: $showScanner, content: {
       ScannerView { result in
         switch result {
@@ -96,14 +98,14 @@ struct AddExpenseView: View {
 }
 
 
-struct AddExpenseView_Previews: PreviewProvider {
-  static var previews: some View {
-    NavigationView {
-      AddExpenseView(vm: CoreDataViewModel())
-    }
-    NavigationView {
-    AddExpenseView(vm: CoreDataViewModel())
-    }
-    .preferredColorScheme(.dark)
-  }
-}
+//struct DetailExpenseView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    NavigationView {
+//      DetailExpenseView(vm: CoreDataViewModel())
+//    }
+//    NavigationView {
+//      DetailExpenseView(vm: CoreDataViewModel())
+//    }
+//    .preferredColorScheme(.dark)
+//  }
+//}

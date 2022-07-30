@@ -16,6 +16,10 @@
 		9E187D412893115A00142000 /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E187D402893115A00142000 /* CoreDataViewModel.swift */; };
 		9E187D4328936A0E00142000 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E187D4228936A0E00142000 /* AddExpenseView.swift */; };
 		9E187D4528936D8600142000 /* DocumentScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E187D4428936D8600142000 /* DocumentScanner.swift */; };
+		9E1E3D292894687B004FE485 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E3D282894687B004FE485 /* Date+Extension.swift */; };
+		9E35E5A328957208008D9ABA /* ExpenseEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E35E5A128957208008D9ABA /* ExpenseEntity+CoreDataClass.swift */; };
+		9E35E5A428957208008D9ABA /* ExpenseEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E35E5A228957208008D9ABA /* ExpenseEntity+CoreDataProperties.swift */; };
+		9E3D6E0728956D58008DB55D /* DetailExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3D6E0628956D58008DB55D /* DetailExpenseView.swift */; };
 		9E8E1F2328936F8D00300E14 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F2228936F8D00300E14 /* BackgroundView.swift */; };
 		9E8E1F262893762E00300E14 /* RecentExpenseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F252893762E00300E14 /* RecentExpenseCardView.swift */; };
 		9E8E1F2828937FE600300E14 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F2728937FE600300E14 /* TabBar.swift */; };
@@ -25,6 +29,9 @@
 		9E8E1F312894232300300E14 /* ExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F302894232300300E14 /* ExpensesView.swift */; };
 		9E8E1F332894232A00300E14 /* ReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F322894232A00300E14 /* ReportsView.swift */; };
 		9E8E1F362894233B00300E14 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F352894233B00300E14 /* SettingsView.swift */; };
+		9E8E1F39289446F600300E14 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F38289446F600300E14 /* NavBar.swift */; };
+		9E8E1F3B2894495600300E14 /* PreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F3A2894495600300E14 /* PreferenceKey.swift */; };
+		9EBD37542895A09200BABDFA /* MonthlyTotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBD37532895A09200BABDFA /* MonthlyTotalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +45,10 @@
 		9E187D402893115A00142000 /* CoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
 		9E187D4228936A0E00142000 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		9E187D4428936D8600142000 /* DocumentScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentScanner.swift; sourceTree = "<group>"; };
+		9E1E3D282894687B004FE485 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		9E35E5A128957208008D9ABA /* ExpenseEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpenseEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9E35E5A228957208008D9ABA /* ExpenseEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpenseEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9E3D6E0628956D58008DB55D /* DetailExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailExpenseView.swift; sourceTree = "<group>"; };
 		9E8E1F2228936F8D00300E14 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		9E8E1F252893762E00300E14 /* RecentExpenseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentExpenseCardView.swift; sourceTree = "<group>"; };
 		9E8E1F2728937FE600300E14 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -47,6 +58,10 @@
 		9E8E1F302894232300300E14 /* ExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesView.swift; sourceTree = "<group>"; };
 		9E8E1F322894232A00300E14 /* ReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsView.swift; sourceTree = "<group>"; };
 		9E8E1F352894233B00300E14 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9E8E1F3728942A2300300E14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9E8E1F38289446F600300E14 /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
+		9E8E1F3A2894495600300E14 /* PreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKey.swift; sourceTree = "<group>"; };
+		9EBD37532895A09200BABDFA /* MonthlyTotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyTotalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +78,8 @@
 		9E187D212892FF3D00142000 = {
 			isa = PBXGroup;
 			children = (
+				9E35E5A128957208008D9ABA /* ExpenseEntity+CoreDataClass.swift */,
+				9E35E5A228957208008D9ABA /* ExpenseEntity+CoreDataProperties.swift */,
 				9E187D2C2892FF3D00142000 /* ExpenseTracker */,
 				9E187D2B2892FF3D00142000 /* Products */,
 			);
@@ -79,12 +96,12 @@
 		9E187D2C2892FF3D00142000 /* ExpenseTracker */ = {
 			isa = PBXGroup;
 			children = (
+				9E8E1F3728942A2300300E14 /* Info.plist */,
 				9E187D2D2892FF3D00142000 /* ExpenseTrackerApp.swift */,
 				9E8E1F292893802000300E14 /* Models */,
 				9E187D4728936EE100142000 /* ViewModels */,
 				9E187D4628936ED600142000 /* Views */,
 				9E8E1F2128936F7F00300E14 /* Helpers */,
-				9E187D3B2893010900142000 /* ExpenseContainer.xcdatamodeld */,
 				9E187D312892FF3E00142000 /* Assets.xcassets */,
 				9E187D332892FF3E00142000 /* Preview Content */,
 			);
@@ -105,9 +122,11 @@
 				9E8E1F242893761B00300E14 /* ViewComponents */,
 				9E187D2F2892FF3D00142000 /* ContentView.swift */,
 				9E8E1F2C289380A300300E14 /* HomeView.swift */,
+				9EBD37532895A09200BABDFA /* MonthlyTotalView.swift */,
 				9E8E1F302894232300300E14 /* ExpensesView.swift */,
 				9E8E1F322894232A00300E14 /* ReportsView.swift */,
 				9E8E1F352894233B00300E14 /* SettingsView.swift */,
+				9E3D6E0628956D58008DB55D /* DetailExpenseView.swift */,
 				9E187D4228936A0E00142000 /* AddExpenseView.swift */,
 			);
 			path = Views;
@@ -126,7 +145,9 @@
 			children = (
 				9E187D4428936D8600142000 /* DocumentScanner.swift */,
 				9E187D3E2893055000142000 /* View+Extensions.swift */,
+				9E187D3B2893010900142000 /* ExpenseContainer.xcdatamodeld */,
 				9E8E1F2E2893FCD100300E14 /* Theme.swift */,
+				9E1E3D282894687B004FE485 /* Date+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -137,6 +158,7 @@
 				9E8E1F2228936F8D00300E14 /* BackgroundView.swift */,
 				9E8E1F252893762E00300E14 /* RecentExpenseCardView.swift */,
 				9E8E1F2728937FE600300E14 /* TabBar.swift */,
+				9E8E1F38289446F600300E14 /* NavBar.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -145,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				9E8E1F2A2893802E00300E14 /* Tab.swift */,
+				9E8E1F3A2894495600300E14 /* PreferenceKey.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,21 +242,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E8E1F3B2894495600300E14 /* PreferenceKey.swift in Sources */,
 				9E187D412893115A00142000 /* CoreDataViewModel.swift in Sources */,
+				9E35E5A328957208008D9ABA /* ExpenseEntity+CoreDataClass.swift in Sources */,
 				9E8E1F332894232A00300E14 /* ReportsView.swift in Sources */,
 				9E187D302892FF3D00142000 /* ContentView.swift in Sources */,
 				9E8E1F2328936F8D00300E14 /* BackgroundView.swift in Sources */,
 				9E8E1F312894232300300E14 /* ExpensesView.swift in Sources */,
+				9E35E5A428957208008D9ABA /* ExpenseEntity+CoreDataProperties.swift in Sources */,
+				9E8E1F39289446F600300E14 /* NavBar.swift in Sources */,
 				9E187D3D2893010900142000 /* ExpenseContainer.xcdatamodeld in Sources */,
 				9E8E1F2F2893FCD100300E14 /* Theme.swift in Sources */,
 				9E8E1F262893762E00300E14 /* RecentExpenseCardView.swift in Sources */,
 				9E8E1F2B2893802E00300E14 /* Tab.swift in Sources */,
 				9E8E1F362894233B00300E14 /* SettingsView.swift in Sources */,
+				9E3D6E0728956D58008DB55D /* DetailExpenseView.swift in Sources */,
+				9EBD37542895A09200BABDFA /* MonthlyTotalView.swift in Sources */,
 				9E187D4328936A0E00142000 /* AddExpenseView.swift in Sources */,
 				9E187D4528936D8600142000 /* DocumentScanner.swift in Sources */,
 				9E187D3F2893055000142000 /* View+Extensions.swift in Sources */,
 				9E8E1F2D289380A300300E14 /* HomeView.swift in Sources */,
 				9E187D2E2892FF3D00142000 /* ExpenseTrackerApp.swift in Sources */,
+				9E1E3D292894687B004FE485 /* Date+Extension.swift in Sources */,
 				9E8E1F2828937FE600300E14 /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,11 +396,14 @@
 				DEVELOPMENT_TEAM = WW6MQ8PF85;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExpenseTracker/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -395,11 +428,14 @@
 				DEVELOPMENT_TEAM = WW6MQ8PF85;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExpenseTracker/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
