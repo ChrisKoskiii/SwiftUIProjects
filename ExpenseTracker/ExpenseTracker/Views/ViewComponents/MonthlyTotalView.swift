@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MonthlyTotalView: View {
+  @ObservedObject var corevm: CoreDataViewModel
+  
   var body: some View {
     VStack {
       
@@ -22,7 +24,7 @@ struct MonthlyTotalView: View {
         
         HStack {
           Spacer()
-          Text("$"+"1,223.50")
+          Text("$"+String(format: "%.2f", corevm.monthlyTotal))
             .font(.largeTitle)
             .shadow(color: .secondary, radius: 3, x: 2, y: 4)
           Spacer()
@@ -38,6 +40,6 @@ struct MonthlyTotalView: View {
 
 struct MonthlyTotalView_Previews: PreviewProvider {
   static var previews: some View {
-    MonthlyTotalView()
+    MonthlyTotalView(corevm: CoreDataViewModel())
   }
 }

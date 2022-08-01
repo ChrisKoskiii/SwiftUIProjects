@@ -21,7 +21,7 @@ struct HomeView: View {
         
         VStack {
           
-          MonthlyTotalView()
+          MonthlyTotalView(corevm: corevm)
           
           HStack {
             

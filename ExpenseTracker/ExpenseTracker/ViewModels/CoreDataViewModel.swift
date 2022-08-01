@@ -15,6 +15,7 @@ class CoreDataViewModel: ObservableObject {
   
   @Published var savedExpenses: [ExpenseEntity] = []
   @Published var recentExpenses: [ExpenseEntity] = []
+  @Published var monthlyTotal: Double = 0.00
   
   init() {
     container = NSPersistentContainer(name: "ExpenseContainer")
@@ -35,6 +36,7 @@ class CoreDataViewModel: ObservableObject {
     do {
       savedExpenses = try container.viewContext.fetch(request)
       getRecent(expenses: savedExpenses)
+      getMonthlyTotal()
     } catch let error {
       print("Error fetching, \(error)")
     }
@@ -95,6 +97,7 @@ class CoreDataViewModel: ObservableObject {
     do {
       try container.viewContext.save()
       fetchExpenses()
+      getMonthlyTotal()
     } catch let error {
       print("Error saving , \(error)")
     }
@@ -102,6 +105,11 @@ class CoreDataViewModel: ObservableObject {
   
   func getImageData(_ image: UIImage) -> Data {
     return image.jpegData(compressionQuality: 1.0)!
+  }
+  
+  func getMonthlyTotal() {
+    monthlyTotal = savedExpenses.lazy.compactMap { $0.cost }
+      .reduce(0, +)
   }
   
 }
