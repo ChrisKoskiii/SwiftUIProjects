@@ -12,7 +12,7 @@ struct ReportsView: View {
   var body: some View {
     ZStack {
       BackgroundView()
-      Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+      Text("Coming soon")
     }
     .onAppear {
       DispatchQueue.main.async {

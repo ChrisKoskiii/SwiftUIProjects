@@ -29,7 +29,7 @@ struct BackgroundView: View {
   }
 
   var body: some View {
-    LinearGradient(colors: [gradientColor.opacity(0.2), .white, .white], startPoint: .bottomLeading, endPoint: .topTrailing)
+    LinearGradient(colors: [gradientColor.opacity(0.3), Color("GradientTrail")], startPoint: .bottomLeading, endPoint: .trailing)
         .blur(radius: 30)
         .ignoresSafeArea()
   }

@@ -16,37 +16,41 @@ struct RecentExpenseCardView: View {
   
   var body: some View {
     ZStack {
+      
+      //Added duplicate to get shadow without applying to child views
+      
+      DuplicateView()
+      
       HStack(spacing: 0) {
-        Group {
-          HStack(spacing: 0) {
-            Text(expenseDate)
-              .fontWeight(.bold)
+        HStack(spacing: 0) {
+          Text(expenseDate)
+            .fontWeight(.semibold)
+            .padding(.leading)
+          VStack(alignment: .leading, spacing: 0) {
+            Text(expenseTitle)
+              .lineLimit(1)
+              .font(.headline)
               .padding(.leading)
-            VStack(alignment: .leading, spacing: 0) {
-              Text(expenseTitle)
-                .font(.headline)
-                .padding(.leading)
-                .padding(.top, 4)
-              Text(expenseVendor)
-                .font(.footnote)
-                .padding(.leading)
-              Text(expenseCategory)
-                .font(.footnote)
-                .padding(.leading)
-                .padding(.bottom, 4)
-            }
-            Spacer()
-              Text("$"+String(expenseCost))
-                .font(.title2)
-                .fontWeight(.bold)
-                .padding(.trailing)
+              .padding(.top, 4)
+            Text(expenseVendor)
+              .font(.footnote)
+              .padding(.leading)
+            Text(expenseCategory)
+              .font(.footnote)
+              .padding(.leading)
+              .padding(.bottom, 4)
           }
-          .background(.ultraThinMaterial, in: RoundedRectangle(
-            cornerRadius: 16,
-            style: .continuous))
-          .strokeStyle(cornerRadius: 16)
-          .padding(.trailing)
+          Spacer()
+          Text("$"+String(expenseCost))
+            .font(.title2)
+            .fontWeight(.bold)
+            .padding(.trailing)
         }
+        .background(.ultraThinMaterial, in: RoundedRectangle(
+          cornerRadius: 16,
+          style: .continuous))
+        .strokeStyle(cornerRadius: 16)
+        .padding(.trailing)
       }
     }
   }
@@ -58,3 +62,41 @@ struct RecentExpenseCardView_Previews: PreviewProvider {
   }
 }
 
+struct DuplicateView: View {
+  var body: some View {
+    ZStack {
+      HStack(spacing: 0) {
+        HStack(spacing: 0) {
+          Text("")
+            .fontWeight(.semibold)
+            .padding(.leading)
+          VStack(alignment: .leading, spacing: 0) {
+            Text("")
+              .lineLimit(1)
+              .font(.headline)
+              .padding(.leading)
+              .padding(.top, 4)
+            Text("")
+              .font(.footnote)
+              .padding(.leading)
+            Text("")
+              .font(.footnote)
+              .padding(.leading)
+              .padding(.bottom, 4)
+          }
+          Spacer()
+          Text("")
+            .font(.title2)
+            .fontWeight(.bold)
+            .padding(.trailing)
+        }
+        .background(.ultraThinMaterial, in: RoundedRectangle(
+          cornerRadius: 16,
+          style: .continuous))
+        .strokeStyle(cornerRadius: 16)
+        .padding(.trailing)
+      }
+    }
+    .shadow(color: .secondary, radius: 3, x: 2, y: 4)
+  }
+}

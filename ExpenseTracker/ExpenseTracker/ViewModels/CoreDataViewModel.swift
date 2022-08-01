@@ -7,11 +7,14 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class CoreDataViewModel: ObservableObject {
   
   let container: NSPersistentContainer
+  
   @Published var savedExpenses: [ExpenseEntity] = []
+  @Published var recentExpenses: [ExpenseEntity] = []
   
   init() {
     container = NSPersistentContainer(name: "ExpenseContainer")
@@ -21,20 +24,38 @@ class CoreDataViewModel: ObservableObject {
       }
     }
     fetchExpenses()
+    getRecent(expenses: savedExpenses)
   }
   
   func fetchExpenses() {
     let request = NSFetchRequest<ExpenseEntity>(entityName: "ExpenseEntity")
-    let sort = NSSortDescriptor(key: #keyPath(ExpenseEntity.date), ascending: true)
+    let sort = NSSortDescriptor(key: #keyPath(ExpenseEntity.date), ascending: false)
     request.sortDescriptors = [sort]
+    
     do {
       savedExpenses = try container.viewContext.fetch(request)
+      getRecent(expenses: savedExpenses)
     } catch let error {
       print("Error fetching, \(error)")
     }
   }
   
-  func addExpense(title: String, cost: Double, vendor: String, category: String, date: String) {
+  func getRecent(expenses: [ExpenseEntity]) {
+    recentExpenses = Array(savedExpenses.prefix(5))
+  }
+  
+  func addExpense(title: String, cost: Double, vendor: String, category: String, date: String, receipt: Data) {
+    let newExpense = ExpenseEntity(context: container.viewContext)
+    newExpense.title = title
+    newExpense.cost = cost
+    newExpense.vendor = vendor
+    newExpense.category = category
+    newExpense.date = date
+    newExpense.receipt = receipt
+    saveData()
+  }
+  
+  func addExpenseWithoutImage(title: String, cost: Double, vendor: String, category: String, date: String) {
     let newExpense = ExpenseEntity(context: container.viewContext)
     newExpense.title = title
     newExpense.cost = cost
@@ -51,7 +72,17 @@ class CoreDataViewModel: ObservableObject {
     saveData()
   }
   
-  func updateExpense(entity: ExpenseEntity, title: String, cost: Double, vendor: String, category: String, date: String) {
+  func updateExpense(entity: ExpenseEntity, title: String, cost: Double, vendor: String, category: String, date: String, receipt: Data?) {
+    entity.title = title
+    entity.cost = cost
+    entity.vendor = vendor
+    entity.category = category
+    entity.date = date
+    entity.receipt = receipt
+    saveData()
+  }
+  
+  func updateExpenseWithoutImage(entity: ExpenseEntity, title: String, cost: Double, vendor: String, category: String, date: String) {
     entity.title = title
     entity.cost = cost
     entity.vendor = vendor
@@ -67,6 +98,10 @@ class CoreDataViewModel: ObservableObject {
     } catch let error {
       print("Error saving , \(error)")
     }
+  }
+  
+  func getImageData(_ image: UIImage) -> Data {
+    return image.jpegData(compressionQuality: 1.0)!
   }
   
 }

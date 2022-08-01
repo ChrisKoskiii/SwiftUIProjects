@@ -8,44 +8,41 @@
 import SwiftUI
 
 struct HomeView: View {
-  @ObservedObject var vm: CoreDataViewModel
-
+  @ObservedObject var corevm: CoreDataViewModel
+  
   @State var opacity = 0.0
   @State var hasScrolled = false
   var body: some View {
     NavigationView {
+      
       ZStack {
+        
         BackgroundView()
+        
         VStack {
+          
           MonthlyTotalView()
+          
           HStack {
-            Text("Recent transactions:")
-              .font(.caption)
-              .padding(.leading)
-              .padding(.top, 16)
-            Spacer()
             
+            recentTransactionText
+            Spacer()
           }
-          ForEach(vm.savedExpenses) { expense in
-            RecentExpenseCardView(expenseDate: expense.wrappedDate, expenseTitle: expense.wrappedTitle, expenseVendor: expense.wrappedVendor, expenseCost: expense.cost, expenseCategory: expense.wrappedCategory)
-          }
-          .onDelete(perform: vm.deleteExpense)
+          
+          recentExpenseList
           Spacer()
+          
         }
         .opacity(opacity)
         .toolbar {
           ToolbarItem(placement: .navigationBarTrailing) {
-            NavigationLink(destination: AddExpenseView(vm: vm)) {
+            NavigationLink(destination: AddExpenseView(vm: corevm)) {
               Text("Add Expense")
-                .font(.footnote)
-                .padding(.horizontal)
-                .padding(.vertical, 4)
-                .foregroundColor(.white)
-                .background(.cyan)
-                .clipShape(Capsule())
+                .toolBarButtonStyle()
             }
           }
         }
+        
         .onAppear {
           DispatchQueue.main.async {
             withAnimation {
@@ -57,10 +54,24 @@ struct HomeView: View {
       .navigationTitle("ExpenseTracker")
     }
   }
+  
+  var recentTransactionText: some View {
+    Text("Recent transactions:")
+      .font(.caption)
+      .padding(.leading)
+      .padding(.top, 16)
+  }
+  
+  var recentExpenseList: some View {
+    ForEach(corevm.recentExpenses) { expense in
+      RecentExpenseCardView(expenseDate: expense.wrappedDate, expenseTitle: expense.wrappedTitle, expenseVendor: expense.wrappedVendor, expenseCost: expense.cost, expenseCategory: expense.wrappedCategory)
+    }
+    .onDelete(perform: corevm.deleteExpense)
+  }
 }
 
 struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
-    HomeView(vm: CoreDataViewModel())
+    HomeView(corevm: CoreDataViewModel())
   }
 }

@@ -2,7 +2,7 @@
 //  ExpenseEntity+CoreDataProperties.swift
 //  ExpenseTracker
 //
-//  Created by Christopher Koski on 7/30/22.
+//  Created by Christopher Koski on 7/31/22.
 //
 //
 
@@ -21,7 +21,8 @@ extension ExpenseEntity {
     @NSManaged public var date: String?
     @NSManaged public var title: String?
     @NSManaged public var vendor: String?
-  
+    @NSManaged public var receipt: Data?
+
   var wrappedCategory: String {
     category ?? "Unknown"
   }
@@ -37,7 +38,6 @@ extension ExpenseEntity {
   var wrappedVendor: String {
     vendor ?? "Unknown"
   }
-
 }
 
 extension ExpenseEntity : Identifiable {

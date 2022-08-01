@@ -4,10 +4,11 @@
         <attribute name="category" attributeType="String"/>
         <attribute name="cost" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="date" attributeType="String"/>
+        <attribute name="receipt" optional="YES" attributeType="Binary"/>
         <attribute name="title" attributeType="String"/>
         <attribute name="vendor" attributeType="String"/>
     </entity>
     <elements>
-        <element name="ExpenseEntity" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="ExpenseEntity" positionX="-63" positionY="-18" width="128" height="119"/>
     </elements>
 </model>

@@ -9,16 +9,41 @@ import Foundation
 import SwiftUI
 
 //Buttons
-struct ButtonStyle: ViewModifier {
+struct ScanButtonStyle: ViewModifier {
   func body(content: Content) -> some View {
     content
       .font(.headline)
       .foregroundColor(.white)
       .frame(height: 55)
       .frame(maxWidth: .infinity)
-      .background(Color("ButtonColor"))
+      .background(Color("ScanButtonColor"))
       .cornerRadius(10)
       .padding(.horizontal)
+  }
+}
+
+struct AddButtonStyle: ViewModifier {
+  func body(content: Content) -> some View {
+    content
+      .font(.headline)
+      .foregroundColor(.white)
+      .frame(height: 55)
+      .frame(maxWidth: .infinity)
+      .background(Color("AddButtonColor"))
+      .cornerRadius(10)
+      .padding(.horizontal)
+  }
+}
+
+struct ToolBarButtonStyle: ViewModifier {
+  func body(content: Content) -> some View {
+    content
+      .font(.footnote)
+      .padding(.horizontal)
+      .padding(.vertical, 4)
+      .foregroundColor(.white)
+      .background(.cyan)
+      .clipShape(Capsule())
   }
 }
 
@@ -32,6 +57,17 @@ struct TextfieldStyle: ViewModifier {
       .background(Color("TextfieldColor"))
       .cornerRadius(10)
       .padding(.horizontal)
+  }
+}
+
+extension Image {
+  public init(data: Data?, placeholder: String) {
+    guard let data = data,
+          let uiImage = UIImage(data: data) else {
+      self = Image(systemName: "photo")
+      return
+    }
+    self = Image(uiImage: uiImage)
   }
 }
 
@@ -59,11 +95,19 @@ extension View {
   func textfieldStyle() -> some View {
     modifier(TextfieldStyle())
   }
-  func buttonStyle() -> some View {
-    modifier(ButtonStyle())
+  func scanButtonStyle() -> some View {
+    modifier(ScanButtonStyle())
+  }
+  
+  func addButtonStyle() -> some View {
+    modifier(AddButtonStyle())
   }
   func strokeStyle(cornerRadius: CGFloat = 30) -> some View {
     modifier(StrokeStyle(cornerRadius: cornerRadius))
+  }
+  
+  func toolBarButtonStyle() -> some View {
+    modifier(ToolBarButtonStyle())
   }
 }
 
