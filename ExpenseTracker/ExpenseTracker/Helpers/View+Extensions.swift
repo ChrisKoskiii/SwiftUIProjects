@@ -91,6 +91,16 @@ struct StrokeStyle: ViewModifier {
   }
 }
 
+struct CenterInView: ViewModifier {
+  func body(content: Content) -> some View {
+    HStack {
+      Spacer()
+      content
+      Spacer()
+    }
+  }
+}
+
 extension View {
   func textfieldStyle() -> some View {
     modifier(TextfieldStyle())
@@ -104,6 +114,10 @@ extension View {
   }
   func strokeStyle(cornerRadius: CGFloat = 30) -> some View {
     modifier(StrokeStyle(cornerRadius: cornerRadius))
+  }
+  
+  func centerInView() -> some View {
+    modifier(CenterInView())
   }
   
   func toolBarButtonStyle() -> some View {

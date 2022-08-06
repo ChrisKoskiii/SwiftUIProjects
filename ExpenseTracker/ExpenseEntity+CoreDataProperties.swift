@@ -18,7 +18,7 @@ extension ExpenseEntity {
 
     @NSManaged public var category: String?
     @NSManaged public var cost: Double
-    @NSManaged public var date: String?
+    @NSManaged public var date: Date?
     @NSManaged public var title: String?
     @NSManaged public var vendor: String?
     @NSManaged public var receipt: Data?
@@ -27,8 +27,8 @@ extension ExpenseEntity {
     category ?? "Unknown"
   }
   
-  var wrappedDate: String {
-    date ?? "Unkown"
+  var wrappedDate: Date {
+    date ?? Date.now
   }
   
   var wrappedTitle: String {

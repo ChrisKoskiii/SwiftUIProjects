@@ -32,7 +32,10 @@
 		9E8E1F362894233B00300E14 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F352894233B00300E14 /* SettingsView.swift */; };
 		9E8E1F39289446F600300E14 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F38289446F600300E14 /* NavBar.swift */; };
 		9E8E1F3B2894495600300E14 /* PreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F3A2894495600300E14 /* PreferenceKey.swift */; };
+		9E9B34AC289963F700408F05 /* PDFStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9B34AB289963F700408F05 /* PDFStuff.swift */; };
+		9E9B34AE2899733900408F05 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9B34AD2899733900408F05 /* ShareSheet.swift */; };
 		9EBD37542895A09200BABDFA /* MonthlyTotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBD37532895A09200BABDFA /* MonthlyTotalView.swift */; };
+		9ED23ACD289CB99B00CAAB70 /* GenerateReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED23ACC289CB99B00CAAB70 /* GenerateReportsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +66,10 @@
 		9E8E1F3728942A2300300E14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9E8E1F38289446F600300E14 /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
 		9E8E1F3A2894495600300E14 /* PreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKey.swift; sourceTree = "<group>"; };
+		9E9B34AB289963F700408F05 /* PDFStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFStuff.swift; sourceTree = "<group>"; };
+		9E9B34AD2899733900408F05 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		9EBD37532895A09200BABDFA /* MonthlyTotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyTotalView.swift; sourceTree = "<group>"; };
+		9ED23ACC289CB99B00CAAB70 /* GenerateReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateReportsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,7 @@
 		9E01C2BD2896DE8200337A37 /* ExpenseViews */ = {
 			isa = PBXGroup;
 			children = (
+				9E8E1F302894232300300E14 /* ExpensesView.swift */,
 				9E01C2BB2896DC2E00337A37 /* ScannedImageView.swift */,
 				9E187D4228936A0E00142000 /* AddExpenseView.swift */,
 				9E3D6E0628956D58008DB55D /* DetailExpenseView.swift */,
@@ -132,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				9E187D2F2892FF3D00142000 /* ContentView.swift */,
-				9E01C2BD2896DE8200337A37 /* ExpenseViews */,
 				9E8E1F242893761B00300E14 /* ViewComponents */,
 				9E9B34AA2897733400408F05 /* MainViews */,
 			);
@@ -147,9 +153,20 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		9E1DC13E289DE53A00D6C771 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E1F2C289380A300300E14 /* HomeView.swift */,
+				9E8E1F252893762E00300E14 /* RecentExpenseCardView.swift */,
+				9EBD37532895A09200BABDFA /* MonthlyTotalView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
 		9E8E1F2128936F7F00300E14 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				9E9B34AB289963F700408F05 /* PDFStuff.swift */,
 				9E187D4428936D8600142000 /* DocumentScanner.swift */,
 				9E187D3E2893055000142000 /* View+Extensions.swift */,
 				9E187D3B2893010900142000 /* ExpenseContainer.xcdatamodeld */,
@@ -163,10 +180,9 @@
 			isa = PBXGroup;
 			children = (
 				9E8E1F2228936F8D00300E14 /* BackgroundView.swift */,
-				9E8E1F252893762E00300E14 /* RecentExpenseCardView.swift */,
-				9EBD37532895A09200BABDFA /* MonthlyTotalView.swift */,
 				9E8E1F2728937FE600300E14 /* TabBar.swift */,
 				9E8E1F38289446F600300E14 /* NavBar.swift */,
+				9E9B34AD2899733900408F05 /* ShareSheet.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -183,12 +199,21 @@
 		9E9B34AA2897733400408F05 /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
-				9E8E1F2C289380A300300E14 /* HomeView.swift */,
-				9E8E1F302894232300300E14 /* ExpensesView.swift */,
+				9E1DC13E289DE53A00D6C771 /* HomeView */,
+				9E01C2BD2896DE8200337A37 /* ExpenseViews */,
+				9E9B34AF289988AC00408F05 /* ReportViews */,
 				9E8E1F352894233B00300E14 /* SettingsView.swift */,
-				9E8E1F322894232A00300E14 /* ReportsView.swift */,
 			);
 			path = MainViews;
+			sourceTree = "<group>";
+		};
+		9E9B34AF289988AC00408F05 /* ReportViews */ = {
+			isa = PBXGroup;
+			children = (
+				9ED23ACC289CB99B00CAAB70 /* GenerateReportsView.swift */,
+				9E8E1F322894232A00300E14 /* ReportsView.swift */,
+			);
+			path = ReportViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +291,7 @@
 				9E35E5A328957208008D9ABA /* ExpenseEntity+CoreDataClass.swift in Sources */,
 				9E8E1F332894232A00300E14 /* ReportsView.swift in Sources */,
 				9E187D302892FF3D00142000 /* ContentView.swift in Sources */,
+				9E9B34AE2899733900408F05 /* ShareSheet.swift in Sources */,
 				9E8E1F2328936F8D00300E14 /* BackgroundView.swift in Sources */,
 				9E8E1F312894232300300E14 /* ExpensesView.swift in Sources */,
 				9E35E5A428957208008D9ABA /* ExpenseEntity+CoreDataProperties.swift in Sources */,
@@ -280,9 +306,11 @@
 				9EBD37542895A09200BABDFA /* MonthlyTotalView.swift in Sources */,
 				9E187D4328936A0E00142000 /* AddExpenseView.swift in Sources */,
 				9E187D4528936D8600142000 /* DocumentScanner.swift in Sources */,
+				9E9B34AC289963F700408F05 /* PDFStuff.swift in Sources */,
 				9E187D3F2893055000142000 /* View+Extensions.swift in Sources */,
 				9E8E1F2D289380A300300E14 /* HomeView.swift in Sources */,
 				9E187D2E2892FF3D00142000 /* ExpenseTrackerApp.swift in Sources */,
+				9ED23ACD289CB99B00CAAB70 /* GenerateReportsView.swift in Sources */,
 				9E1E3D292894687B004FE485 /* Date+Extension.swift in Sources */,
 				9E8E1F2828937FE600300E14 /* TabBar.swift in Sources */,
 			);

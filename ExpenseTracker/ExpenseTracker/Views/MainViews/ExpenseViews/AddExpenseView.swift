@@ -18,10 +18,10 @@ struct AddExpenseView: View {
   @State private var cameraIsPresented = false
   @State private var showScanner = false
   @State private var isRecognizing = false
-  
+  @State private var presentAlert = false
   //Textfield vars
   @State private var titleText: String = ""
-  @State private var costText: Double = 0.00
+  @State private var costText = 0.00
   @State private var vendorText: String = ""
   @State private var categoryText: String = ""
   @State private var dateValue: Date = Date.now
@@ -54,7 +54,7 @@ struct AddExpenseView: View {
           TextField("Enter title", text: $titleText)
             .textfieldStyle()
           
-          TextField("$0.00", value: $costText, formatter: formatter)
+          TextField("$", value: $costText, formatter: formatter)
             .textfieldStyle()
             .keyboardType(.decimalPad)
           
@@ -77,7 +77,8 @@ struct AddExpenseView: View {
     }
     
     .navigationTitle("Add expense")
-    
+    .alert("Please fill out all fields.", isPresented: $presentAlert, actions: {
+    })
     .sheet(isPresented: $showScanner, content: {
       ScannerView { result in
         switch result {
@@ -116,27 +117,37 @@ struct AddExpenseView: View {
   var addExpenseButton: some View {
     //Couldnt think of a cleaner way to add with or without an image
     Button {
-      if imageData != nil {
-      vm.addExpense(title: titleText,
-                    cost: costText,
-                    vendor: vendorText,
-                    category: categoryText,
-                    date: dateString,
-                    receipt: imageData!
-      )
+      if emptyTextFields() {
+        presentAlert.toggle()
+        print(emptyTextFields())
+        print(titleText)
+        print(costText as Any)
+        print(vendorText)
+        print(categoryText)
       } else {
-        vm.addExpenseWithoutImage(title: titleText,
-                                  cost: costText,
-                                  vendor: vendorText,
-                                  category: categoryText,
-                                  date: dateString
-        )
+        if imageData != nil {
+          vm.addExpense(title: titleText,
+                        cost: costText,
+                        vendor: vendorText,
+                        category: categoryText,
+                        date: dateValue,
+                        receipt: imageData!
+          )
+          presentationMode.wrappedValue.dismiss()
+        } else {
+          vm.addExpenseWithoutImage(title: titleText,
+                                    cost: costText,
+                                    vendor: vendorText,
+                                    category: categoryText,
+                                    date: dateValue
+          )
+          presentationMode.wrappedValue.dismiss()
+        }
       }
-      presentationMode.wrappedValue.dismiss()
-    } label: {
-      Text("Add Expense")
-        .addButtonStyle()
-    }
+      } label: {
+        Text("Add Expense")
+          .addButtonStyle()
+      }
   }
   
   var scannedImageView: some View {
@@ -145,6 +156,15 @@ struct AddExpenseView: View {
         .resizable()
         .scaledToFit()
         .frame(width: 150, height: 150)
+    }
+  }
+  
+  func emptyTextFields() -> Bool {
+    if titleText.isEmpty ||
+        vendorText.isEmpty ||
+        categoryText.isEmpty {
+      return true
+    } else { return false
     }
   }
 }

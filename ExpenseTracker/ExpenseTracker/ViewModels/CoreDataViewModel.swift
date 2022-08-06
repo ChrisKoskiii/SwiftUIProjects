@@ -16,6 +16,8 @@ class CoreDataViewModel: ObservableObject {
   @Published var savedExpenses: [ExpenseEntity] = []
   @Published var recentExpenses: [ExpenseEntity] = []
   @Published var monthlyTotal: Double = 0.00
+  @Published var dateRangeExpenses: [ExpenseEntity] = []
+  @Published var dateRangeTotal: Double = 0.0
   
   init() {
     container = NSPersistentContainer(name: "ExpenseContainer")
@@ -36,7 +38,7 @@ class CoreDataViewModel: ObservableObject {
     do {
       savedExpenses = try container.viewContext.fetch(request)
       getRecent(expenses: savedExpenses)
-      getMonthlyTotal()
+      monthlyTotal = getTotal(from: savedExpenses)
     } catch let error {
       print("Error fetching, \(error)")
     }
@@ -46,7 +48,25 @@ class CoreDataViewModel: ObservableObject {
     recentExpenses = Array(savedExpenses.prefix(5))
   }
   
-  func addExpense(title: String, cost: Double, vendor: String, category: String, date: String, receipt: Data) {
+  func getDateRangeExpenses(startDate: Date, endDate: Date) {
+    let request = NSFetchRequest<ExpenseEntity>(entityName: "ExpenseEntity")
+    let sort = NSSortDescriptor(key: #keyPath(ExpenseEntity.date), ascending: false)
+    
+    let predicate = NSPredicate(format: "%@ >= date AND %@ <= date", argumentArray: [endDate, startDate])
+    request.predicate = predicate
+    request.sortDescriptors = [sort]
+    
+    do {
+      dateRangeExpenses = try container.viewContext.fetch(request)
+      dateRangeTotal = getTotal(from: dateRangeExpenses)
+      print("Success")
+      print(dateRangeExpenses)
+    } catch let error {
+      print("Error fetching expenses for date range, \(error)")
+    }
+  }
+  
+  func addExpense(title: String, cost: Double, vendor: String, category: String, date: Date, receipt: Data) {
     let newExpense = ExpenseEntity(context: container.viewContext)
     newExpense.title = title
     newExpense.cost = cost
@@ -57,7 +77,7 @@ class CoreDataViewModel: ObservableObject {
     saveData()
   }
   
-  func addExpenseWithoutImage(title: String, cost: Double, vendor: String, category: String, date: String) {
+  func addExpenseWithoutImage(title: String, cost: Double, vendor: String, category: String, date: Date) {
     let newExpense = ExpenseEntity(context: container.viewContext)
     newExpense.title = title
     newExpense.cost = cost
@@ -74,7 +94,7 @@ class CoreDataViewModel: ObservableObject {
     saveData()
   }
   
-  func updateExpense(entity: ExpenseEntity, title: String, cost: Double, vendor: String, category: String, date: String, receipt: Data?) {
+  func updateExpense(entity: ExpenseEntity, title: String, cost: Double, vendor: String, category: String, date: Date, receipt: Data?) {
     entity.title = title
     entity.cost = cost
     entity.vendor = vendor
@@ -84,7 +104,7 @@ class CoreDataViewModel: ObservableObject {
     saveData()
   }
   
-  func updateExpenseWithoutImage(entity: ExpenseEntity, title: String, cost: Double, vendor: String, category: String, date: String) {
+  func updateExpenseWithoutImage(entity: ExpenseEntity, title: String, cost: Double, vendor: String, category: String, date: Date) {
     entity.title = title
     entity.cost = cost
     entity.vendor = vendor
@@ -97,7 +117,7 @@ class CoreDataViewModel: ObservableObject {
     do {
       try container.viewContext.save()
       fetchExpenses()
-      getMonthlyTotal()
+      monthlyTotal = getTotal(from: savedExpenses)
     } catch let error {
       print("Error saving , \(error)")
     }
@@ -107,9 +127,11 @@ class CoreDataViewModel: ObservableObject {
     return image.jpegData(compressionQuality: 1.0)!
   }
   
-  func getMonthlyTotal() {
-    monthlyTotal = savedExpenses.lazy.compactMap { $0.cost }
+  func getTotal(from expenses: [ExpenseEntity]) -> Double {
+    return expenses.lazy.compactMap { $0.cost }
       .reduce(0, +)
   }
+  
+  
   
 }

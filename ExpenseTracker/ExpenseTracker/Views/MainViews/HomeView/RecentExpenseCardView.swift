@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct RecentExpenseCardView: View {
-  var expenseDate: String
+  var expenseDate: Date
   var expenseTitle: String
   var expenseVendor: String
   var expenseCost: Double
   var expenseCategory: String
+  
+  var formatter: NumberFormatter = {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .currency
+    formatter.maximumFractionDigits = 2
+    return formatter
+  }()
   
   var body: some View {
     ZStack {
@@ -23,7 +30,7 @@ struct RecentExpenseCardView: View {
       
       HStack(spacing: 0) {
         HStack(spacing: 0) {
-          Text(expenseDate)
+          Text(expenseDate.formatDate())
             .fontWeight(.semibold)
             .padding(.leading)
           VStack(alignment: .leading, spacing: 0) {
@@ -41,7 +48,8 @@ struct RecentExpenseCardView: View {
               .padding(.bottom, 4)
           }
           Spacer()
-          Text("$"+String(expenseCost))
+          let costString = formatter.string(from: NSNumber(value: expenseCost))!
+          Text(costString)
             .font(.title2)
             .fontWeight(.bold)
             .padding(.trailing)
@@ -58,7 +66,7 @@ struct RecentExpenseCardView: View {
 
 struct RecentExpenseCardView_Previews: PreviewProvider {
   static var previews: some View {
-    RecentExpenseCardView(expenseDate: "7/29", expenseTitle: "Balloons", expenseVendor: "BalloonDepot", expenseCost: 100.23, expenseCategory: "Supplies")
+    RecentExpenseCardView(expenseDate: Date.now, expenseTitle: "Balloons", expenseVendor: "BalloonDepot", expenseCost: 100.23, expenseCategory: "Supplies")
   }
 }
 

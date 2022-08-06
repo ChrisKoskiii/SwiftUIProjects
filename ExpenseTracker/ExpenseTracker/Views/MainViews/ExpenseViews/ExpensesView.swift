@@ -13,23 +13,27 @@ struct ExpensesView: View {
   
   @State private var opacity = 0.0
   
+  var formatter: NumberFormatter = {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .currency
+    formatter.maximumFractionDigits = 2
+    return formatter
+  }()
   var body: some View {
-    NavigationView {
-      ZStack {
-        
-        BackgroundView()
-        
-        expenseList
-        
-      }
-      .navigationTitle("All Expenses")
-      .navigationBarTitleDisplayMode(.inline)
-      .toolbar {
-        ToolbarItem(placement: .navigationBarTrailing) {
-          NavigationLink(destination: AddExpenseView(vm: corevm)) {
-            Text("Add Expense")
-              .toolBarButtonStyle()
-          }
+    ZStack {
+      
+      BackgroundView()
+      
+      expenseList
+      
+    }
+    .navigationTitle("All Expenses")
+    .navigationBarTitleDisplayMode(.inline)
+    .toolbar {
+      ToolbarItem(placement: .navigationBarTrailing) {
+        NavigationLink(destination: AddExpenseView(vm: corevm)) {
+          Text("Add Expense")
+            .toolBarButtonStyle()
         }
       }
     }
@@ -43,7 +47,7 @@ struct ExpensesView: View {
         NavigationLink(destination: DetailExpenseView(vm: corevm, detailExpense: expense, titleText: expense.wrappedTitle, costText: expense.cost, vendorText: expense.wrappedVendor, categoryText: expense.wrappedCategory, sentDate: expense.wrappedDate, imageData: expense.receipt)) {
           
           HStack {
-            Text(expense.wrappedDate)
+            Text(expense.wrappedDate.formatDate())
             
             VStack(alignment: .leading) {
               Text(expense.wrappedTitle)
@@ -54,7 +58,8 @@ struct ExpensesView: View {
             }
             
             Spacer()
-            Text("$" + String(expense.cost))
+            let costString = formatter.string(from: NSNumber(value: expense.cost))!
+            Text(costString)
               .font(.title3)
           }
           

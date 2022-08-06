@@ -21,10 +21,10 @@ struct DetailExpenseView: View {
   
   //Textfield & picker values
   @State var titleText: String
-  @State var costText: Double
+  @State var costText: Double?
   @State var vendorText: String
   @State var categoryText: String
-  @State var sentDate: String
+  @State var sentDate: Date
   @State var dateValue: Date = Date.now
   
   private var dateString: String {
@@ -124,19 +124,19 @@ struct DetailExpenseView: View {
     Button {
       if imageData != nil {
         vm.updateExpense(entity: detailExpense, title: titleText,
-                         cost: costText,
+                         cost: costText!,
                          vendor: vendorText,
                          category: categoryText,
-                         date: dateString,
+                         date: dateValue,
                          receipt: imageData!)
         presentationMode.wrappedValue.dismiss()
       } else {
         vm.updateExpenseWithoutImage(entity: detailExpense,
                                      title: titleText,
-                                     cost: costText,
+                                     cost: costText!,
                                      vendor: vendorText,
                                      category: categoryText,
-                                     date: dateString
+                                     date: dateValue
         )
       }
     } label: {
@@ -162,6 +162,15 @@ struct DetailExpenseView: View {
     scannedImage = convertedImage
   }
   
+  func emptyTextFields() -> Bool {
+    if titleText.isEmpty ||
+        costText == nil ||
+        vendorText.isEmpty ||
+        categoryText.isEmpty {
+      return true
+    } else { return false
+    }
+  }
 }
 
 

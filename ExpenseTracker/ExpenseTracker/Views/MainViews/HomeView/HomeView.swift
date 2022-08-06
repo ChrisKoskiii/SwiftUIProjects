@@ -13,46 +13,43 @@ struct HomeView: View {
   @State var opacity = 0.0
   @State var hasScrolled = false
   var body: some View {
-    NavigationView {
+    ZStack {
       
-      ZStack {
+      BackgroundView()
+      
+      VStack {
         
-        BackgroundView()
+        MonthlyTotalView(corevm: corevm)
         
-        VStack {
+        HStack {
           
-          MonthlyTotalView(corevm: corevm)
-          
-          HStack {
-            
-            recentTransactionText
-            Spacer()
-          }
-          
-          recentExpenseList
+          recentTransactionText
           Spacer()
-          
-        }
-        .opacity(opacity)
-        .toolbar {
-          ToolbarItem(placement: .navigationBarTrailing) {
-            NavigationLink(destination: AddExpenseView(vm: corevm)) {
-              Text("Add Expense")
-                .toolBarButtonStyle()
-            }
-          }
         }
         
-        .onAppear {
-          DispatchQueue.main.async {
-            withAnimation {
-              opacity = 1.0
-            }
+        recentExpenseList
+        Spacer()
+        
+      }
+      .opacity(opacity)
+      .toolbar {
+        ToolbarItem(placement: .navigationBarTrailing) {
+          NavigationLink(destination: AddExpenseView(vm: corevm)) {
+            Text("Add Expense")
+              .toolBarButtonStyle()
           }
         }
       }
-      .navigationTitle("ExpenseTracker")
+      
+      .onAppear {
+        DispatchQueue.main.async {
+          withAnimation {
+            opacity = 1.0
+          }
+        }
+      }
     }
+    .navigationTitle("ExpenseTracker")
   }
   
   var recentTransactionText: some View {
