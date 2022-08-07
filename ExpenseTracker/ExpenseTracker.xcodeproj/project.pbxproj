@@ -17,6 +17,8 @@
 		9E187D412893115A00142000 /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E187D402893115A00142000 /* CoreDataViewModel.swift */; };
 		9E187D4328936A0E00142000 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E187D4228936A0E00142000 /* AddExpenseView.swift */; };
 		9E187D4528936D8600142000 /* DocumentScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E187D4428936D8600142000 /* DocumentScanner.swift */; };
+		9E1DC140289ED84D00D6C771 /* PDFCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1DC13F289ED84D00D6C771 /* PDFCreator.swift */; };
+		9E1DC142289EDF0C00D6C771 /* UIScrollViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1DC141289EDF0C00D6C771 /* UIScrollViewWrapper.swift */; };
 		9E1E3D292894687B004FE485 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E3D282894687B004FE485 /* Date+Extension.swift */; };
 		9E35E5A328957208008D9ABA /* ExpenseEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E35E5A128957208008D9ABA /* ExpenseEntity+CoreDataClass.swift */; };
 		9E35E5A428957208008D9ABA /* ExpenseEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E35E5A228957208008D9ABA /* ExpenseEntity+CoreDataProperties.swift */; };
@@ -50,6 +52,8 @@
 		9E187D402893115A00142000 /* CoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
 		9E187D4228936A0E00142000 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		9E187D4428936D8600142000 /* DocumentScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentScanner.swift; sourceTree = "<group>"; };
+		9E1DC13F289ED84D00D6C771 /* PDFCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCreator.swift; sourceTree = "<group>"; };
+		9E1DC141289EDF0C00D6C771 /* UIScrollViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewWrapper.swift; sourceTree = "<group>"; };
 		9E1E3D282894687B004FE485 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		9E35E5A128957208008D9ABA /* ExpenseEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpenseEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9E35E5A228957208008D9ABA /* ExpenseEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpenseEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				9E187D402893115A00142000 /* CoreDataViewModel.swift */,
+				9E1DC13F289ED84D00D6C771 /* PDFCreator.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 				9E187D3B2893010900142000 /* ExpenseContainer.xcdatamodeld */,
 				9E8E1F2E2893FCD100300E14 /* Theme.swift */,
 				9E1E3D282894687B004FE485 /* Date+Extension.swift */,
+				9E1DC141289EDF0C00D6C771 /* UIScrollViewWrapper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E1DC142289EDF0C00D6C771 /* UIScrollViewWrapper.swift in Sources */,
 				9E8E1F3B2894495600300E14 /* PreferenceKey.swift in Sources */,
 				9E187D412893115A00142000 /* CoreDataViewModel.swift in Sources */,
 				9E35E5A328957208008D9ABA /* ExpenseEntity+CoreDataClass.swift in Sources */,
@@ -303,6 +310,7 @@
 				9E8E1F2B2893802E00300E14 /* Tab.swift in Sources */,
 				9E8E1F362894233B00300E14 /* SettingsView.swift in Sources */,
 				9E3D6E0728956D58008DB55D /* DetailExpenseView.swift in Sources */,
+				9E1DC140289ED84D00D6C771 /* PDFCreator.swift in Sources */,
 				9EBD37542895A09200BABDFA /* MonthlyTotalView.swift in Sources */,
 				9E187D4328936A0E00142000 /* AddExpenseView.swift in Sources */,
 				9E187D4528936D8600142000 /* DocumentScanner.swift in Sources */,
