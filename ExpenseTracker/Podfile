@@ -1,0 +1,6 @@
+platform :ios, '15.0'
+use_frameworks!
+
+target 'ExpenseTracker' do
+	pod 'PDFGenerator', '~> 3.1'
+end

@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 import UIKit
+import Collections
 
 class CoreDataViewModel: ObservableObject {
   
@@ -18,6 +19,7 @@ class CoreDataViewModel: ObservableObject {
   @Published var monthlyTotal: Double = 0.00
   @Published var dateRangeExpenses: [ExpenseEntity] = []
   @Published var dateRangeTotal: Double = 0.0
+  @Published var categoriesDict: [String: Double] = [:]
   
   init() {
     container = NSPersistentContainer(name: "ExpenseContainer")
@@ -39,6 +41,7 @@ class CoreDataViewModel: ObservableObject {
       savedExpenses = try container.viewContext.fetch(request)
       getRecent(expenses: savedExpenses)
       monthlyTotal = getTotal(from: savedExpenses)
+      updateCategories()
     } catch let error {
       print("Error fetching, \(error)")
     }
@@ -118,6 +121,7 @@ class CoreDataViewModel: ObservableObject {
       try container.viewContext.save()
       fetchExpenses()
       monthlyTotal = getTotal(from: savedExpenses)
+      updateCategories()
     } catch let error {
       print("Error saving , \(error)")
     }
@@ -130,6 +134,30 @@ class CoreDataViewModel: ObservableObject {
   func getTotal(from expenses: [ExpenseEntity]) -> Double {
     return expenses.lazy.compactMap { $0.cost }
       .reduce(0, +)
+  }
+  
+  func updateCategories() {
+    getAllCategories()
+  }
+  
+  func categoryTotal() {
+    for expense in dateRangeExpenses {
+      for (key, value) in categoriesDict {
+        if expense.wrappedCategory == key {
+          var newValue = value
+          newValue += expense.cost
+          categoriesDict.updateValue(newValue, forKey: key)
+        }
+      }
+    }
+    print(categoriesDict)
+  }
+  
+  func getAllCategories() {
+    for expense in savedExpenses {
+      categoriesDict[expense.wrappedCategory] = 0
+    }
+    print(categoriesDict)
   }
   
   

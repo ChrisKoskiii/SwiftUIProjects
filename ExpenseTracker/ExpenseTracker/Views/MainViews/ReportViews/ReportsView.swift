@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PDFGenerator
 
 struct ReportsView: View {
   @EnvironmentObject var coreVM: CoreDataViewModel
@@ -13,7 +14,7 @@ struct ReportsView: View {
   
   @State private var opacity = 0.0
   
-  @State var PDFUrl: Data?
+  @State var PDFUrl: URL?
   @State var showShareSheet: Bool = false
   
   @State var expense: ExpenseEntity?
@@ -29,13 +30,14 @@ struct ReportsView: View {
   }()
   
   var body: some View {
+    
     expenseList
       .navigationBarTitle("Generate Reports")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem {
           Button {
-            showShareSheet.toggle()
+            exportToPDF()
           } label : {
             Image(systemName: "square.and.arrow.up.fill")
           }
@@ -50,6 +52,7 @@ struct ReportsView: View {
       }
       .onAppear {
         corevm.getDateRangeExpenses(startDate: startDate, endDate: endDate)
+        corevm.categoryTotal()
         DispatchQueue.main.async {
           withAnimation {
             opacity = 1.0
@@ -59,48 +62,87 @@ struct ReportsView: View {
   }
   
   var expenseList: some View {
-    GeometryReader { proxy in
-      UIScrollViewWrapper {
+    VStack {
+      HStack {
+        Text("\(startDate.formatDate()) to \(endDate.formatDate())")
+          .font(.title2)
+          .padding()
+        Spacer()
+      }
+      
+      let categories = corevm.categoriesDict.keys.sorted().map{Category(name: $0, cost: corevm.categoriesDict[$0]!)}
+      ForEach(categories, id: \.name) { category in
         HStack {
-          Text("\(startDate.formatDate()) to \(endDate.formatDate())")
-            .font(.title2)
-            .padding(.leading)
+          Text(category.name)
+            .font(.caption)
+            .padding(.leading )
+            .lineLimit(0)
           Spacer()
-        }
-        ForEach(corevm.dateRangeExpenses) { expense in
-          HStack {
-            Text(expense.wrappedDate.formatDate())
-              .font(.caption)
-              .frame(width: proxy.size.width * 0.15)
-            Divider()
-            Text(expense.wrappedVendor)
-              .font(.caption)
-              .frame(width: proxy.size.width * 0.25)
-            Divider()
-            Text(expense.wrappedCategory)
-              .font(.caption)
-              .frame(width: proxy.size.width * 0.25)
-            Spacer()
-            let costString = formatter.string(from: NSNumber(value: expense.cost))!
-            Text(costString)
-              .font(.caption)
-          }
+          let costString = formatter.string(from: NSNumber(value: category.cost))!
+          Text(costString)
+            .font(.caption)
+            .padding(.trailing)
         }
         Divider()
-        HStack {
-          Text("Total:")
-            .padding(.leading )
-          Spacer()
-          Text("$"+String(format: "%.2f", corevm.dateRangeTotal))
-        }
       }
+      HStack {
+        Text("Total:")
+          .padding(.leading )
+        Spacer()
+        Text("$"+String(format: "%.2f", corevm.dateRangeTotal))
+          .padding(.trailing)
+      }
+      Spacer()
     }
   }
-}
+  
+  func exportToPDF() {
     
+    let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    let outputFileURL = documentDirectory.appendingPathComponent("SwiftUI.pdf")
     
-    struct ReportsView_Previews: PreviewProvider {
-      static var previews: some View {
-        ReportsView(corevm: CoreDataViewModel(), startDate: Date.now, endDate: Date.now)
-      }
+    //Normal with
+    let width: CGFloat = 8.5 * 72.0
+    //Estimate the height of your view
+    let height: CGFloat = 1000
+    
+    let pdfVC = UIHostingController(rootView: expenseList)
+    pdfVC.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
+    
+    //Render the view behind all other views
+    let rootVC = UIApplication.shared.windows.first?.rootViewController
+    rootVC?.addChild(pdfVC)
+    rootVC?.view.insertSubview(pdfVC.view, at: 0)
+    
+    //Render the PDF
+    let pdfRenderer = UIGraphicsPDFRenderer(bounds: CGRect(x: 0, y: 0, width: 8.5 * 72.0, height: height))
+    
+    do {
+      try pdfRenderer.writePDF(to: outputFileURL, withActions: { (context) in
+        context.beginPage()
+        pdfVC.view.layer.render(in: context.cgContext)
+      })
+      
+      self.PDFUrl = outputFileURL
+      self.showShareSheet = true
+      
+    }catch {
+      print("Could not create PDF file: \(error)")
     }
+    
+    pdfVC.removeFromParent()
+    pdfVC.view.removeFromSuperview()
+  }
+  
+}
+
+
+struct ReportsView_Previews: PreviewProvider {
+  static var previews: some View {
+    ReportsView(corevm: CoreDataViewModel(), startDate: Date.now, endDate: Date.now)
+  }
+}
+
+struct ReportExpenseView {
+  var view: AnyView
+}
