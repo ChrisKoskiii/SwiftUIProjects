@@ -9,14 +9,10 @@ import SwiftUI
 import PDFGenerator
 
 struct ReportsView: View {
-  @EnvironmentObject var coreVM: CoreDataViewModel
   @ObservedObject var corevm: CoreDataViewModel
-  
+  @StateObject var reportsvm = ReportsViewModel()
   @State private var opacity = 0.0
-  
-  @State var PDFUrl: URL?
-  @State var showShareSheet: Bool = false
-  
+
   @State var expense: ExpenseEntity?
   
   @State var startDate: Date
@@ -43,10 +39,10 @@ struct ReportsView: View {
           }
         }
       }
-      .sheet(isPresented: $showShareSheet) {
-        PDFUrl = nil
+      .sheet(isPresented: $reportsvm.showShareSheet) {
+        reportsvm.PDFUrl = nil
       } content: {
-        if let PDFUrl = PDFUrl {
+        if let PDFUrl = reportsvm.PDFUrl {
           ShareSheet(urls: [PDFUrl])
         }
       }
@@ -123,8 +119,8 @@ struct ReportsView: View {
         pdfVC.view.layer.render(in: context.cgContext)
       })
       
-      self.PDFUrl = outputFileURL
-      self.showShareSheet = true
+      self.reportsvm.PDFUrl = outputFileURL
+      self.reportsvm.showShareSheet = true
       
     }catch {
       print("Could not create PDF file: \(error)")
@@ -139,7 +135,7 @@ struct ReportsView: View {
 
 struct ReportsView_Previews: PreviewProvider {
   static var previews: some View {
-    ReportsView(corevm: CoreDataViewModel(), startDate: Date.now, endDate: Date.now)
+    ReportsView(corevm: CoreDataViewModel(), reportsvm: ReportsViewModel(), startDate: Date.now, endDate: Date.now)
   }
 }
 

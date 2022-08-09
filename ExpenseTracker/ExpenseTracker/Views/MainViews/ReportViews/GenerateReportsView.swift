@@ -18,7 +18,7 @@ struct GenerateReportsView: View {
   var body: some View {
       Form {
         DatePicker("Start date", selection: $startDate, displayedComponents: [.date])
-        DatePicker("Start date", selection: $endDate, displayedComponents: [.date])
+        DatePicker("End date", selection: $endDate, displayedComponents: [.date])
         Picker("Full Report or Summary", selection: $selectedChoice) {
           ForEach(reportChoices, id: \.self) {
             Text($0)

@@ -28,6 +28,8 @@
 		9E5824EF28A18FB000C80A73 /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = 9E5824EE28A18FB000C80A73 /* DequeModule */; };
 		9E5824F128A18FB000C80A73 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 9E5824F028A18FB000C80A73 /* OrderedCollections */; };
 		9E5824F328A191E000C80A73 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5824F228A191E000C80A73 /* Category.swift */; };
+		9E5824F728A1A6EE00C80A73 /* ReportsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5824F628A1A6EE00C80A73 /* ReportsViewModel.swift */; };
+		9E5824FC28A1FA0D00C80A73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E5824FB28A1FA0D00C80A73 /* GoogleService-Info.plist */; };
 		9E8E1F2328936F8D00300E14 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F2228936F8D00300E14 /* BackgroundView.swift */; };
 		9E8E1F262893762E00300E14 /* RecentExpenseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F252893762E00300E14 /* RecentExpenseCardView.swift */; };
 		9E8E1F2828937FE600300E14 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F2728937FE600300E14 /* TabBar.swift */; };
@@ -67,6 +69,8 @@
 		9E35E5A228957208008D9ABA /* ExpenseEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpenseEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9E3D6E0628956D58008DB55D /* DetailExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailExpenseView.swift; sourceTree = "<group>"; };
 		9E5824F228A191E000C80A73 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		9E5824F628A1A6EE00C80A73 /* ReportsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewModel.swift; sourceTree = "<group>"; };
+		9E5824FB28A1FA0D00C80A73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9E8E1F2228936F8D00300E14 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		9E8E1F252893762E00300E14 /* RecentExpenseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentExpenseCardView.swift; sourceTree = "<group>"; };
 		9E8E1F2728937FE600300E14 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 				9E187D4628936ED600142000 /* Views */,
 				9E8E1F2128936F7F00300E14 /* Helpers */,
 				9E187D312892FF3E00142000 /* Assets.xcassets */,
+				9E5824FB28A1FA0D00C80A73 /* GoogleService-Info.plist */,
 				9E187D332892FF3E00142000 /* Preview Content */,
 			);
 			path = ExpenseTracker;
@@ -178,6 +183,7 @@
 			children = (
 				9E187D402893115A00142000 /* CoreDataViewModel.swift */,
 				9E1DC13F289ED84D00D6C771 /* PDFCreator.swift */,
+				9E5824F628A1A6EE00C80A73 /* ReportsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -325,6 +331,7 @@
 			files = (
 				9E187D352892FF3E00142000 /* Preview Assets.xcassets in Resources */,
 				9E187D322892FF3E00142000 /* Assets.xcassets in Resources */,
+				9E5824FC28A1FA0D00C80A73 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +397,7 @@
 				9E8E1F39289446F600300E14 /* NavBar.swift in Sources */,
 				9E5824F328A191E000C80A73 /* Category.swift in Sources */,
 				9E187D3D2893010900142000 /* ExpenseContainer.xcdatamodeld in Sources */,
+				9E5824F728A1A6EE00C80A73 /* ReportsViewModel.swift in Sources */,
 				9E8E1F2F2893FCD100300E14 /* Theme.swift in Sources */,
 				9E01C2BC2896DC2E00337A37 /* ScannedImageView.swift in Sources */,
 				9E8E1F262893762E00300E14 /* RecentExpenseCardView.swift in Sources */,
