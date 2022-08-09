@@ -29,7 +29,6 @@
 		9E5824F128A18FB000C80A73 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 9E5824F028A18FB000C80A73 /* OrderedCollections */; };
 		9E5824F328A191E000C80A73 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5824F228A191E000C80A73 /* Category.swift */; };
 		9E5824F728A1A6EE00C80A73 /* ReportsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5824F628A1A6EE00C80A73 /* ReportsViewModel.swift */; };
-		9E5824FC28A1FA0D00C80A73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E5824FB28A1FA0D00C80A73 /* GoogleService-Info.plist */; };
 		9E8E1F2328936F8D00300E14 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F2228936F8D00300E14 /* BackgroundView.swift */; };
 		9E8E1F262893762E00300E14 /* RecentExpenseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F252893762E00300E14 /* RecentExpenseCardView.swift */; };
 		9E8E1F2828937FE600300E14 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F2728937FE600300E14 /* TabBar.swift */; };
@@ -70,7 +69,6 @@
 		9E3D6E0628956D58008DB55D /* DetailExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailExpenseView.swift; sourceTree = "<group>"; };
 		9E5824F228A191E000C80A73 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9E5824F628A1A6EE00C80A73 /* ReportsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewModel.swift; sourceTree = "<group>"; };
-		9E5824FB28A1FA0D00C80A73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9E8E1F2228936F8D00300E14 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		9E8E1F252893762E00300E14 /* RecentExpenseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentExpenseCardView.swift; sourceTree = "<group>"; };
 		9E8E1F2728937FE600300E14 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 				9E187D4628936ED600142000 /* Views */,
 				9E8E1F2128936F7F00300E14 /* Helpers */,
 				9E187D312892FF3E00142000 /* Assets.xcassets */,
-				9E5824FB28A1FA0D00C80A73 /* GoogleService-Info.plist */,
 				9E187D332892FF3E00142000 /* Preview Content */,
 			);
 			path = ExpenseTracker;
@@ -331,7 +328,6 @@
 			files = (
 				9E187D352892FF3E00142000 /* Preview Assets.xcassets in Resources */,
 				9E187D322892FF3E00142000 /* Assets.xcassets in Resources */,
-				9E5824FC28A1FA0D00C80A73 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
