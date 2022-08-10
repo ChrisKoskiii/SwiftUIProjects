@@ -29,6 +29,12 @@
 		9E5824F128A18FB000C80A73 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 9E5824F028A18FB000C80A73 /* OrderedCollections */; };
 		9E5824F328A191E000C80A73 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5824F228A191E000C80A73 /* Category.swift */; };
 		9E5824F728A1A6EE00C80A73 /* ReportsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5824F628A1A6EE00C80A73 /* ReportsViewModel.swift */; };
+<<<<<<< HEAD
+=======
+		9E5824FC28A1FA0D00C80A73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E5824FB28A1FA0D00C80A73 /* GoogleService-Info.plist */; };
+		9E58250128A2D07D00C80A73 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E58250028A2D07D00C80A73 /* CloudKit.framework */; };
+		9E58250328A2D35900C80A73 /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E58250228A2D35900C80A73 /* CloudKit.swift */; };
+>>>>>>> Cloudkit
 		9E8E1F2328936F8D00300E14 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F2228936F8D00300E14 /* BackgroundView.swift */; };
 		9E8E1F262893762E00300E14 /* RecentExpenseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F252893762E00300E14 /* RecentExpenseCardView.swift */; };
 		9E8E1F2828937FE600300E14 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F2728937FE600300E14 /* TabBar.swift */; };
@@ -40,7 +46,6 @@
 		9E8E1F362894233B00300E14 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F352894233B00300E14 /* SettingsView.swift */; };
 		9E8E1F39289446F600300E14 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F38289446F600300E14 /* NavBar.swift */; };
 		9E8E1F3B2894495600300E14 /* PreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F3A2894495600300E14 /* PreferenceKey.swift */; };
-		9E9B34AC289963F700408F05 /* PDFStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9B34AB289963F700408F05 /* PDFStuff.swift */; };
 		9E9B34AE2899733900408F05 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9B34AD2899733900408F05 /* ShareSheet.swift */; };
 		9EBD37542895A09200BABDFA /* MonthlyTotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBD37532895A09200BABDFA /* MonthlyTotalView.swift */; };
 		9ED23ACD289CB99B00CAAB70 /* GenerateReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED23ACC289CB99B00CAAB70 /* GenerateReportsView.swift */; };
@@ -69,6 +74,13 @@
 		9E3D6E0628956D58008DB55D /* DetailExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailExpenseView.swift; sourceTree = "<group>"; };
 		9E5824F228A191E000C80A73 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9E5824F628A1A6EE00C80A73 /* ReportsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewModel.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		9E5824FB28A1FA0D00C80A73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9E5824FF28A2D00A00C80A73 /* ExpenseTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ExpenseTracker.entitlements; sourceTree = "<group>"; };
+		9E58250028A2D07D00C80A73 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		9E58250228A2D35900C80A73 /* CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
+>>>>>>> Cloudkit
 		9E8E1F2228936F8D00300E14 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		9E8E1F252893762E00300E14 /* RecentExpenseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentExpenseCardView.swift; sourceTree = "<group>"; };
 		9E8E1F2728937FE600300E14 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -81,7 +93,6 @@
 		9E8E1F3728942A2300300E14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9E8E1F38289446F600300E14 /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
 		9E8E1F3A2894495600300E14 /* PreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKey.swift; sourceTree = "<group>"; };
-		9E9B34AB289963F700408F05 /* PDFStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFStuff.swift; sourceTree = "<group>"; };
 		9E9B34AD2899733900408F05 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		9EBD37532895A09200BABDFA /* MonthlyTotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyTotalView.swift; sourceTree = "<group>"; };
 		9ED23ACC289CB99B00CAAB70 /* GenerateReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateReportsView.swift; sourceTree = "<group>"; };
@@ -92,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E58250128A2D07D00C80A73 /* CloudKit.framework in Frameworks */,
 				9E5824ED28A18FB000C80A73 /* Collections in Frameworks */,
 				7C9EFC8427A40B3790C7F130 /* Pods_ExpenseTracker.framework in Frameworks */,
 				9E5824F128A18FB000C80A73 /* OrderedCollections in Frameworks */,
@@ -145,6 +157,7 @@
 		9E187D2C2892FF3D00142000 /* ExpenseTracker */ = {
 			isa = PBXGroup;
 			children = (
+				9E5824FF28A2D00A00C80A73 /* ExpenseTracker.entitlements */,
 				9E8E1F3728942A2300300E14 /* Info.plist */,
 				9E187D2D2892FF3D00142000 /* ExpenseTrackerApp.swift */,
 				9E8E1F292893802000300E14 /* Models */,
@@ -153,6 +166,7 @@
 				9E8E1F2128936F7F00300E14 /* Helpers */,
 				9E187D312892FF3E00142000 /* Assets.xcassets */,
 				9E187D332892FF3E00142000 /* Preview Content */,
+				9E58250228A2D35900C80A73 /* CloudKit.swift */,
 			);
 			path = ExpenseTracker;
 			sourceTree = "<group>";
@@ -198,10 +212,8 @@
 		9E8E1F2128936F7F00300E14 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				9E9B34AB289963F700408F05 /* PDFStuff.swift */,
 				9E187D4428936D8600142000 /* DocumentScanner.swift */,
 				9E187D3E2893055000142000 /* View+Extensions.swift */,
-				9E187D3B2893010900142000 /* ExpenseContainer.xcdatamodeld */,
 				9E8E1F2E2893FCD100300E14 /* Theme.swift */,
 				9E1E3D282894687B004FE485 /* Date+Extension.swift */,
 				9E1DC141289EDF0C00D6C771 /* UIScrollViewWrapper.swift */,
@@ -223,6 +235,7 @@
 		9E8E1F292893802000300E14 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9E187D3B2893010900142000 /* ExpenseContainer.xcdatamodeld */,
 				9E8E1F2A2893802E00300E14 /* Tab.swift */,
 				9E8E1F3A2894495600300E14 /* PreferenceKey.swift */,
 				9E5824F228A191E000C80A73 /* Category.swift */,
@@ -253,6 +266,7 @@
 		C7F47A0366323B07310DC9B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E58250028A2D07D00C80A73 /* CloudKit.framework */,
 				9E333D0056B436D10455454D /* Pods_ExpenseTracker.framework */,
 			);
 			name = Frameworks;
@@ -404,13 +418,13 @@
 				9EBD37542895A09200BABDFA /* MonthlyTotalView.swift in Sources */,
 				9E187D4328936A0E00142000 /* AddExpenseView.swift in Sources */,
 				9E187D4528936D8600142000 /* DocumentScanner.swift in Sources */,
-				9E9B34AC289963F700408F05 /* PDFStuff.swift in Sources */,
 				9E187D3F2893055000142000 /* View+Extensions.swift in Sources */,
 				9E8E1F2D289380A300300E14 /* HomeView.swift in Sources */,
 				9E187D2E2892FF3D00142000 /* ExpenseTrackerApp.swift in Sources */,
 				9ED23ACD289CB99B00CAAB70 /* GenerateReportsView.swift in Sources */,
 				9E1E3D292894687B004FE485 /* Date+Extension.swift in Sources */,
 				9E8E1F2828937FE600300E14 /* TabBar.swift in Sources */,
+				9E58250328A2D35900C80A73 /* CloudKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +551,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ExpenseTracker/ExpenseTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ExpenseTracker/Preview Content\"";
@@ -571,6 +586,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ExpenseTracker/ExpenseTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ExpenseTracker/Preview Content\"";
