@@ -30,6 +30,9 @@ class CoreDataViewModel: ObservableObject {
     }
     fetchExpenses()
     getRecent(expenses: savedExpenses)
+    if let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date()) {
+      getDateRangeExpenses(startDate: startDate, endDate: Date.now)
+    }
   }
   
   func fetchExpenses() {
@@ -159,7 +162,5 @@ class CoreDataViewModel: ObservableObject {
     }
     print(categoriesDict)
   }
-  
-  
   
 }

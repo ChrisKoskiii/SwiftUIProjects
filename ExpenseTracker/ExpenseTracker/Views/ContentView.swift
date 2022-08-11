@@ -12,7 +12,7 @@ struct ContentView: View {
   @ObservedObject var corevm: CoreDataViewModel
   var body: some View {
     TabView {
-      HomeView(corevm: corevm)
+      HomeView(coreVM: corevm)
         .tabItem {
           Label("Home", systemImage: "house")
         }
@@ -29,6 +29,7 @@ struct ContentView: View {
           Label("Settings", systemImage: "gear")
         }
     }
+    .accentColor(Color.brandPrimary)
   }
 }
 

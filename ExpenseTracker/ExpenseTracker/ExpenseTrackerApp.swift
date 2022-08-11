@@ -9,10 +9,10 @@ import SwiftUI
 
 @main
 struct ExpenseTrackerApp: App {
-  @StateObject var corevm = CoreDataViewModel()
+  @StateObject var coreVM = CoreDataViewModel()
   var body: some Scene {
         WindowGroup {
-          ContentView(corevm: corevm)
+          ContentView(corevm: coreVM)
         }
     }
 }
