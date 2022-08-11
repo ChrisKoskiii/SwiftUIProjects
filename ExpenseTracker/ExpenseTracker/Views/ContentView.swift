@@ -11,32 +11,29 @@ struct ContentView: View {
   @AppStorage("selectedTab") var selectedTab: Tab = .home
   @ObservedObject var corevm: CoreDataViewModel
   var body: some View {
-    NavigationView {
-      ZStack(alignment: .bottom) {
-        
-        switch selectedTab {
-        case .home:
-          HomeView(corevm: corevm)
-        case .expenses:
-          ExpensesView(corevm: corevm)
-        case .reports:
-          GenerateReportsView(corevm: corevm)
-        case .settings:
-          SettingsView(corevm: corevm)
+    TabView {
+      HomeView(corevm: corevm)
+        .tabItem {
+          Label("Home", systemImage: "house")
         }
-        
-        TabBar()
-        
-      }
-      .safeAreaInset(edge: .bottom) {
-        Color.clear.frame(height: 44)
-      }
+      ExpensesView(corevm: corevm)
+        .tabItem {
+          Label("Expenses", systemImage: "dollarsign.circle")
+        }
+      GenerateReportsView(corevm: corevm)
+        .tabItem {
+          Label("Reports", systemImage: "list.bullet.rectangle.portrait")
+        }
+      SettingsView(corevm: corevm)
+        .tabItem {
+          Label("Settings", systemImage: "gear")
+        }
     }
   }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    ContentView(corevm: CoreDataViewModel())
-//  }
-//}
+struct ContentView_Previews: PreviewProvider {
+  static var previews: some View {
+    ContentView(corevm: CoreDataViewModel())
+  }
+}

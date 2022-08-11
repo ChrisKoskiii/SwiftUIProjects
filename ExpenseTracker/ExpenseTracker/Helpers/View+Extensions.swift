@@ -29,7 +29,7 @@ struct AddButtonStyle: ViewModifier {
       .foregroundColor(.white)
       .frame(height: 55)
       .frame(maxWidth: .infinity)
-      .background(Color("AddButtonColor"))
+      .background(Color.brandPrimary)
       .cornerRadius(10)
       .padding(.horizontal)
   }
@@ -42,7 +42,7 @@ struct ToolBarButtonStyle: ViewModifier {
       .padding(.horizontal)
       .padding(.vertical, 4)
       .foregroundColor(.white)
-      .background(.cyan)
+      .background(Color.brandPrimary)
       .clipShape(Capsule())
   }
 }

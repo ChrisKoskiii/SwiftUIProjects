@@ -21,18 +21,18 @@ struct ExpensesView: View {
   }()
   
   var body: some View {
-    ZStack {
-      expenseList
-    }
-    .navigationTitle("All Expenses")
-    .navigationBarTitleDisplayMode(.inline)
-    .toolbar {
-      ToolbarItem(placement: .navigationBarTrailing) {
-        NavigationLink(destination: AddExpenseView(vm: corevm)) {
-          Text("Add Expense")
-            .toolBarButtonStyle()
+    NavigationView {
+        expenseList
+      .navigationTitle("All Expenses")
+      .navigationBarTitleDisplayMode(.inline)
+      .toolbar {
+        ToolbarItem(placement: .navigationBarTrailing) {
+          NavigationLink(destination: AddExpenseView(vm: corevm)) {
+            Text("Add Expense")
+              .toolBarButtonStyle()
+          }
         }
-      }
+    }
     }
   }
   

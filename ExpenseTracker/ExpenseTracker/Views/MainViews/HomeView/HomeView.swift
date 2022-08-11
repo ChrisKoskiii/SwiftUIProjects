@@ -13,48 +13,48 @@ struct HomeView: View {
   @State var opacity = 0.0
   @State var hasScrolled = false
   var body: some View {
-    ZStack {
-      
-      VStack {
-        
-        MonthlyTotalView(corevm: corevm)
-        
-        HStack {
+    NavigationView {
+        VStack {
           
-          recentTransactionText
+          MonthlyTotalView(corevm: corevm)
+          
+          HStack {
+            
+            recentTransactionText
+            Spacer()
+          }
+          
+          recentExpenseList
           Spacer()
+          
         }
-        
-        recentExpenseList
-        Spacer()
-        
-      }
-      .opacity(opacity)
-      .toolbar {
-        ToolbarItem(placement: .navigationBarTrailing) {
-          NavigationLink(destination: AddExpenseView(vm: corevm)) {
-            Text("Add Expense")
-              .toolBarButtonStyle()
+        .opacity(opacity)
+        .toolbar {
+          ToolbarItem(placement: .navigationBarTrailing) {
+            NavigationLink(destination: AddExpenseView(vm: corevm)) {
+              Text("Add Expense")
+                .toolBarButtonStyle()
+            }
           }
         }
-      }
-      
-      .onAppear {
-        DispatchQueue.main.async {
-          withAnimation {
-            opacity = 1.0
+        
+        .onAppear {
+          DispatchQueue.main.async {
+            withAnimation {
+              opacity = 1.0
+            }
           }
-        }
       }
-    }
-    .background(Color(.secondarySystemBackground))
-    .navigationTitle("Overview")
+      .background(Color(.secondarySystemBackground))
+      .navigationTitle("Overview")
     .navigationBarTitleDisplayMode(.large)
+    }
   }
   
   var recentTransactionText: some View {
     Text("Recent transactions:")
       .font(.caption)
+      .foregroundColor(.secondary)
       .padding(.leading)
       .padding(.top, 16)
   }
@@ -69,8 +69,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
       HomeView(corevm: CoreDataViewModel())
-    }
   }
 }
