@@ -12,7 +12,7 @@ struct ExpenseTrackerApp: App {
   @StateObject var corevm = CoreDataViewModel()
   var body: some Scene {
         WindowGroup {
-          CloudKit()
+          ContentView(corevm: corevm)
         }
     }
 }

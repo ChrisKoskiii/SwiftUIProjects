@@ -5,10 +5,9 @@
 //  Created by Christopher Koski on 7/28/22.
 //
 
-import Foundation
 import CoreData
 import UIKit
-import Collections
+import CloudKit
 
 class CoreDataViewModel: ObservableObject {
   
@@ -22,7 +21,8 @@ class CoreDataViewModel: ObservableObject {
   @Published var categoriesDict: [String: Double] = [:]
   
   init() {
-    container = NSPersistentContainer(name: "ExpenseContainer")
+    container = NSPersistentCloudKitContainer(name: "ExpenseContainer")
+    container.viewContext.automaticallyMergesChangesFromParent = true
     container.loadPersistentStores { description, error in
       if let error = error {
         print("Error loading Core Data, \(error)")

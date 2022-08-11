@@ -19,6 +19,7 @@ struct ExpensesView: View {
     formatter.maximumFractionDigits = 2
     return formatter
   }()
+  
   var body: some View {
     ZStack {
       
@@ -68,6 +69,11 @@ struct ExpensesView: View {
       .onDelete(perform: corevm.deleteExpense)
     }
     .listStyle(.plain)
+    .toolbar {
+      ToolbarItem(placement: .navigationBarLeading) {
+        EditButton()
+      }
+    }
   }
 }
 

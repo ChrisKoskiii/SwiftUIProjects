@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import PDFGenerator
 
 struct ReportsView: View {
   @ObservedObject var corevm: CoreDataViewModel
