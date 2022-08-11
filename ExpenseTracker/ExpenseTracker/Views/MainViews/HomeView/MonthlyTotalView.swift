@@ -19,6 +19,7 @@ struct MonthlyTotalView: View {
           Spacer()
           Text("This month so far:")
             .font(.caption)
+            .foregroundColor(.secondary)
           Spacer()
         }
         
@@ -26,7 +27,6 @@ struct MonthlyTotalView: View {
           Spacer()
           Text("$"+String(format: "%.2f", corevm.monthlyTotal))
             .font(.largeTitle)
-            .shadow(color: .secondary, radius: 3, x: 2, y: 4)
           Spacer()
         }
         
@@ -34,6 +34,11 @@ struct MonthlyTotalView: View {
       .padding(.horizontal)
       .padding(.top, 4)
     }
+    .background(.ultraThickMaterial, in: RoundedRectangle(
+      cornerRadius: 16,
+      style: .continuous))
+    .background(Color.white.cornerRadius(16).shadow(color: Color.secondary.opacity(0.2), radius: 50, x: 0, y: 0))
+    .strokeStyle(cornerRadius: 16)
     .padding(.horizontal)
   }
 }

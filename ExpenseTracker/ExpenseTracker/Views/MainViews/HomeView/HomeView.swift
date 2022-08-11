@@ -15,8 +15,6 @@ struct HomeView: View {
   var body: some View {
     ZStack {
       
-      BackgroundView()
-      
       VStack {
         
         MonthlyTotalView(corevm: corevm)
@@ -49,7 +47,9 @@ struct HomeView: View {
         }
       }
     }
-    .navigationTitle("ExpenseTracker")
+    .background(Color(.secondarySystemBackground))
+    .navigationTitle("Overview")
+    .navigationBarTitleDisplayMode(.large)
   }
   
   var recentTransactionText: some View {
@@ -69,6 +69,8 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
-    HomeView(corevm: CoreDataViewModel())
+    NavigationView {
+      HomeView(corevm: CoreDataViewModel())
+    }
   }
 }

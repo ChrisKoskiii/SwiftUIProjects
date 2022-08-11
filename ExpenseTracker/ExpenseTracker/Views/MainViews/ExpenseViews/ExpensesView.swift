@@ -22,11 +22,7 @@ struct ExpensesView: View {
   
   var body: some View {
     ZStack {
-      
-      BackgroundView()
-      
       expenseList
-      
     }
     .navigationTitle("All Expenses")
     .navigationBarTitleDisplayMode(.inline)
