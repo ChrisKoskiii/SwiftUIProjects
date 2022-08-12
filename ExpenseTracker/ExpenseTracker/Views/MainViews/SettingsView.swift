@@ -18,7 +18,7 @@ struct SettingsView: View {
         
         ForEach(corevm.savedExpenses) { expense in
           
-          NavigationLink(destination: DetailExpenseView(vm: corevm, detailExpense: expense, titleText: expense.wrappedTitle, costText: expense.cost, vendorText: expense.wrappedVendor, categoryText: expense.wrappedCategory, sentDate: expense.wrappedDate, imageData: expense.receipt)) {
+          NavigationLink(destination: DetailExpenseView(vm: corevm, detailExpense: expense, titleText: expense.wrappedTitle, costText: expense.cost, vendorText: expense.wrappedVendor, categoryText: expense.wrappedCategory, dateValue: expense.wrappedDate, imageData: expense.receipt)) {
             
             HStack {
               Text(expense.wrappedDate.formatDate())

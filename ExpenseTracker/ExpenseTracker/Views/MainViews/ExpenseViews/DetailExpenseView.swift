@@ -24,8 +24,7 @@ struct DetailExpenseView: View {
   @State var costText: Double?
   @State var vendorText: String
   @State var categoryText: String
-  @State var sentDate: Date
-  @State var dateValue: Date = Date.now
+  @State var dateValue: Date
   
   private var dateString: String {
     dateValue.formatDate()
@@ -55,7 +54,7 @@ struct DetailExpenseView: View {
           
           scanButton
           
-          addExpenseButton
+          updateExpenseButton
           
           if scannedImage != nil {
             scannedImageView
@@ -76,11 +75,8 @@ struct DetailExpenseView: View {
         case .failure(let error):
           print(error.localizedDescription)
         }
-        
         showScanner = false
-        
       } didCancelScanning: {
-        // Dismiss the scanner controller and the sheet.
         showScanner = false
       }
     })
@@ -120,7 +116,7 @@ struct DetailExpenseView: View {
     }
   }
   
-  var addExpenseButton: some View {
+  var updateExpenseButton: some View {
     Button {
       if imageData != nil {
         vm.updateExpense(entity: detailExpense, title: titleText,
@@ -136,8 +132,8 @@ struct DetailExpenseView: View {
                                      cost: costText!,
                                      vendor: vendorText,
                                      category: categoryText,
-                                     date: dateValue
-        )
+                                     date: dateValue)
+        presentationMode.wrappedValue.dismiss()
       }
     } label: {
       Text("Update Expense")

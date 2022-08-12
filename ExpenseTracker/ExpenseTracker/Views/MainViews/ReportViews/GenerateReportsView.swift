@@ -25,7 +25,7 @@ struct GenerateReportsView: View {
           }
         }
         .pickerStyle(.segmented)
-      NavigationLink(destination: ReportsView(corevm: corevm, startDate: startDate, endDate: endDate), label: {
+        NavigationLink(destination: ReportsView(coreVM: corevm, startDate: startDate, endDate: endDate), label: {
         Text("Generate Report")
           .foregroundColor(.cyan)
           .centerInView()

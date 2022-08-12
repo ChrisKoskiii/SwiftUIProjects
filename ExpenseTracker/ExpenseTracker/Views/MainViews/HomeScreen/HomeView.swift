@@ -16,14 +16,11 @@ struct HomeView: View {
       VStack {
         
         MonthlyTotalView(corevm: coreVM)
-        
-        HStack {
           
-          recentTransactionText
-          Spacer()
-        }
+        recentTransactionText
         
         recentExpenseList
+        
         Spacer()
         
       }
@@ -42,11 +39,14 @@ struct HomeView: View {
   }
   
   var recentTransactionText: some View {
+    HStack {
     Text("Recent transactions:")
       .font(.caption)
       .foregroundColor(.secondary)
       .padding(.leading)
       .padding(.top, 16)
+      Spacer()
+    }
   }
   
   var recentExpenseList: some View {

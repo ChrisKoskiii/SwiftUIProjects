@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-//Buttons
+//MARK: Buttons
 struct ScanButtonStyle: ViewModifier {
   func body(content: Content) -> some View {
     content
@@ -47,7 +47,6 @@ struct ToolBarButtonStyle: ViewModifier {
   }
 }
 
-//Textfields
 struct TextfieldStyle: ViewModifier {
   func body(content: Content) -> some View {
     content
@@ -91,6 +90,17 @@ struct StrokeStyle: ViewModifier {
   }
 }
 
+struct CardBackground: ViewModifier {
+  func body(content: Content) -> some View {
+    content
+      .background(.ultraThickMaterial, in: RoundedRectangle(
+        cornerRadius: 16,
+        style: .continuous))
+      .background(Color.white.cornerRadius(16).shadow(color: Color.secondary.opacity(0.2), radius: 50, x: 0, y: 0))
+      .strokeStyle(cornerRadius: 16)
+  }
+}
+
 struct CenterInView: ViewModifier {
   func body(content: Content) -> some View {
     HStack {
@@ -122,6 +132,10 @@ extension View {
   
   func toolBarButtonStyle() -> some View {
     modifier(ToolBarButtonStyle())
+  }
+  
+  func cardBackground() -> some View {
+    modifier(CardBackground())
   }
 }
 

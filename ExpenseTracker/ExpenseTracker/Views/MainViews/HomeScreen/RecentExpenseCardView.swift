@@ -8,24 +8,7 @@
 import SwiftUI
 import CoreMotion
 
-class MotionManager: ObservableObject {
-  private let motionManager = CMMotionManager()
-  @Published var x = 0.0
-  @Published var y = 0.0
-  
-  init() {
-    motionManager.startDeviceMotionUpdates(to: .main) { [weak self] data, error in
-      
-      guard let motion = data?.attitude else { return }
-      self?.x = motion.roll
-      self?.y = motion.pitch
-    }
-  }
-  
-}
-
 struct RecentExpenseCardView: View {
-  @StateObject private var motion = MotionManager()
   
   var expenseDate: Date
   var expenseTitle: String
@@ -56,10 +39,10 @@ struct RecentExpenseCardView: View {
             .lineLimit(1)
             .font(.headline)
             .padding(.top, 4)
-          Text(expenseVendor)
+          Text(expenseCategory)
             .foregroundColor(.secondary)
             .font(.footnote)
-          Text(expenseCategory)
+          Text(expenseDate.formatDate())
             .foregroundColor(.secondary)
             .font(.footnote)
             .padding(.bottom, 4)
@@ -71,11 +54,7 @@ struct RecentExpenseCardView: View {
           .fontWeight(.semibold)
           .padding(.trailing)
       }
-      .background(.ultraThickMaterial, in: RoundedRectangle(
-        cornerRadius: 16,
-        style: .continuous))
-      .background(Color.white.cornerRadius(16).shadow(color: Color.secondary.opacity(0.2), radius: 50, x: 0, y: 0))
-      .strokeStyle(cornerRadius: 16)
+      .cardBackground()
       .padding(.horizontal)
     }
   }

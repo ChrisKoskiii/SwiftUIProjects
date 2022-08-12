@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct ReportsView: View {
-  @ObservedObject var corevm: CoreDataViewModel
-  @StateObject var reportsvm = ReportsViewModel()
+  @ObservedObject var coreVM: CoreDataViewModel
+  @StateObject var reportsVM = ReportsViewModel()
+  
   @State private var opacity = 0.0
 
   @State var expense: ExpenseEntity?
@@ -38,16 +39,16 @@ struct ReportsView: View {
           }
         }
       }
-      .sheet(isPresented: $reportsvm.showShareSheet) {
-        reportsvm.PDFUrl = nil
+      .sheet(isPresented: $reportsVM.showShareSheet) {
+        reportsVM.PDFUrl = nil
       } content: {
-        if let PDFUrl = reportsvm.PDFUrl {
+        if let PDFUrl = reportsVM.PDFUrl {
           ShareSheet(urls: [PDFUrl])
         }
       }
       .onAppear {
-        corevm.getDateRangeExpenses(startDate: startDate, endDate: endDate)
-        corevm.categoryTotal()
+        coreVM.getDateRangeExpenses(startDate: startDate, endDate: endDate)
+        coreVM.categoryTotal()
         DispatchQueue.main.async {
           withAnimation {
             opacity = 1.0
@@ -65,7 +66,7 @@ struct ReportsView: View {
         Spacer()
       }
       
-      let categories = corevm.categoriesDict.keys.sorted().map{Category(name: $0, cost: corevm.categoriesDict[$0]!)}
+      let categories = coreVM.categoriesDict.keys.sorted().map{Category(name: $0, cost: coreVM.categoriesDict[$0]!)}
       ForEach(categories, id: \.name) { category in
         HStack {
           Text(category.name)
@@ -84,7 +85,7 @@ struct ReportsView: View {
         Text("Total:")
           .padding(.leading )
         Spacer()
-        Text("$"+String(format: "%.2f", corevm.dateRangeTotal))
+        Text("$"+String(format: "%.2f", coreVM.dateRangeTotal))
           .padding(.trailing)
       }
       Spacer()
@@ -118,8 +119,8 @@ struct ReportsView: View {
         pdfVC.view.layer.render(in: context.cgContext)
       })
       
-      self.reportsvm.PDFUrl = outputFileURL
-      self.reportsvm.showShareSheet = true
+      self.reportsVM.PDFUrl = outputFileURL
+      self.reportsVM.showShareSheet = true
       
     }catch {
       print("Could not create PDF file: \(error)")
@@ -134,7 +135,7 @@ struct ReportsView: View {
 
 struct ReportsView_Previews: PreviewProvider {
   static var previews: some View {
-    ReportsView(corevm: CoreDataViewModel(), reportsvm: ReportsViewModel(), startDate: Date.now, endDate: Date.now)
+    ReportsView(coreVM: CoreDataViewModel(), reportsVM: ReportsViewModel(), startDate: Date.now, endDate: Date.now)
   }
 }
 
