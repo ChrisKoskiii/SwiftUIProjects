@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		9E01C2BC2896DC2E00337A37 /* ScannedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E01C2BB2896DC2E00337A37 /* ScannedImageView.swift */; };
 		9E187D2E2892FF3D00142000 /* ExpenseTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E187D2D2892FF3D00142000 /* ExpenseTrackerApp.swift */; };
-		9E187D302892FF3D00142000 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E187D2F2892FF3D00142000 /* ContentView.swift */; };
+		9E187D302892FF3D00142000 /* TabViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E187D2F2892FF3D00142000 /* TabViewScreen.swift */; };
 		9E187D322892FF3E00142000 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E187D312892FF3E00142000 /* Assets.xcassets */; };
 		9E187D352892FF3E00142000 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E187D342892FF3E00142000 /* Preview Assets.xcassets */; };
 		9E187D3D2893010900142000 /* ExpenseContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E187D3B2893010900142000 /* ExpenseContainer.xcdatamodeld */; };
@@ -30,6 +30,7 @@
 		9E58250128A2D07D00C80A73 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E58250028A2D07D00C80A73 /* CloudKit.framework */; };
 		9E58254628A5686600C80A73 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E58254528A5686600C80A73 /* Color+Ext.swift */; };
 		9E58254A28A57EAF00C80A73 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E58254928A57EAF00C80A73 /* HomeViewModel.swift */; };
+		9E58254C28A5EEE800C80A73 /* ExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E58254B28A5EEE800C80A73 /* ExpensesViewModel.swift */; };
 		9E8E1F2328936F8D00300E14 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F2228936F8D00300E14 /* BackgroundView.swift */; };
 		9E8E1F262893762E00300E14 /* RecentExpenseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F252893762E00300E14 /* RecentExpenseCardView.swift */; };
 		9E8E1F2828937FE600300E14 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E1F2728937FE600300E14 /* TabBar.swift */; };
@@ -49,7 +50,7 @@
 /* Begin PBXFileReference section */
 		9E01C2BB2896DC2E00337A37 /* ScannedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedImageView.swift; sourceTree = "<group>"; };
 		9E187D2D2892FF3D00142000 /* ExpenseTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTrackerApp.swift; sourceTree = "<group>"; };
-		9E187D2F2892FF3D00142000 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9E187D2F2892FF3D00142000 /* TabViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewScreen.swift; sourceTree = "<group>"; };
 		9E187D312892FF3E00142000 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E187D342892FF3E00142000 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9E187D3C2893010900142000 /* ExpenseContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExpenseContainer.xcdatamodel; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 		9E58254428A54E2300C80A73 /* ExpenseTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpenseTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E58254528A5686600C80A73 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		9E58254928A57EAF00C80A73 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		9E58254B28A5EEE800C80A73 /* ExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewModel.swift; sourceTree = "<group>"; };
 		9E8E1F2228936F8D00300E14 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		9E8E1F252893762E00300E14 /* RecentExpenseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentExpenseCardView.swift; sourceTree = "<group>"; };
 		9E8E1F2728937FE600300E14 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -150,7 +152,7 @@
 		9E187D4628936ED600142000 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9E187D2F2892FF3D00142000 /* ContentView.swift */,
+				9E187D2F2892FF3D00142000 /* TabViewScreen.swift */,
 				9E9B34AA2897733400408F05 /* MainViews */,
 			);
 			path = Views;
@@ -162,6 +164,7 @@
 				9E187D402893115A00142000 /* CoreDataViewModel.swift */,
 				9E58254928A57EAF00C80A73 /* HomeViewModel.swift */,
 				9E5824F628A1A6EE00C80A73 /* ReportsViewModel.swift */,
+				9E58254B28A5EEE800C80A73 /* ExpensesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -323,10 +326,11 @@
 				9E187D412893115A00142000 /* CoreDataViewModel.swift in Sources */,
 				9E35E5A328957208008D9ABA /* ExpenseEntity+CoreDataClass.swift in Sources */,
 				9E8E1F332894232A00300E14 /* ReportsView.swift in Sources */,
-				9E187D302892FF3D00142000 /* ContentView.swift in Sources */,
+				9E187D302892FF3D00142000 /* TabViewScreen.swift in Sources */,
 				9E9B34AE2899733900408F05 /* ShareSheet.swift in Sources */,
 				9E8E1F2328936F8D00300E14 /* BackgroundView.swift in Sources */,
 				9E8E1F312894232300300E14 /* ExpensesView.swift in Sources */,
+				9E58254C28A5EEE800C80A73 /* ExpensesViewModel.swift in Sources */,
 				9E35E5A428957208008D9ABA /* ExpenseEntity+CoreDataProperties.swift in Sources */,
 				9E8E1F39289446F600300E14 /* NavBar.swift in Sources */,
 				9E5824F328A191E000C80A73 /* Category.swift in Sources */,

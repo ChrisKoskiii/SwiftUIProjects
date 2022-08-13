@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct HomeView: View {
-
+  
   @ObservedObject var coreVM: CoreDataViewModel
+  
+  @State private var opacity = 0.0
   
   var body: some View {
     NavigationView {
       VStack {
         
         MonthlyTotalView(corevm: coreVM)
-          
+        
         recentTransactionText
         
         recentExpenseList
@@ -27,8 +29,13 @@ struct HomeView: View {
       .toolbar {
         ToolbarItem(placement: .navigationBarTrailing) {
           NavigationLink(destination: AddExpenseView(vm: coreVM)) {
-            Text("Add Expense")
-              .toolBarButtonStyle()
+            ZStack {
+              Circle()
+                .frame(width: 30, height: 30)
+                .foregroundColor(Color.brandPrimary)
+              Image(systemName: "plus")
+                .foregroundColor(.white)
+            }
           }
         }
       }
@@ -40,11 +47,11 @@ struct HomeView: View {
   
   var recentTransactionText: some View {
     HStack {
-    Text("Recent transactions:")
-      .font(.caption)
-      .foregroundColor(.secondary)
-      .padding(.leading)
-      .padding(.top, 16)
+      Text("Recent activity:")
+        .font(.caption)
+        .foregroundColor(.secondary)
+        .padding(.leading)
+        .padding(.top, 16)
       Spacer()
     }
   }
@@ -53,7 +60,6 @@ struct HomeView: View {
     ForEach(coreVM.recentExpenses) { expense in
       RecentExpenseCardView(expenseDate: expense.wrappedDate, expenseTitle: expense.wrappedTitle, expenseVendor: expense.wrappedVendor, expenseCost: expense.cost, expenseCategory: expense.wrappedCategory)
     }
-    .onDelete(perform: coreVM.deleteExpense)
   }
 }
 

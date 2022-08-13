@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct ExpensesView: View {
-  
-  @ObservedObject var corevm: CoreDataViewModel
-  
-  @State private var opacity = 0.0
+  @ObservedObject var coreVM: CoreDataViewModel
+  @StateObject var expensesVM = ExpensesViewModel()
   
   var formatter: NumberFormatter = {
     let formatter = NumberFormatter()
@@ -22,26 +20,27 @@ struct ExpensesView: View {
   
   var body: some View {
     NavigationView {
-        expenseList
-      .navigationTitle("All Expenses")
-      .navigationBarTitleDisplayMode(.inline)
-      .toolbar {
-        ToolbarItem(placement: .navigationBarTrailing) {
-          NavigationLink(destination: AddExpenseView(vm: corevm)) {
-            Text("Add Expense")
-              .toolBarButtonStyle()
+      expenseList
+        .background(Color(.secondarySystemBackground))
+        .navigationTitle("")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+          ToolbarItem(placement: .navigationBarTrailing) {
+            AddExpenseButton(coreVM: coreVM)
+          }
+          ToolbarItem(placement: .principal) {
+            MonthSelector(coreVM: coreVM, expensesVM: expensesVM)
           }
         }
-    }
     }
   }
   
   var expenseList: some View {
     List {
       
-      ForEach(corevm.savedExpenses) { expense in
+      ForEach(coreVM.dateRangeExpenses) { expense in
         
-        NavigationLink(destination: DetailExpenseView(vm: corevm, detailExpense: expense, titleText: expense.wrappedTitle, costText: expense.cost, vendorText: expense.wrappedVendor, categoryText: expense.wrappedCategory, dateValue: expense.wrappedDate, imageData: expense.receipt)) {
+        NavigationLink(destination: DetailExpenseView(coreVM: coreVM, detailExpense: expense, titleText: expense.wrappedTitle, costText: expense.cost, vendorText: expense.wrappedVendor, categoryText: expense.wrappedCategory, dateValue: expense.wrappedDate, imageData: expense.receipt)) {
           
           HStack {
             Text(expense.wrappedDate.formatDate())
@@ -62,7 +61,7 @@ struct ExpensesView: View {
           
         }
       }
-      .onDelete(perform: corevm.deleteExpense)
+      .onDelete(perform: coreVM.deleteExpense)
     }
     .listStyle(.plain)
     .toolbar {
@@ -75,6 +74,52 @@ struct ExpensesView: View {
 
 struct ExpensesView_Previews: PreviewProvider {
   static var previews: some View {
-    ExpensesView(corevm: CoreDataViewModel())
+    ExpensesView(coreVM: CoreDataViewModel())
+  }
+}
+
+struct AddExpenseButton: View {
+  @ObservedObject var coreVM: CoreDataViewModel
+  var body: some View {
+    NavigationLink(destination: AddExpenseView(vm: coreVM)) {
+      ZStack {
+        Circle()
+          .frame(width: 30, height: 30)
+          .foregroundColor(Color.brandPrimary)
+        Image(systemName: "plus")
+          .foregroundColor(.white)
+      }
+    }
+  }
+}
+
+struct MonthSelector: View {
+  @ObservedObject var coreVM: CoreDataViewModel
+  @ObservedObject var expensesVM: ExpensesViewModel
+  var body: some View {
+    HStack {
+      Button {
+        expensesVM.subtractMonth()
+        coreVM.getDateRangeExpenses(
+          startDate: expensesVM.monthStart,
+          endDate: expensesVM.monthEnd)
+      } label: {
+        Image(systemName: "chevron.left")
+          .font(.footnote)
+      }
+      Text(expensesVM.monthText)
+        .lineLimit(1)
+        .minimumScaleFactor(0.75)
+        .frame(width: 80)
+      Button {
+        expensesVM.addMonth()
+        coreVM.getDateRangeExpenses(
+          startDate: expensesVM.monthStart,
+          endDate: expensesVM.monthEnd)
+      } label: {
+        Image(systemName: "chevron.right")
+          .font(.footnote)
+      }
+    }
   }
 }

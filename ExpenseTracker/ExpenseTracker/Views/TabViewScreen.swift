@@ -7,16 +7,17 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct TabViewScreen: View {
   @AppStorage("selectedTab") var selectedTab: Tab = .home
   @ObservedObject var corevm: CoreDataViewModel
+  
   var body: some View {
     TabView {
       HomeView(coreVM: corevm)
         .tabItem {
           Label("Home", systemImage: "house")
         }
-      ExpensesView(corevm: corevm)
+      ExpensesView(coreVM: corevm)
         .tabItem {
           Label("Expenses", systemImage: "dollarsign.circle")
         }
@@ -35,6 +36,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView(corevm: CoreDataViewModel())
+    TabViewScreen(corevm: CoreDataViewModel())
   }
 }

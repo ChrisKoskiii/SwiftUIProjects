@@ -10,6 +10,7 @@ import SwiftUI
 struct MonthlyTotalView: View {
   @ObservedObject var corevm: CoreDataViewModel
   @StateObject var homeVM = HomeViewModel()
+  
   var body: some View {
     VStack(alignment: .leading, spacing: 0) {
       
@@ -34,7 +35,7 @@ struct MonthlyTotalView: View {
     }
     .padding(.horizontal)
     .onAppear {
-      homeVM.setViewTotal(text: "week", expenses: corevm.dateRangeExpenses)
+      homeVM.setViewTotal(text: homeVM.selectedTimeFrame, expenses: corevm.dateRangeExpenses)
     }
   }
   
@@ -65,7 +66,7 @@ struct timeFrameButtonText: View {
 }
 
 struct MenuView: View {
-  var homeVM: HomeViewModel
+  @ObservedObject var homeVM: HomeViewModel
   var corevm: CoreDataViewModel
   var body: some View {
     Menu {
@@ -75,8 +76,6 @@ struct MenuView: View {
           corevm.getDateRangeExpenses(startDate: startDate, endDate: Date.now)
         }
         homeVM.setViewTotal(text: "week", expenses: corevm.dateRangeExpenses)
-        print(corevm.dateRangeExpenses)
-        print(homeVM.total)
       })
       
       Button("month", action: {
@@ -84,8 +83,6 @@ struct MenuView: View {
           corevm.getDateRangeExpenses(startDate: startDate, endDate: Date.now)
         }
         homeVM.setViewTotal(text: "month", expenses: corevm.dateRangeExpenses)
-        print(corevm.dateRangeExpenses)
-        print(homeVM.total)
       })
       
       Button("year", action: {
@@ -93,8 +90,6 @@ struct MenuView: View {
           corevm.getDateRangeExpenses(startDate: startDate, endDate: Date.now)
         }
         homeVM.setViewTotal(text: "year", expenses: corevm.dateRangeExpenses)
-        print(corevm.dateRangeExpenses)
-        print(homeVM.total)
       })
       
     } label: {

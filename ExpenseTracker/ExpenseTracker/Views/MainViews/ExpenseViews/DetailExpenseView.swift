@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailExpenseView: View {
   @Environment(\.presentationMode) var presentationMode
   
-  @ObservedObject var vm: CoreDataViewModel
+  @ObservedObject var coreVM: CoreDataViewModel
   
   @State var detailExpense: ExpenseEntity
   
@@ -31,7 +31,7 @@ struct DetailExpenseView: View {
   }
   
   //Image vars
-
+  
   @State private var scannedImage: UIImage?
   @State var imageData: Data?
   
@@ -43,25 +43,20 @@ struct DetailExpenseView: View {
   }()
   
   var body: some View {
-    ZStack {
-      
-      BackgroundView()
-      
-      ScrollView {
-        VStack(spacing: 10) {
-          
-          expenseTextfields
-          
-          scanButton
-          
-          updateExpenseButton
-          
-          if scannedImage != nil {
-            scannedImageView
-          }
-          
-          Spacer()
+    ScrollView {
+      VStack(spacing: 10) {
+        
+        expenseTextfields
+        
+        scanButton
+        
+        updateExpenseButton
+        
+        if scannedImage != nil {
+          scannedImageView
         }
+        
+        Spacer()
       }
     }
     .navigationTitle("Update expense")
@@ -71,7 +66,7 @@ struct DetailExpenseView: View {
         case .success(let scannedImages):
           isRecognizing = true
           scannedImage = scannedImages.first
-          imageData = vm.getImageData(scannedImage!)
+          imageData = coreVM.getImageData(scannedImage!)
         case .failure(let error):
           print(error.localizedDescription)
         }
@@ -119,7 +114,7 @@ struct DetailExpenseView: View {
   var updateExpenseButton: some View {
     Button {
       if imageData != nil {
-        vm.updateExpense(entity: detailExpense, title: titleText,
+        coreVM.updateExpense(entity: detailExpense, title: titleText,
                          cost: costText!,
                          vendor: vendorText,
                          category: categoryText,
@@ -127,7 +122,7 @@ struct DetailExpenseView: View {
                          receipt: imageData!)
         presentationMode.wrappedValue.dismiss()
       } else {
-        vm.updateExpenseWithoutImage(entity: detailExpense,
+        coreVM.updateExpenseWithoutImage(entity: detailExpense,
                                      title: titleText,
                                      cost: costText!,
                                      vendor: vendorText,

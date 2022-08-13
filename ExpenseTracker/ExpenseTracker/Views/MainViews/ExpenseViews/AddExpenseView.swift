@@ -43,39 +43,34 @@ struct AddExpenseView: View {
   }()
   
   var body: some View {
-    ZStack {
-      
-      BackgroundView()
-      
-      ScrollView {
-        VStack(spacing: 10) {
-          DatePicker(dateValue.formatDate(), selection: $dateValue, displayedComponents: [.date])
-            .textfieldStyle()
-          TextField("Enter title", text: $titleText)
-            .textfieldStyle()
-          
-          TextField("$", value: $costText, formatter: formatter)
-            .textfieldStyle()
-            .keyboardType(.decimalPad)
-          
-          TextField("Enter vendor", text: $vendorText)
-            .textfieldStyle()
-          TextField("Enter category", text: $categoryText)
-            .textfieldStyle()
-          
-          scanButton
-          
-          addExpenseButton
-          
-          if scannedImage != nil {
-            scannedImageView
-          }
-          
-          Spacer()
+    ScrollView {
+      VStack(spacing: 10) {
+        DatePicker(dateValue.formatDate(), selection: $dateValue, displayedComponents: [.date])
+          .textfieldStyle()
+        TextField("Enter title", text: $titleText)
+          .textfieldStyle()
+        
+        TextField("$", value: $costText, formatter: formatter)
+          .textfieldStyle()
+          .keyboardType(.decimalPad)
+        
+        TextField("Enter vendor", text: $vendorText)
+          .textfieldStyle()
+        TextField("Enter category", text: $categoryText)
+          .textfieldStyle()
+        
+        scanButton
+        
+        addExpenseButton
+        
+        if scannedImage != nil {
+          scannedImageView
         }
+        
+        Spacer()
       }
     }
-    
+    .background(Color(.secondarySystemBackground))
     .navigationTitle("Add expense")
     .alert("Please fill out all fields.", isPresented: $presentAlert, actions: {
     })
@@ -144,10 +139,10 @@ struct AddExpenseView: View {
           presentationMode.wrappedValue.dismiss()
         }
       }
-      } label: {
-        Text("Add Expense")
-          .addButtonStyle()
-      }
+    } label: {
+      Text("Add Expense")
+        .addButtonStyle()
+    }
   }
   
   var scannedImageView: some View {

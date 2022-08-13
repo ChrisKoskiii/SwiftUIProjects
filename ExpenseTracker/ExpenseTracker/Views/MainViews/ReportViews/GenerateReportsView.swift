@@ -16,23 +16,24 @@ struct GenerateReportsView: View {
   
   var reportChoices = ["Full Report", "Summary"]
   var body: some View {
+    NavigationView {
       Form {
-        DatePicker("Start date", selection: $startDate, displayedComponents: [.date])
-        DatePicker("End date", selection: $endDate, displayedComponents: [.date])
-        Picker("Full Report or Summary", selection: $selectedChoice) {
-          ForEach(reportChoices, id: \.self) {
-            Text($0)
+          DatePicker("Start date", selection: $startDate, displayedComponents: [.date])
+          DatePicker("End date", selection: $endDate, displayedComponents: [.date])
+          Picker("Full Report or Summary", selection: $selectedChoice) {
+            ForEach(reportChoices, id: \.self) {
+              Text($0)
+            }
           }
-        }
-        .pickerStyle(.segmented)
-        NavigationLink(destination: ReportsView(coreVM: corevm, startDate: startDate, endDate: endDate), label: {
-        Text("Generate Report")
-          .foregroundColor(.cyan)
-          .centerInView()
-      })
-      .centerInView()
-      .navigationTitle("Create Expense Reports")
-      .navigationBarTitleDisplayMode(.inline)
+          .pickerStyle(.segmented)
+          NavigationLink(destination: ReportsView(coreVM: corevm, startDate: startDate, endDate: endDate), label: {
+          Text("Generate Report")
+            .foregroundColor(.cyan)
+            .centerInView()
+        })
+        .centerInView()
+        .navigationTitle("Create Reports")
+      }
     }
   }
 }

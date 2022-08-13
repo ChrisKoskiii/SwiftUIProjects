@@ -12,7 +12,7 @@ struct ExpenseTrackerApp: App {
   @StateObject var coreVM = CoreDataViewModel()
   var body: some Scene {
         WindowGroup {
-          ContentView(corevm: coreVM)
+          TabViewScreen(corevm: coreVM)
         }
     }
 }
