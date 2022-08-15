@@ -10,7 +10,8 @@ import SwiftUI
 struct AddExpenseView: View {
   @Environment(\.presentationMode) var presentationMode
   
-  @ObservedObject var vm: CoreDataViewModel
+  @ObservedObject var coreVM: CoreDataViewModel
+  @ObservedObject var expensesVM: ExpensesViewModel
   
   var detailExpense: ExpenseEntity?
   let buttonColor = Color("AddButtonColor")
@@ -80,7 +81,7 @@ struct AddExpenseView: View {
         case .success(let scannedImages):
           isRecognizing = true
           scannedImage = scannedImages.first!
-          imageData = vm.getImageData(scannedImage!)
+          imageData = coreVM.getImageData(scannedImage!)
         case .failure(let error):
           print(error.localizedDescription)
         }
@@ -121,7 +122,7 @@ struct AddExpenseView: View {
         print(categoryText)
       } else {
         if imageData != nil {
-          vm.addExpense(title: titleText,
+          coreVM.addExpense(title: titleText,
                         cost: costText,
                         vendor: vendorText,
                         category: categoryText,
@@ -129,14 +130,24 @@ struct AddExpenseView: View {
                         receipt: imageData!
           )
           presentationMode.wrappedValue.dismiss()
+          coreVM.getDateRangeExpenses(
+            startDate: expensesVM.monthStart,
+            endDate: expensesVM.monthEnd) { expenses in
+              expensesVM.dateRangeExpenses = expenses
+            }
         } else {
-          vm.addExpenseWithoutImage(title: titleText,
+          coreVM.addExpenseWithoutImage(title: titleText,
                                     cost: costText,
                                     vendor: vendorText,
                                     category: categoryText,
                                     date: dateValue
           )
           presentationMode.wrappedValue.dismiss()
+          coreVM.getDateRangeExpenses(
+            startDate: expensesVM.monthStart,
+            endDate: expensesVM.monthEnd) { expenses in
+              expensesVM.dateRangeExpenses = expenses
+            }
         }
       }
     } label: {
@@ -168,10 +179,10 @@ struct AddExpenseView: View {
 struct AddExpenseView_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      AddExpenseView(vm: CoreDataViewModel())
+      AddExpenseView(coreVM: CoreDataViewModel(), expensesVM: ExpensesViewModel())
     }
     NavigationView {
-      AddExpenseView(vm: CoreDataViewModel())
+      AddExpenseView(coreVM: CoreDataViewModel(), expensesVM: ExpensesViewModel())
     }
     .preferredColorScheme(.dark)
   }

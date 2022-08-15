@@ -11,6 +11,7 @@ struct DetailExpenseView: View {
   @Environment(\.presentationMode) var presentationMode
   
   @ObservedObject var coreVM: CoreDataViewModel
+  @ObservedObject var expensesVM: ExpensesViewModel
   
   @State var detailExpense: ExpenseEntity
   
@@ -25,7 +26,6 @@ struct DetailExpenseView: View {
   @State var vendorText: String
   @State var categoryText: String
   @State var dateValue: Date
-  
   private var dateString: String {
     dateValue.formatDate()
   }
@@ -41,6 +41,8 @@ struct DetailExpenseView: View {
     formatter.numberStyle = .currency
     return formatter
   }()
+  
+  @State private var showingAlert = false
   
   var body: some View {
     ScrollView {
@@ -60,6 +62,16 @@ struct DetailExpenseView: View {
       }
     }
     .navigationTitle("Update expense")
+    .toolbar {
+      ToolbarItem {
+        Button {
+          showingAlert.toggle()
+        } label: {
+          Image(systemName: "trash")
+            .foregroundColor(.red)
+        }
+      }
+    }
     .sheet(isPresented: $showScanner, content: {
       ScannerView { result in
         switch result {
@@ -77,6 +89,19 @@ struct DetailExpenseView: View {
     })
     .task {
       await convertData()
+    }
+    .alert("Are you sure you want to delete this expense?", isPresented: $showingAlert) {
+      Button("Delete", role: .destructive) {
+        coreVM.deleteExpense(detailExpense)
+        coreVM.getDateRangeExpenses(
+          startDate: expensesVM.monthStart,
+          endDate: expensesVM.monthEnd) { expenses in
+            expensesVM.dateRangeExpenses = expenses
+          }
+        presentationMode.wrappedValue.dismiss()
+      }
+      .foregroundColor(.red)
+      Button("Cancel", role: .cancel) { }
     }
   }
   
@@ -133,6 +158,22 @@ struct DetailExpenseView: View {
     } label: {
       Text("Update Expense")
         .addButtonStyle()
+    }
+  }
+  
+  var deleteButton: some View {
+    Button {
+      coreVM.deleteExpense(detailExpense)
+      coreVM.getDateRangeExpenses(
+        startDate: expensesVM.monthStart,
+        endDate: expensesVM.monthEnd) { expenses in
+          expensesVM.dateRangeExpenses = expenses
+        }
+      presentationMode.wrappedValue.dismiss()
+    } label: {
+      Text("Delete Expense")
+        .deleteButtonStyle()
+      
     }
   }
   

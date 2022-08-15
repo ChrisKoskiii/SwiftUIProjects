@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
   
   @ObservedObject var coreVM: CoreDataViewModel
+  @ObservedObject var expensesVM: ExpensesViewModel
   
   @State private var opacity = 0.0
   
@@ -17,7 +18,7 @@ struct HomeView: View {
     NavigationView {
       VStack {
         
-        MonthlyTotalView(corevm: coreVM)
+        MonthlyTotalView(coreVM: coreVM)
         
         recentTransactionText
         
@@ -28,7 +29,7 @@ struct HomeView: View {
       }
       .toolbar {
         ToolbarItem(placement: .navigationBarTrailing) {
-          NavigationLink(destination: AddExpenseView(vm: coreVM)) {
+          NavigationLink(destination: AddExpenseView(coreVM: coreVM, expensesVM: expensesVM)) {
             ZStack {
               Circle()
                 .frame(width: 30, height: 30)
@@ -65,6 +66,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
-    HomeView(coreVM: CoreDataViewModel())
+    HomeView(coreVM: CoreDataViewModel(), expensesVM: ExpensesViewModel())
   }
 }

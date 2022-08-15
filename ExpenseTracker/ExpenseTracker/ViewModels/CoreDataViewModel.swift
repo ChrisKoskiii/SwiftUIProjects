@@ -35,7 +35,9 @@ class CoreDataViewModel: ObservableObject {
     fetchExpenses()
     getRecent(expenses: savedExpenses)
     if let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date()) {
-      getDateRangeExpenses(startDate: startDate, endDate: Date.now)
+      getDateRangeExpenses(startDate: startDate, endDate: Date.now) { expenses in
+        dateRangeExpenses = expenses
+      }
     }
 //    makeDummyData()
   }
@@ -59,7 +61,7 @@ class CoreDataViewModel: ObservableObject {
     recentExpenses = Array(savedExpenses.prefix(5))
   }
   
-  func getDateRangeExpenses(startDate: Date, endDate: Date) {
+  func getDateRangeExpenses(startDate: Date, endDate: Date , completion: ([ExpenseEntity]) -> ()) {
     let request = NSFetchRequest<ExpenseEntity>(entityName: "ExpenseEntity")
     let sort = NSSortDescriptor(key: #keyPath(ExpenseEntity.date), ascending: false)
     
@@ -68,8 +70,10 @@ class CoreDataViewModel: ObservableObject {
     request.sortDescriptors = [sort]
     
     do {
-      dateRangeExpenses = try container.viewContext.fetch(request)
+      let expenses = try container.viewContext.fetch(request)
       dateRangeTotal = getTotal(from: dateRangeExpenses)
+      completion(expenses)
+      
     } catch let error {
       print("Error fetching expenses for date range, \(error)")
     }
@@ -96,12 +100,11 @@ class CoreDataViewModel: ObservableObject {
     saveData()
   }
   
-  func deleteExpense(indexSet: IndexSet) {
-    guard let index = indexSet.first else { return }
-    let entity = savedExpenses[index]
-    container.viewContext.delete(entity)
-    saveData()
-  }
+  func deleteExpense(_ expense: ExpenseEntity) {
+      let entity = expense
+      container.viewContext.delete(entity)
+      saveData()
+    }
   
   func updateExpense(entity: ExpenseEntity, title: String, cost: Double, vendor: String, category: String, date: Date, receipt: Data?) {
     entity.title = title

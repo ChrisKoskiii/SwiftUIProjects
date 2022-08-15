@@ -35,6 +35,19 @@ struct AddButtonStyle: ViewModifier {
   }
 }
 
+struct DeleteButtonStyle: ViewModifier {
+  func body(content: Content) -> some View {
+    content
+      .font(.headline)
+      .foregroundColor(.white)
+      .frame(height: 55)
+      .frame(maxWidth: .infinity)
+      .background(Color.red)
+      .cornerRadius(10)
+      .padding(.horizontal)
+  }
+}
+
 struct ToolBarButtonStyle: ViewModifier {
   func body(content: Content) -> some View {
     content
@@ -121,6 +134,10 @@ extension View {
   
   func addButtonStyle() -> some View {
     modifier(AddButtonStyle())
+  }
+  
+  func deleteButtonStyle() -> some View {
+    modifier(DeleteButtonStyle())
   }
   func strokeStyle(cornerRadius: CGFloat = 30) -> some View {
     modifier(StrokeStyle(cornerRadius: cornerRadius))

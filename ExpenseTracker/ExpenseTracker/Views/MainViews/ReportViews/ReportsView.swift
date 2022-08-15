@@ -47,7 +47,9 @@ struct ReportsView: View {
         }
       }
       .onAppear {
-        coreVM.getDateRangeExpenses(startDate: startDate, endDate: endDate)
+        coreVM.getDateRangeExpenses(startDate: startDate, endDate: endDate) { expenses in
+          reportsVM.dateRangeExpenses = expenses
+        }
         coreVM.categoryTotal()
         DispatchQueue.main.async {
           withAnimation {

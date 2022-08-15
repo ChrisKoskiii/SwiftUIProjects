@@ -10,14 +10,14 @@ import SwiftUI
 struct TabViewScreen: View {
   @AppStorage("selectedTab") var selectedTab: Tab = .home
   @ObservedObject var corevm: CoreDataViewModel
-  
+  @ObservedObject var expensesVM: ExpensesViewModel
   var body: some View {
     TabView {
-      HomeView(coreVM: corevm)
+      HomeView(coreVM: corevm, expensesVM: expensesVM)
         .tabItem {
           Label("Home", systemImage: "house")
         }
-      ExpensesView(coreVM: corevm)
+      ExpensesView(coreVM: corevm, expensesVM: expensesVM)
         .tabItem {
           Label("Expenses", systemImage: "dollarsign.circle")
         }
@@ -36,6 +36,6 @@ struct TabViewScreen: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    TabViewScreen(corevm: CoreDataViewModel())
+    TabViewScreen(corevm: CoreDataViewModel(), expensesVM: ExpensesViewModel())
   }
 }

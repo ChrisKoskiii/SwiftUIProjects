@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MonthlyTotalView: View {
-  @ObservedObject var corevm: CoreDataViewModel
+  @ObservedObject var coreVM: CoreDataViewModel
   @StateObject var homeVM = HomeViewModel()
   
   var body: some View {
@@ -19,7 +19,7 @@ struct MonthlyTotalView: View {
         //"This week so far" with menu button
         HStack(spacing: 0) {
           ThisWeekString(text: "This ")
-          MenuView(homeVM: homeVM, corevm: corevm)
+          MenuView(homeVM: homeVM, coreVM: coreVM)
           ThisWeekString(text: " so far:")
           Spacer()
         }
@@ -35,7 +35,12 @@ struct MonthlyTotalView: View {
     }
     .padding(.horizontal)
     .onAppear {
-      homeVM.setViewTotal(text: homeVM.selectedTimeFrame, expenses: corevm.dateRangeExpenses)
+      if let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date()) {
+        coreVM.getDateRangeExpenses(startDate: startDate, endDate: Date.now){ expenses in
+          homeVM.dateRangeExpenses = expenses
+        }
+      }
+      homeVM.setViewTotal(text: "week", expenses: homeVM.dateRangeExpenses)
     }
   }
   
@@ -43,7 +48,7 @@ struct MonthlyTotalView: View {
 
 struct MonthlyTotalView_Previews: PreviewProvider {
   static var previews: some View {
-    MonthlyTotalView(corevm: CoreDataViewModel())
+    MonthlyTotalView(coreVM: CoreDataViewModel())
   }
 }
 
@@ -67,29 +72,35 @@ struct timeFrameButtonText: View {
 
 struct MenuView: View {
   @ObservedObject var homeVM: HomeViewModel
-  var corevm: CoreDataViewModel
+  var coreVM: CoreDataViewModel
   var body: some View {
     Menu {
       
       Button("week", action: {
         if let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date()) {
-          corevm.getDateRangeExpenses(startDate: startDate, endDate: Date.now)
+          coreVM.getDateRangeExpenses(startDate: startDate, endDate: Date.now){ expenses in
+            homeVM.dateRangeExpenses = expenses
+          }
         }
-        homeVM.setViewTotal(text: "week", expenses: corevm.dateRangeExpenses)
+        homeVM.setViewTotal(text: "week", expenses: homeVM.dateRangeExpenses)
       })
       
       Button("month", action: {
         if let startDate = Calendar.current.date(byAdding: .month, value: -1, to: Date()) {
-          corevm.getDateRangeExpenses(startDate: startDate, endDate: Date.now)
+          coreVM.getDateRangeExpenses(startDate: startDate, endDate: Date.now) { expenses in
+            homeVM.dateRangeExpenses = expenses
+          }
         }
-        homeVM.setViewTotal(text: "month", expenses: corevm.dateRangeExpenses)
+        homeVM.setViewTotal(text: "month", expenses: homeVM.dateRangeExpenses)
       })
       
       Button("year", action: {
         if let startDate = Calendar.current.date(byAdding: .year, value: -1, to: Date()) {
-          corevm.getDateRangeExpenses(startDate: startDate, endDate: Date.now)
+          coreVM.getDateRangeExpenses(startDate: startDate, endDate: Date.now) { expenses in
+            homeVM.dateRangeExpenses = expenses
+          }
         }
-        homeVM.setViewTotal(text: "year", expenses: corevm.dateRangeExpenses)
+        homeVM.setViewTotal(text: "year", expenses: homeVM.dateRangeExpenses)
       })
       
     } label: {

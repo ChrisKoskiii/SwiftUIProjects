@@ -11,11 +11,17 @@ class ExpensesViewModel: ObservableObject {
   @Published var monthText: String = "January"
   @Published var monthStart: Date = Date.startOfMonth(Date.now)()
   @Published var monthEnd: Date = Date.endOfMonth(Date.now)()
+  @Published var dateRangeExpenses: [ExpenseEntity] = []
   
   private var currentMonthShown: Date = Date.now
   
   init() {
     getCurrentMonthString(from: Date.now)
+  }
+  
+  func setCurrentMonth() {
+    currentMonthShown = Date.now
+    getCurrentMonthString(from: currentMonthShown)
   }
   
   func addMonth() {
@@ -39,4 +45,7 @@ class ExpensesViewModel: ObservableObject {
     dateFormatter.dateFormat = "LLLL"
     monthText = dateFormatter.string(from: date)
   }
+  
 }
+
+

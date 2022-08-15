@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct NavigationBar: View {
-  @ObservedObject var vm: CoreDataViewModel
+  @ObservedObject var coreVM: CoreDataViewModel
+  @ObservedObject var expensesVM: ExpensesViewModel
   var title = ""
   @Binding var hasScrolled: Bool
   
@@ -26,7 +27,7 @@ struct NavigationBar: View {
         .offset(y: hasScrolled ?  -4 : 0)
       
       HStack(spacing: 16) {
-        NavigationLink(destination: AddExpenseView(vm: vm)) {
+        NavigationLink(destination: AddExpenseView(coreVM: coreVM, expensesVM: expensesVM)) {
           Image(systemName: "plus")
             .font(.body.weight(.bold))
             .frame(width: 36, height: 36)
@@ -49,6 +50,6 @@ struct NavigationBar: View {
 
 struct NavigationBar_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationBar(vm: CoreDataViewModel(), title: "Featured", hasScrolled: .constant(false))
+    NavigationBar(coreVM: CoreDataViewModel(), expensesVM: ExpensesViewModel(), title: "Featured", hasScrolled: .constant(false))
   }
 }
