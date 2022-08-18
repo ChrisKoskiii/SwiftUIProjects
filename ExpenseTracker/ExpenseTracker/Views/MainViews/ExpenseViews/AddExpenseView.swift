@@ -10,17 +10,18 @@ import SwiftUI
 struct AddExpenseView: View {
   @Environment(\.presentationMode) var presentationMode
   
+  //ViewModels
   @ObservedObject var coreVM: CoreDataViewModel
   @ObservedObject var expensesVM: ExpensesViewModel
   
-  var detailExpense: ExpenseEntity?
-  let buttonColor = Color("AddButtonColor")
   //Scanner state
   @State private var cameraIsPresented = false
   @State private var showScanner = false
   @State private var isRecognizing = false
+  
   @State private var presentAlert = false
-  //Textfield vars
+  
+  //Form inputs
   @State private var titleText: String = ""
   @State private var costText = 0.00
   @State private var vendorText: String = ""
@@ -55,11 +56,30 @@ struct AddExpenseView: View {
           .textfieldStyle()
           .keyboardType(.decimalPad)
         
-        TextField("Enter vendor", text: $vendorText)
-          .textfieldStyle()
-        TextField("Enter category", text: $categoryText)
-          .textfieldStyle()
+        ZStack {
+          TextField("Enter vendor", text: $vendorText)
+            .textfieldStyle()
+          HStack {
+            Spacer()
+            NavigationLink(destination: VendorListView(expensesVM: expensesVM)) {
+              Image(systemName: "chevron.right")}
+            .frame(width: 20)
+            .padding(.trailing, 20)
+          }
+        }
         
+        ZStack {
+          TextField("Enter category", text: $expensesVM.selectedCategory ?? categoryText)
+            .textfieldStyle()
+          HStack {
+            Spacer()
+            NavigationLink(destination: CategoryListView(expensesVM: expensesVM, coreVM: coreVM)) {
+              Image(systemName: "chevron.right")
+            }
+            .frame(width: 20)
+            .padding(.trailing, 20)
+          }
+        }
         scanButton
         
         addExpenseButton
@@ -115,19 +135,14 @@ struct AddExpenseView: View {
     Button {
       if emptyTextFields() {
         presentAlert.toggle()
-        print(emptyTextFields())
-        print(titleText)
-        print(costText as Any)
-        print(vendorText)
-        print(categoryText)
       } else {
         if imageData != nil {
           coreVM.addExpense(title: titleText,
-                        cost: costText,
-                        vendor: vendorText,
-                        category: categoryText,
-                        date: dateValue,
-                        receipt: imageData!
+                            cost: costText,
+                            vendor: vendorText,
+                            category: expensesVM.selectedCategory ?? categoryText,
+                            date: dateValue,
+                            receipt: imageData!
           )
           presentationMode.wrappedValue.dismiss()
           coreVM.getDateRangeExpenses(
@@ -135,12 +150,19 @@ struct AddExpenseView: View {
             endDate: expensesVM.monthEnd) { expenses in
               expensesVM.dateRangeExpenses = expenses
             }
+          if !expensesVM.categories.contains(categoryText) {
+            expensesVM.categories.append(categoryText)
+          }
+          if !expensesVM.vendors.contains(vendorText) {
+            expensesVM.vendors.append(vendorText)
+          }
+          expensesVM.fetchCategories(from: coreVM)
         } else {
           coreVM.addExpenseWithoutImage(title: titleText,
-                                    cost: costText,
-                                    vendor: vendorText,
-                                    category: categoryText,
-                                    date: dateValue
+                                        cost: costText,
+                                        vendor: vendorText,
+                                        category: expensesVM.selectedCategory ?? categoryText,
+                                        date: dateValue
           )
           presentationMode.wrappedValue.dismiss()
           coreVM.getDateRangeExpenses(
@@ -148,6 +170,13 @@ struct AddExpenseView: View {
             endDate: expensesVM.monthEnd) { expenses in
               expensesVM.dateRangeExpenses = expenses
             }
+          if !expensesVM.categories.contains(categoryText) {
+            expensesVM.categories.append(categoryText)
+          }
+          if !expensesVM.vendors.contains(vendorText) {
+            expensesVM.vendors.append(vendorText)
+          }
+          expensesVM.fetchCategories(from: coreVM)
         }
       }
     } label: {
@@ -167,8 +196,9 @@ struct AddExpenseView: View {
   
   func emptyTextFields() -> Bool {
     if titleText.isEmpty ||
+        costText.isZero ||
         vendorText.isEmpty ||
-        categoryText.isEmpty {
+        categoryText.isEmpty && expensesVM.selectedCategory == nil {
       return true
     } else { return false
     }

@@ -15,6 +15,7 @@ struct GenerateReportsView: View {
   @State private var selectedChoice = "Full Report"
   
   var reportChoices = ["Full Report", "Summary"]
+  
   var body: some View {
     NavigationView {
       Form {

@@ -14,10 +14,10 @@ class HomeViewModel: ObservableObject {
   
   func setViewTotal(text: String, expenses: [ExpenseEntity]) {
     selectedTimeFrame = text
-    getSelectedTotal(expenses: expenses)
+    getSelectedTotal(from: expenses)
     
   }
-  func getSelectedTotal(expenses: [ExpenseEntity]) {
+  func getSelectedTotal(from expenses: [ExpenseEntity]) {
     dateRangeExpenses = expenses
     if selectedTimeFrame == "week" {
       total = getTotal(from: dateRangeExpenses)

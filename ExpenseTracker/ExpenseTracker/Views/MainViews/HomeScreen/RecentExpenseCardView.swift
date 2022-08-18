@@ -10,11 +10,7 @@ import CoreMotion
 
 struct RecentExpenseCardView: View {
   
-  var expenseDate: Date
-  var expenseTitle: String
-  var expenseVendor: String
-  var expenseCost: Double
-  var expenseCategory: String
+  var recentExpense: ExpenseEntity
   
   var formatter: NumberFormatter = {
     let formatter = NumberFormatter()
@@ -35,21 +31,23 @@ struct RecentExpenseCardView: View {
         Divider()
           .frame(height: 40)
         VStack(alignment: .leading, spacing: 0) {
-          Text(expenseTitle)
+          Text(recentExpense.wrappedTitle)
+            .foregroundColor(.black)
             .lineLimit(1)
             .font(.headline)
             .padding(.top, 4)
-          Text(expenseCategory)
+          Text(recentExpense.wrappedCategory)
             .foregroundColor(.secondary)
             .font(.footnote)
-          Text(expenseDate.formatDate())
+          Text(recentExpense.wrappedDate.formatDate())
             .foregroundColor(.secondary)
             .font(.footnote)
             .padding(.bottom, 4)
         }
         Spacer()
-        let costString = formatter.string(from: NSNumber(value: expenseCost))!
+        let costString = formatter.string(from: NSNumber(value: recentExpense.cost))!
         Text(costString)
+          .foregroundColor(.black)
           .font(.title2)
           .fontWeight(.semibold)
           .padding(.trailing)
@@ -60,8 +58,8 @@ struct RecentExpenseCardView: View {
   }
 }
 
-struct RecentExpenseCardView_Previews: PreviewProvider {
-  static var previews: some View {
-    RecentExpenseCardView(expenseDate: Date.now, expenseTitle: "Balloons", expenseVendor: "BalloonDepot", expenseCost: 100.23, expenseCategory: "Supplies")
-  }
-}
+//struct RecentExpenseCardView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    RecentExpenseCardView(recentExpense: entity)
+//  }
+//}

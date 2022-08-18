@@ -65,8 +65,8 @@ struct TextfieldStyle: ViewModifier {
     content
       .font(.headline)
       .frame(height: 55)
-      .padding(.leading)
-      .background(Color("TextfieldColor"))
+      .padding(.horizontal)
+      .background(.white)
       .cornerRadius(10)
       .padding(.horizontal)
   }

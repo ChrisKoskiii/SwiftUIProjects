@@ -14,6 +14,9 @@ struct ExpenseTrackerApp: App {
   var body: some Scene {
         WindowGroup {
           TabViewScreen(corevm: coreVM, expensesVM: expensesVM)
+            .onAppear {
+              expensesVM.fetchData(from: coreVM)
+            }
         }
     }
 }

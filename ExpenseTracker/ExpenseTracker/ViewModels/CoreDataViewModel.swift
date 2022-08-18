@@ -20,7 +20,7 @@ class CoreDataViewModel: ObservableObject {
   @Published var dateRangeTotal: Double = 0.0
   @Published var categoriesDict: [String: Double] = [:]
   
-//  //DummyData
+//  DummyData
 //  @Published var dummyData: [ExpenseEntity] = []
   
   init() {
@@ -159,14 +159,12 @@ class CoreDataViewModel: ObservableObject {
         }
       }
     }
-    print(categoriesDict)
   }
   
   func getAllCategories() {
     for expense in savedExpenses {
       categoriesDict[expense.wrappedCategory] = 0
     }
-    print(categoriesDict)
   }
   
 //  func makeDummyData() {

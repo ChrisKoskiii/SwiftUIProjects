@@ -12,8 +12,6 @@ struct HomeView: View {
   @ObservedObject var coreVM: CoreDataViewModel
   @ObservedObject var expensesVM: ExpensesViewModel
   
-  @State private var opacity = 0.0
-  
   var body: some View {
     NavigationView {
       VStack {
@@ -22,7 +20,7 @@ struct HomeView: View {
         
         recentTransactionText
         
-        recentExpenseList
+        RecentExpensesList(coreVM: coreVM, expensesVM: expensesVM)
         
         Spacer()
         
@@ -57,9 +55,16 @@ struct HomeView: View {
     }
   }
   
-  var recentExpenseList: some View {
+}
+
+struct RecentExpensesList: View {
+  @ObservedObject var coreVM: CoreDataViewModel
+  @ObservedObject var expensesVM: ExpensesViewModel
+  var body: some View {
     ForEach(coreVM.recentExpenses) { expense in
-      RecentExpenseCardView(expenseDate: expense.wrappedDate, expenseTitle: expense.wrappedTitle, expenseVendor: expense.wrappedVendor, expenseCost: expense.cost, expenseCategory: expense.wrappedCategory)
+      NavigationLink(destination: DetailExpenseView(coreVM: coreVM, expensesVM: expensesVM, detailExpense: expense)) {
+        RecentExpenseCardView(recentExpense: expense)
+      }
     }
   }
 }

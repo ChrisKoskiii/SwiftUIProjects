@@ -11,10 +11,6 @@ struct ReportsView: View {
   @ObservedObject var coreVM: CoreDataViewModel
   @StateObject var reportsVM = ReportsViewModel()
   
-  @State private var opacity = 0.0
-
-  @State var expense: ExpenseEntity?
-  
   @State var startDate: Date
   @State var endDate: Date
   
@@ -51,11 +47,7 @@ struct ReportsView: View {
           reportsVM.dateRangeExpenses = expenses
         }
         coreVM.categoryTotal()
-        DispatchQueue.main.async {
-          withAnimation {
-            opacity = 1.0
-          }
-        }
+
       }
   }
   
@@ -108,7 +100,7 @@ struct ReportsView: View {
     pdfVC.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
     
     //Render the view behind all other views
-    let rootVC = UIApplication.shared.windows.first?.rootViewController
+    let rootVC = UIApplication.shared.currentUIWindow()!.rootViewController
     rootVC?.addChild(pdfVC)
     rootVC?.view.insertSubview(pdfVC.view, at: 0)
     

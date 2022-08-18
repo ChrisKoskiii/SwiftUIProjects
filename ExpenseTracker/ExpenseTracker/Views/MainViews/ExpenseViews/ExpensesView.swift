@@ -47,7 +47,7 @@ struct ExpensesView: View {
       
       ForEach(expensesVM.dateRangeExpenses) { expense in
         
-        NavigationLink(destination: DetailExpenseView(coreVM: coreVM, expensesVM: expensesVM, detailExpense: expense, titleText: expense.wrappedTitle, costText: expense.cost, vendorText: expense.wrappedVendor, categoryText: expense.wrappedCategory, dateValue: expense.wrappedDate, imageData: expense.receipt)) {
+        NavigationLink(destination: DetailExpenseView(coreVM: coreVM, expensesVM: expensesVM, detailExpense: expense)) {
           
           HStack {
             Text(expense.wrappedDate.formatDate())
@@ -68,6 +68,7 @@ struct ExpensesView: View {
         }
       }
     }
+    //allows for pull to refresh
     .refreshable {
       coreVM.getDateRangeExpenses(
         startDate: expensesVM.monthStart,
@@ -76,12 +77,6 @@ struct ExpensesView: View {
         }
     }
     .listStyle(.plain)
-  }
-}
-
-struct ExpensesView_Previews: PreviewProvider {
-  static var previews: some View {
-    ExpensesView(coreVM: CoreDataViewModel(), expensesVM: ExpensesViewModel())
   }
 }
 
@@ -134,5 +129,11 @@ struct MonthSelector: View {
           .font(.footnote)
       }
     }
+  }
+}
+
+struct ExpensesView_Previews: PreviewProvider {
+  static var previews: some View {
+    ExpensesView(coreVM: CoreDataViewModel(), expensesVM: ExpensesViewModel())
   }
 }

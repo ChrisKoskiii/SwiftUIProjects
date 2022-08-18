@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailExpenseView: View {
   @Environment(\.presentationMode) var presentationMode
   
+  //ViewModels
   @ObservedObject var coreVM: CoreDataViewModel
   @ObservedObject var expensesVM: ExpensesViewModel
   
@@ -20,20 +21,13 @@ struct DetailExpenseView: View {
   @State private var showScanner = false
   @State private var isRecognizing = false
   
-  //Textfield & picker values
-  @State var titleText: String
-  @State var costText: Double?
-  @State var vendorText: String
-  @State var categoryText: String
-  @State var dateValue: Date
   private var dateString: String {
-    dateValue.formatDate()
+    detailExpense.wrappedDate.formatDate()
   }
   
   //Image vars
   
   @State private var scannedImage: UIImage?
-  @State var imageData: Data?
   
   //Current textfield formatter
   var formatter: NumberFormatter = {
@@ -61,7 +55,9 @@ struct DetailExpenseView: View {
         Spacer()
       }
     }
+    .background(Color(.secondarySystemBackground))
     .navigationTitle("Update expense")
+    .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       ToolbarItem {
         Button {
@@ -78,7 +74,7 @@ struct DetailExpenseView: View {
         case .success(let scannedImages):
           isRecognizing = true
           scannedImage = scannedImages.first
-          imageData = coreVM.getImageData(scannedImage!)
+          detailExpense.receipt = coreVM.getImageData(scannedImage!)
         case .failure(let error):
           print(error.localizedDescription)
         }
@@ -107,16 +103,16 @@ struct DetailExpenseView: View {
   
   var expenseTextfields: some View {
     Group {
-      DatePicker(dateValue.formatDate(), selection: $dateValue, displayedComponents: [.date])
+      DatePicker(dateString, selection: $detailExpense.wrappedDate, displayedComponents: [.date])
         .textfieldStyle()
-      TextField("Enter title", text: $titleText)
+      TextField("Enter title", text: $detailExpense.wrappedTitle)
         .textfieldStyle()
-      TextField("Enter cost", value: $costText, formatter: formatter)
+      TextField("Enter cost", value: $detailExpense.cost, formatter: formatter)
         .textfieldStyle()
         .keyboardType(.decimalPad)
-      TextField("Enter vendor", text: $vendorText)
+      TextField("Enter vendor", text: $detailExpense.wrappedVendor)
         .textfieldStyle()
-      TextField("Enter category", text: $categoryText)
+      TextField("Enter category", text: $detailExpense.wrappedCategory)
         .textfieldStyle()
     }
   }
@@ -138,21 +134,21 @@ struct DetailExpenseView: View {
   
   var updateExpenseButton: some View {
     Button {
-      if imageData != nil {
-        coreVM.updateExpense(entity: detailExpense, title: titleText,
-                         cost: costText!,
-                         vendor: vendorText,
-                         category: categoryText,
-                         date: dateValue,
-                         receipt: imageData!)
+      if detailExpense.receipt != nil {
+        coreVM.updateExpense(entity: detailExpense, title: detailExpense.wrappedTitle,
+                             cost: detailExpense.cost,
+                             vendor: detailExpense.wrappedVendor,
+                             category: detailExpense.wrappedCategory,
+                             date: detailExpense.wrappedDate,
+                             receipt: detailExpense.receipt)
         presentationMode.wrappedValue.dismiss()
       } else {
         coreVM.updateExpenseWithoutImage(entity: detailExpense,
-                                     title: titleText,
-                                     cost: costText!,
-                                     vendor: vendorText,
-                                     category: categoryText,
-                                     date: dateValue)
+                                         title: detailExpense.wrappedTitle,
+                                         cost: detailExpense.cost,
+                                         vendor: detailExpense.wrappedVendor,
+                                         category: detailExpense.wrappedCategory,
+                                         date: detailExpense.wrappedDate)
         presentationMode.wrappedValue.dismiss()
       }
     } label: {
@@ -187,7 +183,7 @@ struct DetailExpenseView: View {
   }
   
   func convertData() async -> () {
-    guard let imageData = imageData else {
+    guard let imageData = detailExpense.receipt else {
       return
     }
     guard let convertedImage = UIImage(data: imageData) else { return }
@@ -195,10 +191,10 @@ struct DetailExpenseView: View {
   }
   
   func emptyTextFields() -> Bool {
-    if titleText.isEmpty ||
-        costText == nil ||
-        vendorText.isEmpty ||
-        categoryText.isEmpty {
+    if detailExpense.wrappedTitle.isEmpty ||
+        detailExpense.cost == 0.00 ||
+        detailExpense.wrappedVendor.isEmpty ||
+        detailExpense.wrappedCategory.isEmpty {
       return true
     } else { return false
     }

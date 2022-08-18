@@ -34,6 +34,8 @@ struct MonthlyTotalView: View {
       .padding(.top, 4)
     }
     .padding(.horizontal)
+    
+    //Fetches current weekly total on launch
     .onAppear {
       if let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date()) {
         coreVM.getDateRangeExpenses(startDate: startDate, endDate: Date.now){ expenses in
@@ -44,12 +46,6 @@ struct MonthlyTotalView: View {
     }
   }
   
-}
-
-struct MonthlyTotalView_Previews: PreviewProvider {
-  static var previews: some View {
-    MonthlyTotalView(coreVM: CoreDataViewModel())
-  }
 }
 
 struct timeFrameButtonText: View {
@@ -115,5 +111,11 @@ struct ThisWeekString: View {
     Text(text)
       .font(.callout)
       .foregroundColor(.secondary)
+  }
+}
+
+struct MonthlyTotalView_Previews: PreviewProvider {
+  static var previews: some View {
+    MonthlyTotalView(coreVM: CoreDataViewModel())
   }
 }

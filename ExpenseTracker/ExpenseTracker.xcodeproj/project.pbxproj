@@ -19,12 +19,14 @@
 		9E187D4528936D8600142000 /* DocumentScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E187D4428936D8600142000 /* DocumentScanner.swift */; };
 		9E1DC142289EDF0C00D6C771 /* UIScrollViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1DC141289EDF0C00D6C771 /* UIScrollViewWrapper.swift */; };
 		9E1E3D292894687B004FE485 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E3D282894687B004FE485 /* Date+Extension.swift */; };
+		9E34DE3928AEADF500235442 /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E34DE3828AEADF500235442 /* UIApplication+Ext.swift */; };
+		9E34DE3B28AEB3E500235442 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E34DE3A28AEB3E500235442 /* CategoryListView.swift */; };
+		9E34DE3D28AEB3F500235442 /* VendorListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E34DE3C28AEB3F500235442 /* VendorListView.swift */; };
+		9E34DE3F28AEBE1C00235442 /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E34DE3E28AEBE1C00235442 /* ItemList.swift */; };
+		9E34DE4128AED43400235442 /* OperatorOverload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E34DE4028AED43400235442 /* OperatorOverload.swift */; };
 		9E35E5A328957208008D9ABA /* ExpenseEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E35E5A128957208008D9ABA /* ExpenseEntity+CoreDataClass.swift */; };
 		9E35E5A428957208008D9ABA /* ExpenseEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E35E5A228957208008D9ABA /* ExpenseEntity+CoreDataProperties.swift */; };
 		9E3D6E0728956D58008DB55D /* DetailExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3D6E0628956D58008DB55D /* DetailExpenseView.swift */; };
-		9E5824ED28A18FB000C80A73 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 9E5824EC28A18FB000C80A73 /* Collections */; };
-		9E5824EF28A18FB000C80A73 /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = 9E5824EE28A18FB000C80A73 /* DequeModule */; };
-		9E5824F128A18FB000C80A73 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 9E5824F028A18FB000C80A73 /* OrderedCollections */; };
 		9E5824F328A191E000C80A73 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5824F228A191E000C80A73 /* Category.swift */; };
 		9E5824F728A1A6EE00C80A73 /* ReportsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5824F628A1A6EE00C80A73 /* ReportsViewModel.swift */; };
 		9E58250128A2D07D00C80A73 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E58250028A2D07D00C80A73 /* CloudKit.framework */; };
@@ -60,6 +62,11 @@
 		9E187D4428936D8600142000 /* DocumentScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentScanner.swift; sourceTree = "<group>"; };
 		9E1DC141289EDF0C00D6C771 /* UIScrollViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewWrapper.swift; sourceTree = "<group>"; };
 		9E1E3D282894687B004FE485 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		9E34DE3828AEADF500235442 /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
+		9E34DE3A28AEB3E500235442 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+		9E34DE3C28AEB3F500235442 /* VendorListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorListView.swift; sourceTree = "<group>"; };
+		9E34DE3E28AEBE1C00235442 /* ItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
+		9E34DE4028AED43400235442 /* OperatorOverload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorOverload.swift; sourceTree = "<group>"; };
 		9E35E5A128957208008D9ABA /* ExpenseEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpenseEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9E35E5A228957208008D9ABA /* ExpenseEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpenseEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9E3D6E0628956D58008DB55D /* DetailExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailExpenseView.swift; sourceTree = "<group>"; };
@@ -94,9 +101,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E58250128A2D07D00C80A73 /* CloudKit.framework in Frameworks */,
-				9E5824ED28A18FB000C80A73 /* Collections in Frameworks */,
-				9E5824F128A18FB000C80A73 /* OrderedCollections in Frameworks */,
-				9E5824EF28A18FB000C80A73 /* DequeModule in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +114,8 @@
 				9E01C2BB2896DC2E00337A37 /* ScannedImageView.swift */,
 				9E187D4228936A0E00142000 /* AddExpenseView.swift */,
 				9E3D6E0628956D58008DB55D /* DetailExpenseView.swift */,
+				9E34DE3A28AEB3E500235442 /* CategoryListView.swift */,
+				9E34DE3C28AEB3F500235442 /* VendorListView.swift */,
 			);
 			path = ExpenseViews;
 			sourceTree = "<group>";
@@ -185,9 +191,11 @@
 				9E187D4428936D8600142000 /* DocumentScanner.swift */,
 				9E187D3E2893055000142000 /* View+Extensions.swift */,
 				9E58254528A5686600C80A73 /* Color+Ext.swift */,
+				9E34DE3828AEADF500235442 /* UIApplication+Ext.swift */,
 				9E8E1F2E2893FCD100300E14 /* Theme.swift */,
 				9E1E3D282894687B004FE485 /* Date+Extension.swift */,
 				9E1DC141289EDF0C00D6C771 /* UIScrollViewWrapper.swift */,
+				9E34DE4028AED43400235442 /* OperatorOverload.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -199,6 +207,7 @@
 				9E8E1F2728937FE600300E14 /* TabBar.swift */,
 				9E8E1F38289446F600300E14 /* NavBar.swift */,
 				9E9B34AD2899733900408F05 /* ShareSheet.swift */,
+				9E34DE3E28AEBE1C00235442 /* ItemList.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -260,9 +269,6 @@
 			);
 			name = ExpenseTracker;
 			packageProductDependencies = (
-				9E5824EC28A18FB000C80A73 /* Collections */,
-				9E5824EE28A18FB000C80A73 /* DequeModule */,
-				9E5824F028A18FB000C80A73 /* OrderedCollections */,
 			);
 			productName = ExpenseTracker;
 			productReference = 9E58254428A54E2300C80A73 /* ExpenseTracker.app */;
@@ -293,7 +299,6 @@
 			);
 			mainGroup = 9E187D212892FF3D00142000;
 			packageReferences = (
-				9E5824EB28A18FB000C80A73 /* XCRemoteSwiftPackageReference "swift-collections" */,
 			);
 			productRefGroup = 9E187D212892FF3D00142000;
 			projectDirPath = "";
@@ -329,12 +334,15 @@
 				9E187D302892FF3D00142000 /* TabViewScreen.swift in Sources */,
 				9E9B34AE2899733900408F05 /* ShareSheet.swift in Sources */,
 				9E8E1F2328936F8D00300E14 /* BackgroundView.swift in Sources */,
+				9E34DE3D28AEB3F500235442 /* VendorListView.swift in Sources */,
 				9E8E1F312894232300300E14 /* ExpensesView.swift in Sources */,
 				9E58254C28A5EEE800C80A73 /* ExpensesViewModel.swift in Sources */,
+				9E34DE3928AEADF500235442 /* UIApplication+Ext.swift in Sources */,
 				9E35E5A428957208008D9ABA /* ExpenseEntity+CoreDataProperties.swift in Sources */,
 				9E8E1F39289446F600300E14 /* NavBar.swift in Sources */,
 				9E5824F328A191E000C80A73 /* Category.swift in Sources */,
 				9E187D3D2893010900142000 /* ExpenseContainer.xcdatamodeld in Sources */,
+				9E34DE3F28AEBE1C00235442 /* ItemList.swift in Sources */,
 				9E5824F728A1A6EE00C80A73 /* ReportsViewModel.swift in Sources */,
 				9E8E1F2F2893FCD100300E14 /* Theme.swift in Sources */,
 				9E01C2BC2896DC2E00337A37 /* ScannedImageView.swift in Sources */,
@@ -350,7 +358,9 @@
 				9E187D2E2892FF3D00142000 /* ExpenseTrackerApp.swift in Sources */,
 				9ED23ACD289CB99B00CAAB70 /* GenerateReportsView.swift in Sources */,
 				9E1E3D292894687B004FE485 /* Date+Extension.swift in Sources */,
+				9E34DE3B28AEB3E500235442 /* CategoryListView.swift in Sources */,
 				9E8E1F2828937FE600300E14 /* TabBar.swift in Sources */,
+				9E34DE4128AED43400235442 /* OperatorOverload.swift in Sources */,
 				9E58254A28A57EAF00C80A73 /* HomeViewModel.swift in Sources */,
 				9E58254628A5686600C80A73 /* Color+Ext.swift in Sources */,
 			);
@@ -563,35 +573,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		9E5824EB28A18FB000C80A73 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-collections.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		9E5824EC28A18FB000C80A73 /* Collections */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9E5824EB28A18FB000C80A73 /* XCRemoteSwiftPackageReference "swift-collections" */;
-			productName = Collections;
-		};
-		9E5824EE28A18FB000C80A73 /* DequeModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9E5824EB28A18FB000C80A73 /* XCRemoteSwiftPackageReference "swift-collections" */;
-			productName = DequeModule;
-		};
-		9E5824F028A18FB000C80A73 /* OrderedCollections */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9E5824EB28A18FB000C80A73 /* XCRemoteSwiftPackageReference "swift-collections" */;
-			productName = OrderedCollections;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		9E187D3B2893010900142000 /* ExpenseContainer.xcdatamodeld */ = {

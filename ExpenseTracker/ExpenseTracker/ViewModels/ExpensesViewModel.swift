@@ -12,11 +12,17 @@ class ExpensesViewModel: ObservableObject {
   @Published var monthStart: Date = Date.startOfMonth(Date.now)()
   @Published var monthEnd: Date = Date.endOfMonth(Date.now)()
   @Published var dateRangeExpenses: [ExpenseEntity] = []
+  @Published var categories: [String] = []
+  @Published var vendors: [String] = []
+  @Published var selectedCategory: String?
+  @Published var selectedVendor: String?
   
   private var currentMonthShown: Date = Date.now
   
   init() {
     getCurrentMonthString(from: Date.now)
+    categories = categories.sorted { $0 < $1 }
+    vendors = vendors.sorted { $0 < $1 }
   }
   
   func setCurrentMonth() {
@@ -46,6 +52,26 @@ class ExpensesViewModel: ObservableObject {
     monthText = dateFormatter.string(from: date)
   }
   
+  
+  func fetchData(from coreData: CoreDataViewModel) {
+    fetchCategories(from: coreData)
+    fetchVendors(from: coreData)
+  }
+  func fetchCategories(from coreData: CoreDataViewModel) {
+    for expense in coreData.savedExpenses {
+      if !categories.contains(expense.wrappedCategory) {
+        categories.append(expense.wrappedCategory)
+      }
+    }
+  }
+  
+  func fetchVendors(from coreData: CoreDataViewModel) {
+    for expense in coreData.savedExpenses {
+      if !vendors.contains(expense.wrappedVendor) {
+        vendors.append(expense.wrappedVendor)
+      }
+    }
+  }
 }
 
 
