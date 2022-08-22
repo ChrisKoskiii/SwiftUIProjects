@@ -16,6 +16,7 @@ class ExpensesViewModel: ObservableObject {
   @Published var vendors: [String] = []
   @Published var selectedCategory: String?
   @Published var selectedVendor: String?
+  @Published var newExpense: ExpenseModel?
   
   private var currentMonthShown: Date = Date.now
   
@@ -72,6 +73,11 @@ class ExpensesViewModel: ObservableObject {
         vendors.append(expense.wrappedVendor)
       }
     }
+  }
+  
+  func makeNewExpense(category: String, cost: Double, date: Date, title: String, vendor: String, receipt: Data?, completion: (ExpenseModel) -> ()) {
+    let expense = ExpenseModel(category: category, cost: cost, date: date, title: title, vendor: vendor, receipt: receipt)
+    completion(expense)
   }
 }
 

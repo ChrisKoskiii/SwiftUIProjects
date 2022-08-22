@@ -110,10 +110,32 @@ struct DetailExpenseView: View {
       TextField("Enter cost", value: $detailExpense.cost, formatter: formatter)
         .textfieldStyle()
         .keyboardType(.decimalPad)
-      TextField("Enter vendor", text: $detailExpense.wrappedVendor)
-        .textfieldStyle()
-      TextField("Enter category", text: $detailExpense.wrappedCategory)
-        .textfieldStyle()
+      
+      ZStack {
+        TextField("Enter vendor", text: $detailExpense.wrappedVendor)
+          .textfieldStyle()
+        HStack {
+          Spacer()
+          NavigationLink(destination: VendorListView(expensesVM: expensesVM, coreVM: coreVM)) {
+            Image(systemName: "chevron.right")}
+          .frame(width: 20)
+          .padding(.trailing, 20)
+        }
+      }
+      
+      ZStack {
+        TextField("Enter category", text: $detailExpense.wrappedCategory)
+          .textfieldStyle()
+        HStack {
+          Spacer()
+          NavigationLink(destination: CategoryListView(expensesVM: expensesVM, coreVM: coreVM, detailExpenseCategory: detailExpense.wrappedCategory)) {
+            Image(systemName: "chevron.right")
+          }
+          .frame(width: 20)
+          .padding(.trailing, 20)
+        }
+      }
+      
     }
   }
   
@@ -134,23 +156,18 @@ struct DetailExpenseView: View {
   
   var updateExpenseButton: some View {
     Button {
-      if detailExpense.receipt != nil {
-        coreVM.updateExpense(entity: detailExpense, title: detailExpense.wrappedTitle,
-                             cost: detailExpense.cost,
-                             vendor: detailExpense.wrappedVendor,
-                             category: detailExpense.wrappedCategory,
-                             date: detailExpense.wrappedDate,
-                             receipt: detailExpense.receipt)
-        presentationMode.wrappedValue.dismiss()
-      } else {
-        coreVM.updateExpenseWithoutImage(entity: detailExpense,
-                                         title: detailExpense.wrappedTitle,
-                                         cost: detailExpense.cost,
-                                         vendor: detailExpense.wrappedVendor,
-                                         category: detailExpense.wrappedCategory,
-                                         date: detailExpense.wrappedDate)
-        presentationMode.wrappedValue.dismiss()
+      expensesVM.makeNewExpense(category: detailExpense.wrappedCategory,
+                                cost: detailExpense.cost,
+                                date: detailExpense.wrappedDate,
+                                title: detailExpense.wrappedTitle,
+                                vendor: detailExpense.wrappedVendor,
+                                receipt: detailExpense.receipt
+      ) { expense in
+        coreVM.updateExpense(detailExpense, with: expense)
       }
+      expensesVM.selectedCategory = nil
+      expensesVM.selectedVendor = nil
+        presentationMode.wrappedValue.dismiss()
     } label: {
       Text("Update Expense")
         .addButtonStyle()

@@ -79,24 +79,16 @@ class CoreDataViewModel: ObservableObject {
     }
   }
   
-  func addExpense(title: String, cost: Double, vendor: String, category: String, date: Date, receipt: Data) {
+  func addExpense(_ expense: ExpenseModel) {
     let newExpense = ExpenseEntity(context: container.viewContext)
-    newExpense.title = title
-    newExpense.cost = cost
-    newExpense.vendor = vendor
-    newExpense.category = category
-    newExpense.date = date
-    newExpense.receipt = receipt
-    saveData()
-  }
-  
-  func addExpenseWithoutImage(title: String, cost: Double, vendor: String, category: String, date: Date) {
-    let newExpense = ExpenseEntity(context: container.viewContext)
-    newExpense.title = title
-    newExpense.cost = cost
-    newExpense.vendor = vendor
-    newExpense.category = category
-    newExpense.date = date
+    newExpense.title = expense.title
+    newExpense.cost = expense.cost
+    newExpense.vendor = expense.vendor
+    newExpense.category = expense.category
+    newExpense.date = expense.date
+    if let receiptData = expense.receipt {
+      newExpense.receipt = receiptData
+    }
     saveData()
   }
   
@@ -106,22 +98,13 @@ class CoreDataViewModel: ObservableObject {
       saveData()
     }
   
-  func updateExpense(entity: ExpenseEntity, title: String, cost: Double, vendor: String, category: String, date: Date, receipt: Data?) {
-    entity.title = title
-    entity.cost = cost
-    entity.vendor = vendor
-    entity.category = category
-    entity.date = date
-    entity.receipt = receipt
-    saveData()
-  }
-  
-  func updateExpenseWithoutImage(entity: ExpenseEntity, title: String, cost: Double, vendor: String, category: String, date: Date) {
-    entity.title = title
-    entity.cost = cost
-    entity.vendor = vendor
-    entity.category = category
-    entity.date = date
+  func updateExpense(_ entity: ExpenseEntity, with expense: ExpenseModel) {
+    entity.title = expense.title
+    entity.cost = expense.cost
+    entity.vendor = expense.vendor
+    entity.category = expense.category
+    entity.date = expense.date
+    entity.receipt = expense.receipt
     saveData()
   }
   

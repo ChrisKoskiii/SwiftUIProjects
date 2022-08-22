@@ -24,8 +24,6 @@ struct AddExpenseView: View {
   //Form inputs
   @State private var titleText: String = ""
   @State private var costText = 0.00
-  @State private var vendorText: String = ""
-  @State private var categoryText: String = ""
   @State private var dateValue: Date = Date.now
   
   private var dateString: String {
@@ -57,7 +55,7 @@ struct AddExpenseView: View {
           .keyboardType(.decimalPad)
         
         ZStack {
-          TextField("Enter vendor", text: $expensesVM.selectedVendor ?? categoryText)
+          TextField("Enter vendor", text: $expensesVM.selectedVendor ?? "")
             .textfieldStyle()
           HStack {
             Spacer()
@@ -69,7 +67,7 @@ struct AddExpenseView: View {
         }
         
         ZStack {
-          TextField("Enter category", text: $expensesVM.selectedCategory ?? categoryText)
+          TextField("Enter category", text: $expensesVM.selectedCategory ?? "")
             .textfieldStyle()
           HStack {
             Spacer()
@@ -131,53 +129,35 @@ struct AddExpenseView: View {
   }
   
   var addExpenseButton: some View {
-    //Couldnt think of a cleaner way to add with or without an image
     Button {
       if emptyTextFields() {
         presentAlert.toggle()
       } else {
-        if imageData != nil {
-          coreVM.addExpense(title: titleText,
-                            cost: costText,
-                            vendor: expensesVM.selectedVendor ?? vendorText,
-                            category: expensesVM.selectedCategory ?? categoryText,
-                            date: dateValue,
-                            receipt: imageData!
-          )
-          presentationMode.wrappedValue.dismiss()
-          coreVM.getDateRangeExpenses(
-            startDate: expensesVM.monthStart,
-            endDate: expensesVM.monthEnd) { expenses in
-              expensesVM.dateRangeExpenses = expenses
-            }
-          if !expensesVM.categories.contains(categoryText) {
-            expensesVM.categories.append(categoryText)
-          }
-          if !expensesVM.vendors.contains(vendorText) {
-            expensesVM.vendors.append(vendorText)
-          }
-          expensesVM.fetchCategories(from: coreVM)
-        } else {
-          coreVM.addExpenseWithoutImage(title: titleText,
-                                        cost: costText,
-                                        vendor: expensesVM.selectedVendor ?? vendorText,
-                                        category: expensesVM.selectedCategory ?? categoryText,
-                                        date: dateValue
-          )
-          presentationMode.wrappedValue.dismiss()
-          coreVM.getDateRangeExpenses(
-            startDate: expensesVM.monthStart,
-            endDate: expensesVM.monthEnd) { expenses in
-              expensesVM.dateRangeExpenses = expenses
-            }
-          if !expensesVM.categories.contains(categoryText) {
-            expensesVM.categories.append(categoryText)
-          }
-          if !expensesVM.vendors.contains(vendorText) {
-            expensesVM.vendors.append(vendorText)
-          }
-          expensesVM.fetchCategories(from: coreVM)
+        expensesVM.makeNewExpense(category: expensesVM.selectedCategory!,
+                                  cost: costText,
+                                  date: dateValue,
+                                  title: titleText,
+                                  vendor: expensesVM.selectedVendor!,
+                                  receipt: imageData
+        ) { expense in
+          coreVM.addExpense(expense)
         }
+        presentationMode.wrappedValue.dismiss()
+        coreVM.getDateRangeExpenses(
+          startDate: expensesVM.monthStart,
+          endDate: expensesVM.monthEnd) { expenses in
+            expensesVM.dateRangeExpenses = expenses
+          }
+        if !expensesVM.categories.contains(expensesVM.selectedCategory!) {
+          expensesVM.categories.append(expensesVM.selectedCategory!)
+  
+        }
+        if !expensesVM.vendors.contains(expensesVM.selectedVendor!) {
+          expensesVM.vendors.append(expensesVM.selectedVendor!)
+        }
+        expensesVM.fetchCategories(from: coreVM)
+        expensesVM.selectedVendor = nil
+        expensesVM.selectedCategory = nil
       }
     } label: {
       Text("Add Expense")
@@ -197,8 +177,8 @@ struct AddExpenseView: View {
   func emptyTextFields() -> Bool {
     if titleText.isEmpty ||
         costText.isZero ||
-        vendorText.isEmpty && expensesVM.selectedVendor == nil ||
-        categoryText.isEmpty && expensesVM.selectedCategory == nil {
+        expensesVM.selectedVendor == nil ||
+        expensesVM.selectedCategory == nil {
       return true
     } else { return false
     }

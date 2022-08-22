@@ -10,27 +10,24 @@ import SwiftUI
 struct VendorListView: View {
   @ObservedObject var expensesVM: ExpensesViewModel
   @ObservedObject var coreVM: CoreDataViewModel
-    var body: some View {
-      ItemList(items: expensesVM.vendors, selectedItem: $expensesVM.selectedVendor)
-        .navigationTitle("Vendors")
-        .navigationBarTitleDisplayMode(.inline)
-        .task {
-          expensesVM.fetchData(from: coreVM)
-           await coreVM.fetchExpenses()
-        }
-    }
+  
+  var body: some View {
+    ItemList(items: expensesVM.vendors, selectedItem: $expensesVM.selectedVendor)
+      .navigationTitle("Vendors")
+      .navigationBarTitleDisplayMode(.inline)
+  }
 }
 
 struct VendorListView_Previews: PreviewProvider {
-    static var previews: some View {
-      NavigationView {
-        ItemList(items: [
-            "Home-Depot",
-            "Mr. Tax Man",
-            "Ace Hardware",
-            "EquipmentAndStuff.com",
-            "Palm Beach County"
-        ], selectedItem: .constant("Constant"))
-      }
+  static var previews: some View {
+    NavigationView {
+      ItemList(items: [
+        "Home-Depot",
+        "Mr. Tax Man",
+        "Ace Hardware",
+        "EquipmentAndStuff.com",
+        "Palm Beach County"
+      ], selectedItem: .constant("Constant"))
     }
+  }
 }
