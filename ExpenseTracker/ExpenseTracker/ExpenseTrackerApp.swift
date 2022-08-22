@@ -13,7 +13,8 @@ struct ExpenseTrackerApp: App {
   @StateObject var expensesVM = ExpensesViewModel()
   var body: some Scene {
         WindowGroup {
-          TabViewScreen(corevm: coreVM, expensesVM: expensesVM)
+          TabViewScreen(expensesVM: expensesVM)
+            .environmentObject(coreVM)
             .onAppear {
               expensesVM.fetchData(from: coreVM)
             }

@@ -16,7 +16,7 @@ struct ScannedImageView: View {
       
         Image(uiImage: scannedImage)
         .resizable()
-        .padding(.bottom, 70)
+        .scaledToFit()
         .contextMenu {
           Button(action: {
             UIImageWriteToSavedPhotosAlbum(scannedImage, nil, nil, nil)

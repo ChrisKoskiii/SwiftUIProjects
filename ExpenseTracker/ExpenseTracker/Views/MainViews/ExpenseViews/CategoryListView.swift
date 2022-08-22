@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct CategoryListView: View {
+  @EnvironmentObject var coreVM: CoreDataViewModel
   
   @ObservedObject var expensesVM: ExpensesViewModel
-  @ObservedObject var coreVM: CoreDataViewModel
   
   @State var detailExpenseCategory: String?
   

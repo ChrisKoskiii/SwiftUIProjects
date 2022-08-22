@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ReportsView: View {
-  @ObservedObject var coreVM: CoreDataViewModel
+  @EnvironmentObject var coreVM: CoreDataViewModel
+  
   @StateObject var reportsVM = ReportsViewModel()
   
   @State var startDate: Date
@@ -129,7 +130,7 @@ struct ReportsView: View {
 
 struct ReportsView_Previews: PreviewProvider {
   static var previews: some View {
-    ReportsView(coreVM: CoreDataViewModel(), reportsVM: ReportsViewModel(), startDate: Date.now, endDate: Date.now)
+    ReportsView(reportsVM: ReportsViewModel(), startDate: Date.now, endDate: Date.now)
   }
 }
 

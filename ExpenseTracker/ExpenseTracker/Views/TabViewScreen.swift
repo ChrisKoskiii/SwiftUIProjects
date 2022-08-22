@@ -8,24 +8,24 @@
 import SwiftUI
 
 struct TabViewScreen: View {
-  @AppStorage("selectedTab") var selectedTab: Tab = .home
-  @ObservedObject var corevm: CoreDataViewModel
+  @EnvironmentObject var coreVM: CoreDataViewModel
+  
   @ObservedObject var expensesVM: ExpensesViewModel
   var body: some View {
     TabView {
-      HomeView(coreVM: corevm, expensesVM: expensesVM)
+      HomeView(expensesVM: expensesVM)
         .tabItem {
           Label("Home", systemImage: "house")
         }
-      ExpensesView(coreVM: corevm, expensesVM: expensesVM)
+      ExpensesView(expensesVM: expensesVM)
         .tabItem {
           Label("Expenses", systemImage: "dollarsign.circle")
         }
-      GenerateReportsView(corevm: corevm)
+      GenerateReportsView()
         .tabItem {
           Label("Reports", systemImage: "list.bullet.rectangle.portrait")
         }
-      SettingsView(corevm: corevm)
+      SettingsView()
         .tabItem {
           Label("Settings", systemImage: "gear")
         }
@@ -36,6 +36,6 @@ struct TabViewScreen: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    TabViewScreen(corevm: CoreDataViewModel(), expensesVM: ExpensesViewModel())
+    TabViewScreen(expensesVM: ExpensesViewModel())
   }
 }

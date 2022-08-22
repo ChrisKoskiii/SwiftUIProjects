@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GenerateReportsView: View {
-  @ObservedObject var corevm: CoreDataViewModel
+  @EnvironmentObject var coreVM: CoreDataViewModel
   
   @State private var startDate: Date = Date.now
   @State private var endDate: Date = Date.now
@@ -27,7 +27,7 @@ struct GenerateReportsView: View {
             }
           }
           .pickerStyle(.segmented)
-          NavigationLink(destination: ReportsView(coreVM: corevm, startDate: startDate, endDate: endDate), label: {
+          NavigationLink(destination: ReportsView(startDate: startDate, endDate: endDate), label: {
           Text("Generate Report")
             .foregroundColor(.cyan)
             .centerInView()
@@ -41,6 +41,6 @@ struct GenerateReportsView: View {
 
 struct GenerateReportsView_Previews: PreviewProvider {
   static var previews: some View {
-    GenerateReportsView(corevm: CoreDataViewModel())
+    GenerateReportsView()
   }
 }

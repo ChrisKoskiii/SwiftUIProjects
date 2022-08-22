@@ -9,9 +9,8 @@ import SwiftUI
 
 struct AddExpenseView: View {
   @Environment(\.presentationMode) var presentationMode
-  
+  @EnvironmentObject var coreVM: CoreDataViewModel
   //ViewModels
-  @ObservedObject var coreVM: CoreDataViewModel
   @ObservedObject var expensesVM: ExpensesViewModel
   
   //Scanner state
@@ -59,7 +58,7 @@ struct AddExpenseView: View {
             .textfieldStyle()
           HStack {
             Spacer()
-            NavigationLink(destination: VendorListView(expensesVM: expensesVM, coreVM: coreVM)) {
+            NavigationLink(destination: VendorListView(expensesVM: expensesVM)) {
               Image(systemName: "chevron.right")}
             .frame(width: 20)
             .padding(.trailing, 20)
@@ -71,7 +70,7 @@ struct AddExpenseView: View {
             .textfieldStyle()
           HStack {
             Spacer()
-            NavigationLink(destination: CategoryListView(expensesVM: expensesVM, coreVM: coreVM)) {
+            NavigationLink(destination: CategoryListView(expensesVM: expensesVM)) {
               Image(systemName: "chevron.right")
             }
             .frame(width: 20)
@@ -189,10 +188,10 @@ struct AddExpenseView: View {
 struct AddExpenseView_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      AddExpenseView(coreVM: CoreDataViewModel(), expensesVM: ExpensesViewModel())
+      AddExpenseView(expensesVM: ExpensesViewModel())
     }
     NavigationView {
-      AddExpenseView(coreVM: CoreDataViewModel(), expensesVM: ExpensesViewModel())
+      AddExpenseView(expensesVM: ExpensesViewModel())
     }
     .preferredColorScheme(.dark)
   }

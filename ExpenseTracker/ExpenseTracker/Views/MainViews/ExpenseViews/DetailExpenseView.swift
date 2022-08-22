@@ -10,8 +10,9 @@ import SwiftUI
 struct DetailExpenseView: View {
   @Environment(\.presentationMode) var presentationMode
   
+  @EnvironmentObject var coreVM: CoreDataViewModel
+  
   //ViewModels
-  @ObservedObject var coreVM: CoreDataViewModel
   @ObservedObject var expensesVM: ExpensesViewModel
   
   @State var detailExpense: ExpenseEntity
@@ -116,7 +117,7 @@ struct DetailExpenseView: View {
           .textfieldStyle()
         HStack {
           Spacer()
-          NavigationLink(destination: VendorListView(expensesVM: expensesVM, coreVM: coreVM)) {
+          NavigationLink(destination: VendorListView(expensesVM: expensesVM)) {
             Image(systemName: "chevron.right")}
           .frame(width: 20)
           .padding(.trailing, 20)
@@ -128,7 +129,7 @@ struct DetailExpenseView: View {
           .textfieldStyle()
         HStack {
           Spacer()
-          NavigationLink(destination: CategoryListView(expensesVM: expensesVM, coreVM: coreVM, detailExpenseCategory: detailExpense.wrappedCategory)) {
+          NavigationLink(destination: CategoryListView(expensesVM: expensesVM, detailExpenseCategory: detailExpense.wrappedCategory)) {
             Image(systemName: "chevron.right")
           }
           .frame(width: 20)

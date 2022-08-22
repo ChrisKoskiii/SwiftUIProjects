@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExpensesView: View {
-  @ObservedObject var coreVM: CoreDataViewModel
+  @EnvironmentObject var coreVM: CoreDataViewModel
   @ObservedObject var expensesVM: ExpensesViewModel
   
   var formatter: NumberFormatter = {
@@ -47,7 +47,7 @@ struct ExpensesView: View {
       
       ForEach(expensesVM.dateRangeExpenses) { expense in
         
-        NavigationLink(destination: DetailExpenseView(coreVM: coreVM, expensesVM: expensesVM, detailExpense: expense)) {
+        NavigationLink(destination: DetailExpenseView(expensesVM: expensesVM, detailExpense: expense)) {
           
           HStack {
             Text(expense.wrappedDate.formatDate())
@@ -85,7 +85,7 @@ struct AddExpenseButton: View {
   @ObservedObject var expensesVM: ExpensesViewModel
   
   var body: some View {
-    NavigationLink(destination: AddExpenseView(coreVM: coreVM, expensesVM: expensesVM)) {
+    NavigationLink(destination: AddExpenseView(expensesVM: expensesVM)) {
       ZStack {
         Circle()
           .frame(width: 30, height: 30)
@@ -134,6 +134,6 @@ struct MonthSelector: View {
 
 struct ExpensesView_Previews: PreviewProvider {
   static var previews: some View {
-    ExpensesView(coreVM: CoreDataViewModel(), expensesVM: ExpensesViewModel())
+    ExpensesView(expensesVM: ExpensesViewModel())
   }
 }

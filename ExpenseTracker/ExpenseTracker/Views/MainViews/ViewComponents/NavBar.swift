@@ -27,7 +27,7 @@ struct NavigationBar: View {
         .offset(y: hasScrolled ?  -4 : 0)
       
       HStack(spacing: 16) {
-        NavigationLink(destination: AddExpenseView(coreVM: coreVM, expensesVM: expensesVM)) {
+        NavigationLink(destination: AddExpenseView(expensesVM: expensesVM)) {
           Image(systemName: "plus")
             .font(.body.weight(.bold))
             .frame(width: 36, height: 36)

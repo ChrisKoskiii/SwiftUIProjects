@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
   
-  @ObservedObject var coreVM: CoreDataViewModel
+  @EnvironmentObject var coreVM: CoreDataViewModel
   @ObservedObject var expensesVM: ExpensesViewModel
   
   var body: some View {
@@ -27,7 +27,7 @@ struct HomeView: View {
       }
       .toolbar {
         ToolbarItem(placement: .navigationBarTrailing) {
-          NavigationLink(destination: AddExpenseView(coreVM: coreVM, expensesVM: expensesVM)) {
+          NavigationLink(destination: AddExpenseView(expensesVM: expensesVM)) {
             ZStack {
               Circle()
                 .frame(width: 30, height: 30)
@@ -62,7 +62,7 @@ struct RecentExpensesList: View {
   @ObservedObject var expensesVM: ExpensesViewModel
   var body: some View {
     ForEach(coreVM.recentExpenses) { expense in
-      NavigationLink(destination: DetailExpenseView(coreVM: coreVM, expensesVM: expensesVM, detailExpense: expense)) {
+      NavigationLink(destination: DetailExpenseView(expensesVM: expensesVM, detailExpense: expense)) {
         RecentExpenseCardView(recentExpense: expense)
       }
     }
@@ -71,6 +71,6 @@ struct RecentExpensesList: View {
 
 struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
-    HomeView(coreVM: CoreDataViewModel(), expensesVM: ExpensesViewModel())
+    HomeView(expensesVM: ExpensesViewModel())
   }
 }

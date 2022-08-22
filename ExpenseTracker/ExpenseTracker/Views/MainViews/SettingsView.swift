@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SettingsView: View {
-  @State private var opacity = 0.0
-  @ObservedObject var corevm: CoreDataViewModel
+  @EnvironmentObject var coreVM: CoreDataViewModel
+  
   
   var body: some View {
     Text("Settings")
@@ -18,6 +18,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
   static var previews: some View {
-    SettingsView(corevm: CoreDataViewModel())
+    SettingsView()
   }
 }

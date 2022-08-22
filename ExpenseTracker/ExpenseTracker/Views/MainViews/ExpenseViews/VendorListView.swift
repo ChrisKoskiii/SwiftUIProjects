@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct VendorListView: View {
+  @EnvironmentObject var coreVM: CoreDataViewModel
+  
   @ObservedObject var expensesVM: ExpensesViewModel
-  @ObservedObject var coreVM: CoreDataViewModel
   
   var body: some View {
     ItemList(items: expensesVM.vendors, selectedItem: $expensesVM.selectedVendor)
