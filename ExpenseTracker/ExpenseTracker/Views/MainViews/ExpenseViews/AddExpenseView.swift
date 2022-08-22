@@ -57,11 +57,11 @@ struct AddExpenseView: View {
           .keyboardType(.decimalPad)
         
         ZStack {
-          TextField("Enter vendor", text: $vendorText)
+          TextField("Enter vendor", text: $expensesVM.selectedVendor ?? categoryText)
             .textfieldStyle()
           HStack {
             Spacer()
-            NavigationLink(destination: VendorListView(expensesVM: expensesVM)) {
+            NavigationLink(destination: VendorListView(expensesVM: expensesVM, coreVM: coreVM)) {
               Image(systemName: "chevron.right")}
             .frame(width: 20)
             .padding(.trailing, 20)
@@ -139,7 +139,7 @@ struct AddExpenseView: View {
         if imageData != nil {
           coreVM.addExpense(title: titleText,
                             cost: costText,
-                            vendor: vendorText,
+                            vendor: expensesVM.selectedVendor ?? vendorText,
                             category: expensesVM.selectedCategory ?? categoryText,
                             date: dateValue,
                             receipt: imageData!
@@ -160,7 +160,7 @@ struct AddExpenseView: View {
         } else {
           coreVM.addExpenseWithoutImage(title: titleText,
                                         cost: costText,
-                                        vendor: vendorText,
+                                        vendor: expensesVM.selectedVendor ?? vendorText,
                                         category: expensesVM.selectedCategory ?? categoryText,
                                         date: dateValue
           )
@@ -197,7 +197,7 @@ struct AddExpenseView: View {
   func emptyTextFields() -> Bool {
     if titleText.isEmpty ||
         costText.isZero ||
-        vendorText.isEmpty ||
+        vendorText.isEmpty && expensesVM.selectedVendor == nil ||
         categoryText.isEmpty && expensesVM.selectedCategory == nil {
       return true
     } else { return false

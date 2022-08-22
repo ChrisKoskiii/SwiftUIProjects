@@ -57,6 +57,7 @@ class ExpensesViewModel: ObservableObject {
     fetchCategories(from: coreData)
     fetchVendors(from: coreData)
   }
+  
   func fetchCategories(from coreData: CoreDataViewModel) {
     for expense in coreData.savedExpenses {
       if !categories.contains(expense.wrappedCategory) {

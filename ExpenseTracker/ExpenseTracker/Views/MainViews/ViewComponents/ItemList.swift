@@ -15,7 +15,6 @@ struct ItemList: View {
   @Binding var selectedItem: String?
   
   var sortChoices = ["Alphabetical", "Recently Used"]
-  
   var body: some View {
     VStack {
       Picker("Full Report or Summary", selection: $selectedChoice) {
@@ -34,10 +33,16 @@ struct ItemList: View {
             Text(item)
           }
         }
+        .onDelete(perform: deleteItem)
       }
       .listStyle(.plain)
     }
     .background(Color(.secondarySystemBackground))
+  }
+  
+  func deleteItem(at offsets: IndexSet) {
+    items.remove(atOffsets: offsets)
+    print(items)
   }
 }
 

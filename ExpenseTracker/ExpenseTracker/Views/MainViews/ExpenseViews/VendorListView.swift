@@ -9,11 +9,15 @@ import SwiftUI
 
 struct VendorListView: View {
   @ObservedObject var expensesVM: ExpensesViewModel
-  
+  @ObservedObject var coreVM: CoreDataViewModel
     var body: some View {
       ItemList(items: expensesVM.vendors, selectedItem: $expensesVM.selectedVendor)
         .navigationTitle("Vendors")
         .navigationBarTitleDisplayMode(.inline)
+        .task {
+          expensesVM.fetchData(from: coreVM)
+           await coreVM.fetchExpenses()
+        }
     }
 }
 
