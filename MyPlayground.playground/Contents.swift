@@ -1,23 +1,8 @@
 import UIKit
 
-func uniqueMorseRepresentations(_ words: [String]) -> Int {
-  let morseArray = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
-  
-  let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-  
-  var myArray = [String]()
-  
-  for word in words {
-    var myString = ""
-    for char in word {
-      if let index = alphabet.firstIndex(of: String(char)) {
-        myString.append(morseArray[index])
-      }
-    }
-    myArray.append(myString)
-  }
-  return Set(myArray).count
+func challenge(str1: String, str2: String) -> Bool {
+  return str1.sorted() == str2.sorted()
 }
 
-uniqueMorseRepresentations(["gin","zen","gig","msg"])
 
+challenge(str1: "Hello", str2: "eHllo")
