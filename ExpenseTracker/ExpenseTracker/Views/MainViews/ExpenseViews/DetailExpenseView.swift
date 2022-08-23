@@ -166,6 +166,12 @@ struct DetailExpenseView: View {
       ) { expense in
         coreVM.updateExpense(detailExpense, with: expense)
       }
+      if !expensesVM.categories.contains(expensesVM.selectedCategory!) {
+        expensesVM.categories.append(expensesVM.selectedCategory!)
+      }
+      if !expensesVM.vendors.contains(expensesVM.selectedVendor!) {
+        expensesVM.vendors.append(expensesVM.selectedVendor!)
+      }
       expensesVM.selectedCategory = nil
       expensesVM.selectedVendor = nil
         presentationMode.wrappedValue.dismiss()

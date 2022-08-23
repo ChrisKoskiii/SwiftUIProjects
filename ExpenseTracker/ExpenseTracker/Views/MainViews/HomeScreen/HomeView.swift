@@ -70,7 +70,10 @@ struct RecentExpensesList: View {
 }
 
 struct HomeView_Previews: PreviewProvider {
+  static let coreVM = CoreDataViewModel()
+  
   static var previews: some View {
     HomeView(expensesVM: ExpensesViewModel())
+      .environmentObject(coreVM)
   }
 }

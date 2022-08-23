@@ -149,12 +149,10 @@ struct AddExpenseView: View {
           }
         if !expensesVM.categories.contains(expensesVM.selectedCategory!) {
           expensesVM.categories.append(expensesVM.selectedCategory!)
-  
         }
         if !expensesVM.vendors.contains(expensesVM.selectedVendor!) {
           expensesVM.vendors.append(expensesVM.selectedVendor!)
         }
-        expensesVM.fetchCategories(from: coreVM)
         expensesVM.selectedVendor = nil
         expensesVM.selectedCategory = nil
       }

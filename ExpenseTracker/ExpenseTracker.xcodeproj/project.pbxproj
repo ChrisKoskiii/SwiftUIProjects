@@ -48,6 +48,7 @@
 		9E9B34AE2899733900408F05 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9B34AD2899733900408F05 /* ShareSheet.swift */; };
 		9EBD37542895A09200BABDFA /* MonthlyTotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBD37532895A09200BABDFA /* MonthlyTotalView.swift */; };
 		9ED23ACD289CB99B00CAAB70 /* GenerateReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED23ACC289CB99B00CAAB70 /* GenerateReportsView.swift */; };
+		9EE1AD1328B4FD4900B494D5 /* Published+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1AD1228B4FD4900B494D5 /* Published+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 		9E9B34AD2899733900408F05 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		9EBD37532895A09200BABDFA /* MonthlyTotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyTotalView.swift; sourceTree = "<group>"; };
 		9ED23ACC289CB99B00CAAB70 /* GenerateReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateReportsView.swift; sourceTree = "<group>"; };
+		9EE1AD1228B4FD4900B494D5 /* Published+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Published+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				9E1E3D282894687B004FE485 /* Date+Extension.swift */,
 				9E1DC141289EDF0C00D6C771 /* UIScrollViewWrapper.swift */,
 				9E34DE4028AED43400235442 /* OperatorOverload.swift */,
+				9EE1AD1228B4FD4900B494D5 /* Published+Ext.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				9E187D3F2893055000142000 /* View+Extensions.swift in Sources */,
 				9E8E1F2D289380A300300E14 /* HomeView.swift in Sources */,
 				9E187D2E2892FF3D00142000 /* ExpenseTrackerApp.swift in Sources */,
+				9EE1AD1328B4FD4900B494D5 /* Published+Ext.swift in Sources */,
 				9ED23ACD289CB99B00CAAB70 /* GenerateReportsView.swift in Sources */,
 				9E1E3D292894687B004FE485 /* Date+Extension.swift in Sources */,
 				9E34DE3B28AEB3E500235442 /* CategoryListView.swift in Sources */,

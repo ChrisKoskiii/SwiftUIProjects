@@ -8,12 +8,14 @@
 import Foundation
 
 class ExpensesViewModel: ObservableObject {
+  let defaults = UserDefaults()
+  
   @Published var monthText: String = "January"
   @Published var monthStart: Date = Date.startOfMonth(Date.now)()
   @Published var monthEnd: Date = Date.endOfMonth(Date.now)()
   @Published var dateRangeExpenses: [ExpenseEntity] = []
-  @Published var categories: [String] = []
-  @Published var vendors: [String] = []
+  @Published(key: "categories") var categories: [String] = []
+  @Published(key: "vendors") var vendors: [String] = []
   @Published var selectedCategory: String?
   @Published var selectedVendor: String?
   @Published var newExpense: ExpenseModel?
@@ -25,7 +27,7 @@ class ExpensesViewModel: ObservableObject {
     categories = categories.sorted { $0 < $1 }
     vendors = vendors.sorted { $0 < $1 }
   }
-  
+
   func setCurrentMonth() {
     currentMonthShown = Date.now
     getCurrentMonthString(from: currentMonthShown)
@@ -51,28 +53,6 @@ class ExpensesViewModel: ObservableObject {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "LLLL"
     monthText = dateFormatter.string(from: date)
-  }
-  
-  
-  func fetchData(from coreData: CoreDataViewModel) {
-    fetchCategories(from: coreData)
-    fetchVendors(from: coreData)
-  }
-  
-  func fetchCategories(from coreData: CoreDataViewModel) {
-    for expense in coreData.savedExpenses {
-      if !categories.contains(expense.wrappedCategory) {
-        categories.append(expense.wrappedCategory)
-      }
-    }
-  }
-  
-  func fetchVendors(from coreData: CoreDataViewModel) {
-    for expense in coreData.savedExpenses {
-      if !vendors.contains(expense.wrappedVendor) {
-        vendors.append(expense.wrappedVendor)
-      }
-    }
   }
   
   func makeNewExpense(category: String, cost: Double, date: Date, title: String, vendor: String, receipt: Data?, completion: (ExpenseModel) -> ()) {

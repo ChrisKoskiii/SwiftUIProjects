@@ -16,27 +16,18 @@ struct ItemList: View {
   
   var sortChoices = ["Alphabetical", "Recently Used"]
   var body: some View {
-    VStack {
-      Picker("Full Report or Summary", selection: $selectedChoice) {
-        ForEach(sortChoices, id: \.self) {
-          Text($0)
+    List {
+      ForEach(items, id: \.self) { item in
+        Button {
+          selectedItem = item
+          presentationMode.wrappedValue.dismiss()
+        } label: {
+          Text(item)
         }
       }
-      .pickerStyle(.segmented)
-      .padding(.horizontal)
-      List {
-        ForEach(items, id: \.self) { item in
-          Button {
-            selectedItem = item
-            presentationMode.wrappedValue.dismiss()
-          } label: {
-            Text(item)
-          }
-        }
-        .onDelete(perform: deleteItem)
-      }
-      .listStyle(.plain)
+      .onDelete(perform: deleteItem)
     }
+    .listStyle(.plain)
     .background(Color(.secondarySystemBackground))
   }
   
@@ -50,11 +41,11 @@ struct ItemList_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
       ItemList(items: [
-          "Professional Fees",
-          "Service Fees",
-          "Equipment",
-          "Uniforms",
-          "Licenses"
+        "Professional Fees",
+        "Service Fees",
+        "Equipment",
+        "Uniforms",
+        "Licenses"
       ], selectedItem: .constant("Constant"))
     }
   }

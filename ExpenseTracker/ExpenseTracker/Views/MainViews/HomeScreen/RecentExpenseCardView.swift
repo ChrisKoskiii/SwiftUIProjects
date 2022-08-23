@@ -14,43 +14,77 @@ struct RecentExpenseCardView: View {
   
   var formatter: NumberFormatter = {
     let formatter = NumberFormatter()
-    formatter.numberStyle = .currency
     formatter.maximumFractionDigits = 2
     return formatter
   }()
   
   var body: some View {
     ZStack {
-      HStack(spacing: 16) {
-        Image(systemName: "house.fill")
-          .resizable()
-          .scaledToFit()
-          .foregroundColor(Color.brandPrimary)
-          .frame(width: 30, height: 30)
-          .padding(.leading)
+      
+      HStack {
+        
+        VStack(spacing: 0) {
+          
+          Text(recentExpense.wrappedDate.weekday())
+            .font(.caption2)
+            .kerning(2)
+            .foregroundColor(.black)
+            .lineLimit(1)
+            .minimumScaleFactor(0.75)
+          
+          Text(recentExpense.wrappedDate.formatDate())
+            .font(.title3)
+            .bold()
+            .kerning(2)
+            .overlay(
+              LinearGradient(colors: [.teal, .brandPrimary], startPoint: .leading, endPoint: .trailing)
+            ).mask {
+              Text(recentExpense.wrappedDate.formatDate())
+                .font(.title3)
+                .bold()
+                .kerning(2)
+            }
+          
+        }
+        .frame(width: 70)
+        .padding(.leading, 6)
+        
         Divider()
           .frame(height: 40)
+        
         VStack(alignment: .leading, spacing: 0) {
           Text(recentExpense.wrappedTitle)
             .foregroundColor(.black)
             .lineLimit(1)
             .font(.headline)
             .padding(.top, 4)
+          
           Text(recentExpense.wrappedCategory)
             .foregroundColor(.secondary)
             .font(.footnote)
-          Text(recentExpense.wrappedDate.formatDate())
+          
+          Text(recentExpense.wrappedVendor)
             .foregroundColor(.secondary)
             .font(.footnote)
             .padding(.bottom, 4)
         }
         Spacer()
+        
         let costString = formatter.string(from: NSNumber(value: recentExpense.cost))!
-        Text(costString)
-          .foregroundColor(.black)
-          .font(.title2)
-          .fontWeight(.semibold)
-          .padding(.trailing)
+        
+        HStack(spacing: 0) {
+          VStack {
+            Text("$")
+              .font(.footnote)
+            .foregroundColor(.black)
+            Spacer().frame(height: 8)
+          }
+          Text(costString)
+            .foregroundColor(.black)
+            .font(.title2)
+            .fontWeight(.semibold)
+        }
+        .padding(.trailing, 6)
       }
       .cardBackground()
       .padding(.horizontal)
@@ -58,8 +92,20 @@ struct RecentExpenseCardView: View {
   }
 }
 
-//struct RecentExpenseCardView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    RecentExpenseCardView(recentExpense: entity)
-//  }
-//}
+struct RecentExpenseCardView_Previews: PreviewProvider {
+  static let coreVM =  CoreDataViewModel()
+  
+  static var previews: some View {
+    
+    let sampleExpense = ExpenseEntity(context: coreVM.container.viewContext)
+    sampleExpense.title = "Text Expense"
+    sampleExpense.vendor = "Home-Depot"
+    sampleExpense.category = "Supplies"
+    sampleExpense.date = Date.now
+    sampleExpense.cost = 99.99
+    
+    
+    return RecentExpenseCardView(recentExpense: sampleExpense).environment(\.managedObjectContext, coreVM.container.viewContext)
+      .environmentObject(coreVM)
+  }
+}

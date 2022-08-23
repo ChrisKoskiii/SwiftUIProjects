@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CategoryListView: View {
+  @Environment(\.presentationMode) var presentationMode
+  
   @EnvironmentObject var coreVM: CoreDataViewModel
   
   @ObservedObject var expensesVM: ExpensesViewModel
@@ -15,16 +17,27 @@ struct CategoryListView: View {
   @State var detailExpenseCategory: String?
   
   var body: some View {
-    if detailExpenseCategory != nil {
-      ItemList(items: expensesVM.categories, selectedItem: $detailExpenseCategory)
-        .navigationTitle("Categories")
-        .navigationBarTitleDisplayMode(.inline)
-    } else {
-      ItemList(items: expensesVM.categories, selectedItem: $expensesVM.selectedCategory)
-        .navigationTitle("Categories")
-        .navigationBarTitleDisplayMode(.inline)
+    List {
+      ForEach(expensesVM.categories, id: \.self) { item in
+        Button {
+          expensesVM.selectedCategory = item
+          presentationMode.wrappedValue.dismiss()
+        } label: {
+          Text(item)
+        }
+      }
+      .onDelete(perform: deleteItem)
     }
+    .listStyle(.plain)
+    .background(Color(.secondarySystemBackground))
+    .navigationTitle("Categories")
+    .navigationBarTitleDisplayMode(.inline)
   }
+  
+  func deleteItem(at offsets: IndexSet) {
+    expensesVM.categories.remove(atOffsets: offsets)
+  }
+  
 }
 
 struct CategoryListView_Previews: PreviewProvider {

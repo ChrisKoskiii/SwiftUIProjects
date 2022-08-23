@@ -10,7 +10,7 @@ import Foundation
 extension Date {
   func formatDate() -> String {
     let dateFormatter = DateFormatter()
-    dateFormatter.setLocalizedDateFormatFromTemplate("MM/dd")
+    dateFormatter.setLocalizedDateFormatFromTemplate("M/dd")
     return dateFormatter.string(from: self)
   }
   
@@ -30,4 +30,9 @@ extension Date {
     return Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: self.startOfMonth())!
   }
   
+  func weekday() -> String {
+    let f = DateFormatter()
+
+    return f.weekdaySymbols[Calendar.current.component(.weekday, from: self) - 1]
+  }
 }
